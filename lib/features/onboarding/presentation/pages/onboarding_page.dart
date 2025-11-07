@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plant_app/core/di/injection_container.dart';
 import 'package:plant_app/features/onboarding/data/onboarding_data.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_bloc.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_event.dart';
@@ -8,12 +10,16 @@ import 'package:plant_app/features/onboarding/presentation/widgets/onboarding_co
 import 'package:plant_app/features/onboarding/presentation/widgets/onboarding_footer.dart';
 import 'package:plant_app/shared/presentation/base_page.dart';
 
+@RoutePage()
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => OnboardingBloc(), child: const OnboardingView());
+    return BlocProvider(
+      create: (context) => OnboardingBloc(appRouter: getIt(), localStorageService: getIt()),
+      child: const OnboardingView(),
+    );
   }
 }
 

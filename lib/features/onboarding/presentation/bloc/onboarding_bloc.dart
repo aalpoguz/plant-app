@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plant_app/core/router/app_router.dart';
+import 'package:plant_app/core/storage/local_storage_service.dart';
 import 'package:plant_app/features/onboarding/data/onboarding_data.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_event.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final PageController pageController = PageController();
+  final AppRouter _appRouter;
+  final LocalStorageService _localStorageService;
 
-  OnboardingBloc() : super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
+  OnboardingBloc({required AppRouter appRouter, required LocalStorageService localStorageService}) : _appRouter = appRouter, _localStorageService = localStorageService, super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
     on<OnboardingPageChanged>(_onPageChanged);
     on<OnboardingNextPage>(_onNextPage);
     on<OnboardingComplete>(_onComplete);
@@ -27,8 +31,12 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     }
   }
 
-  void _onComplete(OnboardingComplete event, Emitter<OnboardingState> emit) {
-    // TODO: Navigate to main app
+  Future<void> _onComplete(OnboardingComplete event, Emitter<OnboardingState> emit) async {
+    // Mark onboarding as complete
+    await _localStorageService.setOnboardingComplete();
+
+    // Navigate to Home page and remove all previous routes
+    _appRouter.replaceAll([const HomeRoute()]);
   }
 
   void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {
