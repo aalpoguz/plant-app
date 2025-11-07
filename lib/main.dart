@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:plant_app/features/onboarding/presentation/pages/onboarding_page.dart';
+import 'package:plant_app/core/di/injection_container.dart';
+import 'package:plant_app/core/router/app_router.dart';
+import 'package:plant_app/core/storage/local_storage_service.dart';
 
-void main() {
-  runApp(const MainApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize dependencies
+  await initializeDependencies();
+
+  // Check onboarding status and navigate accordingly
+  final localStorage = getIt<LocalStorageService>();
+  final appRouter = getIt<AppRouter>();
+  
+  if (localStorage.isOnboardingComplete()) {
+    // If onboarding is complete, navigate directly to home
+    appRouter.replaceAll([const HomeRoute()]);
+  }
+
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
+
+  final _appRouter = getIt<AppRouter>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +34,7 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return const MaterialApp(debugShowCheckedModeBanner: false, home: OnboardingPage());
+        return MaterialApp.router(debugShowCheckedModeBanner: false, routerConfig: _appRouter.config());
       },
     );
   }

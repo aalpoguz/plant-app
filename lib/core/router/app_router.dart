@@ -12,6 +12,9 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: OnboardingRoute.page, initial: true),
 
     // Home Route
-    AutoRoute(page: HomeRoute.page),
+    AutoRoute(page: HomeRoute.page, path: '/home'),
   ];
+
+  @override
+  RouteType get defaultRouteType => const RouteType.material();
 }
