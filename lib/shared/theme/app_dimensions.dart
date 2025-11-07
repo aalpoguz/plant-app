@@ -7,8 +7,8 @@ class AppDimensions {
   static double paddingXS = 8.w;
   static double paddingS = 16.w;
   static double paddingM = 18.w;
-  static double paddingL = 24.w;
-  static double paddingXL = 32.w;
+  static double paddingL = 20.w;
+  static double paddingXL = 24.w;
 
   // Border Radius
   static double radiusS = 8.r;
