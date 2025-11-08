@@ -21,7 +21,7 @@ class OnboardingTitle extends StatelessWidget {
         RichText(
           textAlign: TextAlign.left,
           text: TextSpan(
-            style: AppTextStyles.h2.copyWith(color: AppColors.textPrimary, height: 1.2),
+            style: AppTextStyles.heading1Light.copyWith(color: AppColors.textPrimary, height: 1.2),
             children: [
               TextSpan(text: titleNormal),
               TextSpan(

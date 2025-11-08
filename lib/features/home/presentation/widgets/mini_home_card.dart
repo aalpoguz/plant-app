@@ -26,27 +26,20 @@ class MiniHomeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.r),
           child: Stack(
             children: [
-              // Resim - Sağa yaslanmış, yarısı overflow
               Positioned(
-                right: -40.w, // Yarısını dışarı taşır
+                right: -40.w,
                 top: 16.h,
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(8.r), bottomRight: Radius.circular(12.r)),
-                  child: Image.network(
-                    imageUrl,
-                    width: 120.w, // Toplam genişlik, yarısı gizli
-                    height: 152.h,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.network(imageUrl, width: 120.w, height: 152.h, fit: BoxFit.cover),
                 ),
               ),
-              // Text - Sol üst köşede
               Positioned(
                 top: 16.h,
                 left: 16.w,
-                right: 90.w, // Resim için boşluk
-                child: Text(title, style: AppTextStyles.body16Medium, maxLines: 3, overflow: TextOverflow.ellipsis),
+                right: 90.w,
+                child: Text(title, style: AppTextStyles.bodyLargeMedium, maxLines: 3, overflow: TextOverflow.ellipsis),
               ),
             ],
           ),

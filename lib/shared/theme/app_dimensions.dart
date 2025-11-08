@@ -4,7 +4,7 @@ class AppDimensions {
   AppDimensions._();
 
   // Padding & Margins
-  static double paddingXS = 8.w;
+  static double paddingXS = 12.w;
   static double paddingS = 16.w;
   static double paddingM = 18.w;
   static double paddingL = 20.w;

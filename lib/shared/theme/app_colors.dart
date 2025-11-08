@@ -20,6 +20,13 @@ class AppColors {
   static const Color textDisabled = Color(0xFFAFAFAF);
   static const Color textHint = Color(0xFFB979798);
 
+  // Text Gradient Colors
+  static const Color textGradientStart = Color(0xFFE5C990);
+  static const Color textGradientEnd = Color(0xFFE4B046);
+
+  static const Color subTextGradientStart = Color(0xFFFFDE9C);
+  static const Color subTextGradientEnd = Color(0xFFF5C25B);
+
   // Status Colors
   static const Color success = Color(0xFF4CAF50);
   static const Color error = Color(0xFFB00020);

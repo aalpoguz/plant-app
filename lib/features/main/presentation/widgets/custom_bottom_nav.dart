@@ -64,7 +64,7 @@ class _NavBarItem extends StatelessWidget {
           SizedBox(height: 4.h),
           Text(
             label,
-            style: textStyle ?? AppTextStyles.bodyXSmall.copyWith(color: color, fontWeight: isActive ? FontWeight.w500 : FontWeight.w400),
+            style: textStyle ?? AppTextStyles.labelMedium.copyWith(color: color, fontWeight: isActive ? FontWeight.w500 : FontWeight.w400),
           ),
         ],
       ),

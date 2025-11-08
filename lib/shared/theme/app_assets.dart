@@ -12,6 +12,10 @@ class AppAssets {
   static const String profileIcon = '$_svgIconPath/profile.svg';
   static const String scanIcon = '$_svgIconPath/scan.svg';
 
+  // SVG Icons
+  static const String arrowRight = '$_svgIconPath/arrow_right.svg';
+  static const String message = '$_svgIconPath/message.svg';
+
   // Illustrations
   static const String onboarding1 = '$_imagePath/illustrations/onboard1.png';
   static const String onboarding2 = '$_imagePath/illustrations/onboard2.png';

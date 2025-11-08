@@ -40,7 +40,7 @@ class AppButton extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   if (icon != null) ...[icon!, SizedBox(width: 8.w)],
-                  Text(text, style: AppTextStyles.button.copyWith(color: textColor ?? Colors.white)),
+                  Text(text, style: AppTextStyles.buttonLarge.copyWith(color: textColor ?? Colors.white)),
                 ],
               ),
       ),

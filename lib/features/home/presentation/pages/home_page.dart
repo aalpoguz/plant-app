@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:plant_app/features/home/presentation/widgets/home_banner_card.dart';
 import 'package:plant_app/features/home/presentation/widgets/mini_home_card.dart';
+import 'package:plant_app/features/home/presentation/widgets/premium_offer_card.dart';
 import 'package:plant_app/shared/presentation/base_page.dart';
+import 'package:plant_app/shared/theme/app_assets.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -17,8 +20,8 @@ class HomePage extends StatelessWidget {
           children: [
             const Icon(Icons.eco, size: 80, color: Colors.green),
             const SizedBox(height: 24),
-            Text('Welcome to Plant App! 🌱', style: Theme.of(context).textTheme.headlineSmall),
-            const SizedBox(height: 16),
+            PremiumOfferCard(),
+            HomeBannerCard(title: 'sdadasdas', imageUrl: 'https://images.unsplash.com/photo-1459156212016-c812468e2115?w=400'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
