@@ -29,7 +29,7 @@ class PremiumOfferCard extends StatelessWidget {
               children: [
                 ShaderMask(
                   shaderCallback: (bounds) => LinearGradient(colors: [AppColors.textGradientStart, AppColors.textGradientEnd], begin: Alignment.topCenter, end: Alignment.bottomCenter).createShader(bounds),
-                  child: Text('FREE Premium Available', style: AppTextStyles.bodyLarge.copyWith(color: Colors.white)),
+                  child: Text('FREE Premium Available', style: AppTextStyles.bodyLarge.copyWith(color: Colors.white, height: 1)),
                 ),
                 ShaderMask(
                   shaderCallback: (bounds) => LinearGradient(colors: [AppColors.subTextGradientStart, AppColors.subTextGradientEnd], begin: Alignment.topCenter, end: Alignment.bottomCenter).createShader(bounds),

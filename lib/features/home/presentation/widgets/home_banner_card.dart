@@ -23,7 +23,10 @@ class HomeBannerCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Image.network(imageUrl, fit: BoxFit.contain, width: 240.w),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.r),
+            child: Image.network(imageUrl, fit: BoxFit.contain, width: 240.w),
+          ),
           Positioned(
             bottom: 0,
             child: Container(
@@ -34,19 +37,17 @@ class HomeBannerCard extends StatelessWidget {
                 border: Border.all(color: Colors.white.withOpacity(0.3)),
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          title,
-                          style: AppTextStyles.bodyMedium.copyWith(color: Colors.white),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Text(
+                        title,
+                        style: AppTextStyles.bodyMedium.copyWith(color: Colors.white),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ),

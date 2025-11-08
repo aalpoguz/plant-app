@@ -25,6 +25,13 @@ class AppDimensions {
   // Button Heights
   static double primaryButtonHeight = 56.h;
 
+  // Search Field
+  static double searchFieldWidth = 320.w;
+  static double searchFieldHeight = 44.h;
+  static double searchFieldHorizontalPadding = 16.w;
+  static double searchFieldVerticalPadding = 12.h;
+  static double searchFieldGap = 10.w;
+
   // Spacing
   static double spaceXS = 4.h;
   static double spaceS = 8.h;
