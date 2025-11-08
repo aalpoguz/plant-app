@@ -35,8 +35,8 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     // Mark onboarding as complete
     await _localStorageService.setOnboardingComplete();
 
-    // Navigate to Home page and remove all previous routes
-    _appRouter.replaceAll([const HomeRoute()]);
+    // Navigate to MainShell (Home tab will be active by default)
+    _appRouter.replaceAll([const MainShellRoute()]);
   }
 
   void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {

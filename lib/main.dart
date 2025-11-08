@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/core/di/injection_container.dart';
@@ -11,31 +12,32 @@ void main() async {
   // Initialize dependencies
   await initializeDependencies();
 
-  // Check onboarding status and navigate accordingly
-  final localStorage = getIt<LocalStorageService>();
-  final appRouter = getIt<AppRouter>();
+  // Check onboarding status
+  final hasCompletedOnboarding = await getIt<LocalStorageService>().isOnboardingComplete();
 
-  if (localStorage.isOnboardingComplete()) {
-    // If onboarding is complete, navigate directly to home
-    appRouter.replaceAll([const HomeRoute()]);
-  }
-
-  runApp(MainApp());
+  runApp(MainApp(initialRoute: hasCompletedOnboarding ? const MainShellRoute() : const OnboardingRoute()));
 }
 
 class MainApp extends StatelessWidget {
-  MainApp({super.key});
+  final PageRouteInfo initialRoute;
 
-  final _appRouter = getIt<AppRouter>();
+  const MainApp({super.key, required this.initialRoute});
 
   @override
   Widget build(BuildContext context) {
+    final appRouter = getIt<AppRouter>();
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(debugShowCheckedModeBanner: false, theme: AppTheme.lightTheme, darkTheme: AppTheme.darkTheme, routerConfig: _appRouter.config());
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          routerConfig: appRouter.config(deepLinkBuilder: (_) => DeepLink([initialRoute])),
+        );
       },
     );
   }

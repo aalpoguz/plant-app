@@ -11,6 +11,22 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [DiagnosePage]
+class DiagnoseRoute extends PageRouteInfo<void> {
+  const DiagnoseRoute({List<PageRouteInfo>? children})
+    : super(DiagnoseRoute.name, initialChildren: children);
+
+  static const String name = 'DiagnoseRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DiagnosePage();
+    },
+  );
+}
+
+/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -27,6 +43,38 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MainShellPage]
+class MainShellRoute extends PageRouteInfo<void> {
+  const MainShellRoute({List<PageRouteInfo>? children})
+    : super(MainShellRoute.name, initialChildren: children);
+
+  static const String name = 'MainShellRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MainShellPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MyGardenPage]
+class MyGardenRoute extends PageRouteInfo<void> {
+  const MyGardenRoute({List<PageRouteInfo>? children})
+    : super(MyGardenRoute.name, initialChildren: children);
+
+  static const String name = 'MyGardenRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MyGardenPage();
+    },
+  );
+}
+
+/// generated route for
 /// [OnboardingPage]
 class OnboardingRoute extends PageRouteInfo<void> {
   const OnboardingRoute({List<PageRouteInfo>? children})
@@ -38,6 +86,22 @@ class OnboardingRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const OnboardingPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+    : super(ProfileRoute.name, initialChildren: children);
+
+  static const String name = 'ProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfilePage();
     },
   );
 }

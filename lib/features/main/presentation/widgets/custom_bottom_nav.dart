@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/shared/theme/app_assets.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
 
@@ -12,8 +13,8 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      notchMargin: 8.0,
+      shape: null, // Notch kaldırıldı
+      notchMargin: 0,
       child: SizedBox(
         height: 80.h,
         child: Row(
@@ -74,6 +75,11 @@ class _NavBarItem extends StatelessWidget {
     if (iconData is IconData) {
       return Icon(iconData, color: color, size: 26.w);
     } else if (iconData is String) {
+      // SVG icon
+      if (iconData.endsWith('.svg')) {
+        return SvgPicture.asset(iconData, width: 26.w, height: 26.w, colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
+      }
+      // PNG/JPG fallback
       return Image.asset(iconData, width: 26.w, height: 26.w, color: color);
     }
     return const SizedBox.shrink();
