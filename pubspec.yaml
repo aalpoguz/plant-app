@@ -49,7 +49,7 @@ flutter:
   assets:
     - assets/images/
     # - assets/images/logo/
-    # - assets/images/icons/
+    - assets/icons/
     - assets/images/illustrations/
     # - assets/images/plants/
     - assets/svg/

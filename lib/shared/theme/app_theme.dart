@@ -22,7 +22,7 @@ class AppTheme {
       error: AppColors.error,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
-      onSurface: AppColors.textPrimary,
+      onSurface: AppColors.textHint,
       onBackground: AppColors.textPrimary,
       onError: Colors.white,
     ),
@@ -65,12 +65,14 @@ class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primary,
-      unselectedItemColor: AppColors.textTertiary,
+      unselectedItemColor: AppColors.textHint,
       type: BottomNavigationBarType.fixed,
-      elevation: 8,
-      selectedLabelStyle: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w600, color: AppColors.primary),
-      unselectedLabelStyle: AppTextStyles.caption.copyWith(color: AppColors.textTertiary),
+      elevation: 4,
+      selectedLabelStyle: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w400, color: AppColors.primary),
+      unselectedLabelStyle: AppTextStyles.caption.copyWith(color: AppColors.textHint),
     ),
+
+    bottomAppBarTheme: const BottomAppBarThemeData(color: AppColors.bottomNavBackground, elevation: 8, surfaceTintColor: Colors.transparent, shadowColor: Colors.black26),
 
     // Text Theme
     textTheme: TextTheme(displayLarge: AppTextStyles.h1, displayMedium: AppTextStyles.h2, displaySmall: AppTextStyles.h3, bodyLarge: AppTextStyles.bodyLarge, bodyMedium: AppTextStyles.bodyMedium, bodySmall: AppTextStyles.bodySmall, labelLarge: AppTextStyles.button),
@@ -237,17 +239,16 @@ class AppTheme {
       suffixIconColor: AppColors.textTertiary,
     ),
 
-    // Bottom Navigation Bar Theme
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColors.surface,
+      backgroundColor: AppColors.bottomNavBackground,
       selectedItemColor: AppColors.primary,
-      unselectedItemColor: AppColors.textTertiary,
+      unselectedItemColor: AppColors.textHint,
       type: BottomNavigationBarType.fixed,
       elevation: 8,
-      selectedLabelStyle: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w600, color: AppColors.primary),
-      unselectedLabelStyle: AppTextStyles.caption.copyWith(color: AppColors.textTertiary),
+      selectedLabelStyle: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w400, color: AppColors.primary),
+      unselectedLabelStyle: AppTextStyles.caption.copyWith(color: AppColors.textHint),
     ),
-
+    bottomAppBarTheme: const BottomAppBarThemeData(color: AppColors.bottomNavBackground, elevation: 8, surfaceTintColor: Colors.transparent, shadowColor: Colors.black26),
     // Text Theme
     textTheme: TextTheme(
       displayLarge: AppTextStyles.h1.copyWith(color: AppColors.textSecondary),

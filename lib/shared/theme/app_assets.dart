@@ -3,6 +3,7 @@ class AppAssets {
 
   // Base paths
   static const String _imagePath = 'assets/images';
+  static const String _iconPath = 'assets/icons';
   static const String _svgPath = 'assets/svg';
 
   // // Logo
@@ -10,8 +11,11 @@ class AppAssets {
   // static const String logoSvg = '$_svgPath/logo.svg';
 
   // // Icons
-  // static const String homeIcon = '$_svgPath/icons/home.svg';
-  // static const String searchIcon = '$_svgPath/icons/search.svg';
+  static const String homeIcon = '$_iconPath/home.png';
+  static const String diagnoseIcon = '$_iconPath/diagnose.png';
+  static const String myGardenIcon = '$_iconPath/my-garden.png';
+  static const String profileIcon = '$_iconPath/profile.png';
+  static const String scanIcon = '$_iconPath/scan.png';
 
   // Illustrations
   static const String onboarding1 = '$_imagePath/illustrations/onboard1.png';

@@ -16,10 +16,9 @@ class AppTextStyles {
 
   // Body Text
   static TextStyle bodyLarge = TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400, color: AppColors.textPrimary, height: 1.5);
-
   static TextStyle bodyMedium = TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, color: AppColors.textPrimary, height: 1.5);
-
   static TextStyle bodySmall = TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5);
+  static TextStyle bodyXSmall = TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w400, color: AppColors.textPrimary, height: 1.5);
 
   // Button Text
   static TextStyle button = TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, color: Colors.white, letterSpacing: 0);

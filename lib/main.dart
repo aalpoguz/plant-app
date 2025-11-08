@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/core/di/injection_container.dart';
 import 'package:plant_app/core/router/app_router.dart';
 import 'package:plant_app/core/storage/local_storage_service.dart';
+import 'package:plant_app/shared/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +14,7 @@ void main() async {
   // Check onboarding status and navigate accordingly
   final localStorage = getIt<LocalStorageService>();
   final appRouter = getIt<AppRouter>();
-  
+
   if (localStorage.isOnboardingComplete()) {
     // If onboarding is complete, navigate directly to home
     appRouter.replaceAll([const HomeRoute()]);
@@ -34,7 +35,7 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(debugShowCheckedModeBanner: false, routerConfig: _appRouter.config());
+        return MaterialApp.router(debugShowCheckedModeBanner: false, theme: AppTheme.lightTheme, darkTheme: AppTheme.darkTheme, routerConfig: _appRouter.config());
       },
     );
   }
