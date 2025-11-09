@@ -36,4 +36,5 @@ class AppColors {
   // Additional Colors
   static const Color divider = Color(0xFFE0E0E0);
   static const Color shadow = Color(0x1A000000);
+  static const Color paywallGradient = Color(0xFF101E17);
 }
