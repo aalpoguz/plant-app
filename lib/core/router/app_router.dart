@@ -4,6 +4,7 @@ import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/main/presentation/pages/main_shell_page.dart';
 import '../../features/my_garden/my_garden_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
+import '../../features/paywall/presentation/pages/paywall_page.dart';
 import '../../features/profile/profile_page.dart';
 
 part 'app_router.gr.dart';
@@ -13,6 +14,7 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: OnboardingRoute.page, path: '/onboarding'),
+    AutoRoute(page: PaywallRoute.page, path: '/paywall'),
     AutoRoute(
       page: MainShellRoute.page,
       path: '/',
