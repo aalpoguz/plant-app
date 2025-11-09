@@ -11,7 +11,10 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final AppRouter _appRouter;
   final LocalStorageService _localStorageService;
 
-  OnboardingBloc({required AppRouter appRouter, required LocalStorageService localStorageService}) : _appRouter = appRouter, _localStorageService = localStorageService, super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
+  OnboardingBloc({required AppRouter appRouter, required LocalStorageService localStorageService})
+    : _appRouter = appRouter,
+      _localStorageService = localStorageService,
+      super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
     on<OnboardingPageChanged>(_onPageChanged);
     on<OnboardingNextPage>(_onNextPage);
     on<OnboardingComplete>(_onComplete);

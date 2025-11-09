@@ -11,7 +11,16 @@ class AppImage extends StatelessWidget {
   final BorderRadius? borderRadius;
   final String? placeholder;
 
-  const AppImage({super.key, this.imageUrl, this.assetPath, this.width, this.height, this.fit = BoxFit.cover, this.borderRadius, this.placeholder});
+  const AppImage({
+    super.key,
+    this.imageUrl,
+    this.assetPath,
+    this.width,
+    this.height,
+    this.fit = BoxFit.cover,
+    this.borderRadius,
+    this.placeholder,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +28,23 @@ class AppImage extends StatelessWidget {
 
     if (imageUrl != null) {
       // Network image with cache
-      imageWidget = CachedNetworkImage(imageUrl: imageUrl!, width: width, height: height, fit: fit, placeholder: (context, url) => _buildPlaceholder(), errorWidget: (context, url, error) => _buildError());
+      imageWidget = CachedNetworkImage(
+        imageUrl: imageUrl!,
+        width: width,
+        height: height,
+        fit: fit,
+        placeholder: (context, url) => _buildPlaceholder(),
+        errorWidget: (context, url, error) => _buildError(),
+      );
     } else if (assetPath != null) {
       // Local asset image
-      imageWidget = Image.asset(assetPath!, width: width, height: height, fit: fit, errorBuilder: (context, error, stackTrace) => _buildError());
+      imageWidget = Image.asset(
+        assetPath!,
+        width: width,
+        height: height,
+        fit: fit,
+        errorBuilder: (context, error, stackTrace) => _buildError(),
+      );
     } else {
       imageWidget = _buildPlaceholder();
     }

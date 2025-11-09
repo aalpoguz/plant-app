@@ -14,7 +14,16 @@ class OnboardingFooter extends StatelessWidget {
   final VoidCallback? onTermsTap;
   final VoidCallback? onPrivacyTap;
 
-  const OnboardingFooter({super.key, required this.isFirstPage, required this.buttonText, required this.onButtonPressed, required this.currentPageIndex, required this.totalPages, this.onTermsTap, this.onPrivacyTap});
+  const OnboardingFooter({
+    super.key,
+    required this.isFirstPage,
+    required this.buttonText,
+    required this.onButtonPressed,
+    required this.currentPageIndex,
+    required this.totalPages,
+    this.onTermsTap,
+    this.onPrivacyTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +33,28 @@ class OnboardingFooter extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppButton(text: buttonText, onPressed: onButtonPressed, height: AppDimensions.primaryButtonHeight),
+          AppButton(
+            text: buttonText,
+            onPressed: onButtonPressed,
+            height: AppDimensions.primaryButtonHeight,
+          ),
           SizedBox(height: AppDimensions.spaceS),
           SizedBox(
             height: 38.h,
             child: Center(
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),
-                child: isFirstPage ? OnboardingTerms(key: const ValueKey('terms'), onTermsTap: onTermsTap, onPrivacyTap: onPrivacyTap) : PageIndicator(key: const ValueKey('indicator'), currentPage: currentPageIndex, pageCount: totalPages),
+                child: isFirstPage
+                    ? OnboardingTerms(
+                        key: const ValueKey('terms'),
+                        onTermsTap: onTermsTap,
+                        onPrivacyTap: onPrivacyTap,
+                      )
+                    : PageIndicator(
+                        key: const ValueKey('indicator'),
+                        currentPage: currentPageIndex,
+                        pageCount: totalPages,
+                      ),
               ),
             ),
           ),

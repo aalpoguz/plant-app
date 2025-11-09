@@ -13,7 +13,7 @@ void main() async {
   await initializeDependencies();
 
   // Check onboarding status
-  final hasCompletedOnboarding = await getIt<LocalStorageService>().isOnboardingComplete();
+  final hasCompletedOnboarding = getIt<LocalStorageService>().isOnboardingComplete();
 
   runApp(MainApp(initialRoute: hasCompletedOnboarding ? const MainShellRoute() : const OnboardingRoute()));
 }

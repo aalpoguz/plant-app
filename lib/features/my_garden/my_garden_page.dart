@@ -10,7 +10,9 @@ class MyGardenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
       useSafeArea: true,
-      body: Center(child: Text('My Garden Page', style: Theme.of(context).textTheme.headlineMedium)),
+      body: Center(
+        child: Text('My Garden Page', style: Theme.of(context).textTheme.headlineMedium),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
@@ -9,7 +10,7 @@ class HomeBannerCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback? onTap;
 
-  const HomeBannerCard({Key? key, required this.title, required this.imageUrl, this.onTap}) : super(key: key);
+  const HomeBannerCard({super.key, required this.title, required this.imageUrl, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,20 @@ class HomeBannerCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
-            child: Image.network(imageUrl, fit: BoxFit.contain, width: 240.w),
+            child: CachedNetworkImage(
+              imageUrl: imageUrl,
+              fit: BoxFit.contain,
+              width: 240.w,
+              height: 164.h,
+              placeholder: (context, url) => Container(
+                color: Colors.grey.shade200,
+                child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+              ),
+              errorWidget: (context, url, error) => Container(
+                color: Colors.grey.shade200,
+                child: Icon(Icons.image_not_supported, color: Colors.grey.shade400),
+              ),
+            ),
           ),
           Positioned(
             bottom: 0,

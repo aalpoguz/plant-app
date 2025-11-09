@@ -31,12 +31,21 @@ class CustomSearchField extends StatelessWidget {
           hintText: hintText ?? 'Search for plants',
           hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
           prefixIcon: Padding(
-            padding: EdgeInsets.only(left: AppDimensions.searchFieldHorizontalPadding, right: AppDimensions.searchFieldGap),
+            padding: EdgeInsets.only(
+              left: AppDimensions.searchFieldHorizontalPadding,
+              right: AppDimensions.searchFieldGap,
+            ),
             child: Icon(Icons.search, color: AppColors.textHint, size: 20.sp),
           ),
-          prefixIconConstraints: BoxConstraints(minWidth: AppDimensions.searchFieldHorizontalPadding + 20.sp + AppDimensions.searchFieldGap),
+          prefixIconConstraints: BoxConstraints(
+            minWidth:
+                AppDimensions.searchFieldHorizontalPadding + 20.sp + AppDimensions.searchFieldGap,
+          ),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.searchFieldHorizontalPadding, vertical: AppDimensions.searchFieldVerticalPadding),
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.searchFieldHorizontalPadding,
+            vertical: AppDimensions.searchFieldVerticalPadding,
+          ),
         ),
       ),
     );

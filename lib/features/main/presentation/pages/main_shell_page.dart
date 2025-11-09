@@ -29,11 +29,18 @@ class MainShellPage extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Scan Plant - Coming Soon!')));
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(const SnackBar(content: Text('Scan Plant - Coming Soon!')));
                 },
                 borderRadius: BorderRadius.circular(28.w),
                 child: Center(
-                  child: SvgPicture.asset(AppAssets.scanIcon, width: 24.w, height: 20.w, colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                  child: SvgPicture.asset(
+                    AppAssets.scanIcon,
+                    width: 24.w,
+                    height: 20.w,
+                    colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  ),
                 ),
               ),
             ),
@@ -41,7 +48,10 @@ class MainShellPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBuilder: (_, tabsRouter) {
-        return CustomBottomNavBar(currentIndex: tabsRouter.activeIndex, onTap: tabsRouter.setActiveIndex);
+        return CustomBottomNavBar(
+          currentIndex: tabsRouter.activeIndex,
+          onTap: tabsRouter.setActiveIndex,
+        );
       },
     );
   }

@@ -41,9 +41,18 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.white,
-      contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingS),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingM,
+        vertical: AppDimensions.paddingS,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
@@ -68,11 +77,19 @@ class AppTheme {
       unselectedItemColor: AppColors.textHint,
       type: BottomNavigationBarType.fixed,
       elevation: 4,
-      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.w400, color: AppColors.primary),
+      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
+      ),
       unselectedLabelStyle: AppTextStyles.labelMedium.copyWith(color: AppColors.textHint),
     ),
 
-    bottomAppBarTheme: const BottomAppBarThemeData(color: AppColors.bottomNavBackground, elevation: 8, surfaceTintColor: Colors.transparent, shadowColor: Colors.black26),
+    bottomAppBarTheme: const BottomAppBarThemeData(
+      color: AppColors.bottomNavBackground,
+      elevation: 8,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black26,
+    ),
 
     // Text Theme
     textTheme: TextTheme(
@@ -94,7 +111,10 @@ class AppTheme {
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -103,7 +123,10 @@ class AppTheme {
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primary,
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingXS),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingM,
+          vertical: AppDimensions.paddingXS,
+        ),
       ),
     ),
 
@@ -115,7 +138,10 @@ class AppTheme {
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
         textStyle: AppTextStyles.buttonLarge.copyWith(color: AppColors.primary),
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -128,7 +154,11 @@ class AppTheme {
     ),
 
     // Divider Theme
-    dividerTheme: DividerThemeData(color: AppColors.divider, thickness: 1, space: AppDimensions.spaceM),
+    dividerTheme: DividerThemeData(
+      color: AppColors.divider,
+      thickness: 1,
+      space: AppDimensions.spaceM,
+    ),
 
     // Icon Theme
     iconTheme: IconThemeData(color: AppColors.textPrimary, size: AppDimensions.iconM),
@@ -227,9 +257,18 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.surface,
-      contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingS),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingM,
+        vertical: AppDimensions.paddingS,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
@@ -253,10 +292,18 @@ class AppTheme {
       unselectedItemColor: AppColors.textHint,
       type: BottomNavigationBarType.fixed,
       elevation: 8,
-      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.w400, color: AppColors.primary),
+      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
+      ),
       unselectedLabelStyle: AppTextStyles.labelMedium.copyWith(color: AppColors.textHint),
     ),
-    bottomAppBarTheme: const BottomAppBarThemeData(color: AppColors.bottomNavBackground, elevation: 8, surfaceTintColor: Colors.transparent, shadowColor: Colors.black26),
+    bottomAppBarTheme: const BottomAppBarThemeData(
+      color: AppColors.bottomNavBackground,
+      elevation: 8,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black26,
+    ),
     // Text Theme
     textTheme: TextTheme(
       displayLarge: AppTextStyles.displayLarge.copyWith(color: AppColors.textSecondary),
@@ -277,7 +324,10 @@ class AppTheme {
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -286,7 +336,10 @@ class AppTheme {
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primary,
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingXS),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingM,
+          vertical: AppDimensions.paddingXS,
+        ),
       ),
     ),
 
@@ -298,7 +351,10 @@ class AppTheme {
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
         textStyle: AppTextStyles.buttonLarge.copyWith(color: AppColors.primary),
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -311,7 +367,11 @@ class AppTheme {
     ),
 
     // Divider Theme
-    dividerTheme: DividerThemeData(color: AppColors.textTertiary.withOpacity(0.2), thickness: 1, space: AppDimensions.spaceM),
+    dividerTheme: DividerThemeData(
+      color: AppColors.textTertiary.withOpacity(0.2),
+      thickness: 1,
+      space: AppDimensions.spaceM,
+    ),
 
     // Icon Theme
     iconTheme: IconThemeData(color: AppColors.textSecondary, size: AppDimensions.iconM),

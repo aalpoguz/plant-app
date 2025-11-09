@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:plant_app/features/diagnose/diagnose_page.dart';
-import 'package:plant_app/features/my_garden/my_garden_page.dart';
-import 'package:plant_app/features/onboarding/presentation/pages/onboarding_page.dart';
-import 'package:plant_app/features/home/presentation/pages/home_page.dart';
-import 'package:plant_app/features/main/presentation/pages/main_shell_page.dart';
-import 'package:plant_app/features/profile/profile_page.dart';
+import '../../features/diagnose/diagnose_page.dart';
+import '../../features/home/presentation/pages/home_page.dart';
+import '../../features/main/presentation/pages/main_shell_page.dart';
+import '../../features/my_garden/my_garden_page.dart';
+import '../../features/onboarding/presentation/pages/onboarding_page.dart';
+import '../../features/profile/profile_page.dart';
 
 part 'app_router.gr.dart';
 

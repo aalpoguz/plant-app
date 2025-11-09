@@ -17,7 +17,11 @@ class HomeHeader extends StatelessWidget {
           child: Stack(
             children: [
               // Background image - tam genişlikte
-              Image.asset(AppAssets.homeAppBarBackground, width: double.infinity, fit: BoxFit.cover),
+              Image.asset(
+                AppAssets.homeAppBarBackground,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
               // Text content - padding ile
               Positioned(
                 left: 16.w,
@@ -26,9 +30,15 @@ class HomeHeader extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Hi, plant lover!', style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary)),
+                    Text(
+                      'Hi, plant lover!',
+                      style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary),
+                    ),
 
-                    Text('Good Afternoon!', style: AppTextStyles.heading1.copyWith(color: AppColors.textPrimary)),
+                    Text(
+                      'Good Afternoon!',
+                      style: AppTextStyles.heading1.copyWith(color: AppColors.textPrimary),
+                    ),
                     SizedBox(height: 16.h),
                     Center(child: const CustomSearchField()),
                     SizedBox(height: 16.h),

@@ -11,7 +11,14 @@ class OnboardingTitle extends StatelessWidget {
   final int pageIndex;
   final bool showBrush;
 
-  const OnboardingTitle({super.key, required this.titleNormal, required this.titleBold, this.titleContinuation, required this.pageIndex, required this.showBrush});
+  const OnboardingTitle({
+    super.key,
+    required this.titleNormal,
+    required this.titleBold,
+    this.titleContinuation,
+    required this.pageIndex,
+    required this.showBrush,
+  });
 
   @override
   Widget build(BuildContext context) {

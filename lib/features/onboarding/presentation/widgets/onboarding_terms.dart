@@ -47,13 +47,19 @@ class _OnboardingTermsState extends State<OnboardingTerms> {
           const TextSpan(text: "By tapping next, you agree to PlantID's "),
           TextSpan(
             text: '\nTerms of Service',
-            style: AppTextStyles.bodySmall.copyWith(color: AppColors.textDisabled, decoration: TextDecoration.underline),
+            style: AppTextStyles.bodySmall.copyWith(
+              color: AppColors.textDisabled,
+              decoration: TextDecoration.underline,
+            ),
             recognizer: _termsRecognizer,
           ),
           const TextSpan(text: ' & '),
           TextSpan(
             text: 'Privacy Policy',
-            style: AppTextStyles.bodySmall.copyWith(color: AppColors.textDisabled, decoration: TextDecoration.underline),
+            style: AppTextStyles.bodySmall.copyWith(
+              color: AppColors.textDisabled,
+              decoration: TextDecoration.underline,
+            ),
             recognizer: _privacyRecognizer,
           ),
         ],

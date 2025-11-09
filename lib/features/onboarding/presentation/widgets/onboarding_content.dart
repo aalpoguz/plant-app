@@ -18,17 +18,42 @@ class OnboardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        OnboardingBackground(isFirstPage: pageIndex == 0, backgroundImagePath: onboarding.backgroundImagePath),
-        OnboardingImage(imagePath: onboarding.imagePath, verticalOffset: _getVerticalOffset(), alignment: _getAlignment()),
+        OnboardingBackground(
+          isFirstPage: pageIndex == 0,
+          backgroundImagePath: onboarding.backgroundImagePath,
+        ),
+        OnboardingImage(
+          imagePath: onboarding.imagePath,
+          verticalOffset: _getVerticalOffset(),
+          alignment: _getAlignment(),
+        ),
         SafeArea(
           bottom: false,
           child: Padding(
-            padding: EdgeInsets.only(left: AppDimensions.paddingL, top: 46.h, right: AppDimensions.paddingL),
+            padding: EdgeInsets.only(
+              left: AppDimensions.paddingL,
+              top: 46.h,
+              right: AppDimensions.paddingL,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                OnboardingTitle(titleNormal: onboarding.titleNormal, titleBold: onboarding.titleBold, titleContinuation: pageIndex != 0 ? onboarding.description : null, pageIndex: pageIndex, showBrush: pageIndex == 1 || pageIndex == 2),
-                if (pageIndex == 0 && onboarding.description != null && onboarding.description!.isNotEmpty) ...[SizedBox(height: 8.h), Text(onboarding.description!, style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary))],
+                OnboardingTitle(
+                  titleNormal: onboarding.titleNormal,
+                  titleBold: onboarding.titleBold,
+                  titleContinuation: pageIndex != 0 ? onboarding.description : null,
+                  pageIndex: pageIndex,
+                  showBrush: pageIndex == 1 || pageIndex == 2,
+                ),
+                if (pageIndex == 0 &&
+                    onboarding.description != null &&
+                    onboarding.description!.isNotEmpty) ...[
+                  SizedBox(height: 8.h),
+                  Text(
+                    onboarding.description!,
+                    style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary),
+                  ),
+                ],
               ],
             ),
           ),

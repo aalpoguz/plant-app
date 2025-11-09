@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
@@ -7,7 +8,7 @@ class MiniHomeCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback? onTap;
 
-  const MiniHomeCard({Key? key, required this.title, required this.imageUrl, this.onTap}) : super(key: key);
+  const MiniHomeCard({super.key, required this.title, required this.imageUrl, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,20 @@ class MiniHomeCard extends StatelessWidget {
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(8.r), bottomRight: Radius.circular(12.r)),
-                  child: Image.network(imageUrl, width: 120.w, height: 152.h, fit: BoxFit.cover),
+                  child: CachedNetworkImage(
+                    imageUrl: imageUrl,
+                    width: 120.w,
+                    height: 152.h,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => Container(
+                      color: Colors.grey.shade200,
+                      child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      color: Colors.grey.shade200,
+                      child: Icon(Icons.image_not_supported, color: Colors.grey.shade400),
+                    ),
+                  ),
                 ),
               ),
               Positioned(

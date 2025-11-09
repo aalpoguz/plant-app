@@ -20,11 +20,31 @@ class CustomBottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _NavBarItem(icon: AppAssets.homeIcon, label: 'Home', isActive: currentIndex == 0, onTap: () => onTap(0)),
-            _NavBarItem(icon: AppAssets.diagnoseIcon, label: 'Diagnose', isActive: currentIndex == 1, onTap: () => onTap(1)),
+            _NavBarItem(
+              icon: AppAssets.homeIcon,
+              label: 'Home',
+              isActive: currentIndex == 0,
+              onTap: () => onTap(0),
+            ),
+            _NavBarItem(
+              icon: AppAssets.diagnoseIcon,
+              label: 'Diagnose',
+              isActive: currentIndex == 1,
+              onTap: () => onTap(1),
+            ),
             const SizedBox(width: 48), // FAB boşluğu
-            _NavBarItem(icon: AppAssets.myGardenIcon, label: 'My Garden', isActive: currentIndex == 2, onTap: () => onTap(2)),
-            _NavBarItem(icon: AppAssets.profileIcon, label: 'Profile', isActive: currentIndex == 3, onTap: () => onTap(3)),
+            _NavBarItem(
+              icon: AppAssets.myGardenIcon,
+              label: 'My Garden',
+              isActive: currentIndex == 2,
+              onTap: () => onTap(2),
+            ),
+            _NavBarItem(
+              icon: AppAssets.profileIcon,
+              label: 'Profile',
+              isActive: currentIndex == 3,
+              onTap: () => onTap(3),
+            ),
           ],
         ),
       ),
@@ -38,7 +58,12 @@ class _NavBarItem extends StatelessWidget {
   final bool isActive;
   final VoidCallback onTap;
 
-  const _NavBarItem({required this.icon, required this.label, required this.isActive, required this.onTap});
+  const _NavBarItem({
+    required this.icon,
+    required this.label,
+    required this.isActive,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +72,8 @@ class _NavBarItem extends StatelessWidget {
 
     // Theme'den renkleri al
     final selectedColor = navTheme.selectedItemColor ?? theme.colorScheme.primary;
-    final unselectedColor = navTheme.unselectedItemColor ?? theme.colorScheme.onSurface.withOpacity(0.6);
+    final unselectedColor =
+        navTheme.unselectedItemColor ?? theme.colorScheme.onSurface.withOpacity(0.6);
 
     final color = isActive ? selectedColor : unselectedColor;
 
@@ -64,7 +90,12 @@ class _NavBarItem extends StatelessWidget {
           SizedBox(height: 4.h),
           Text(
             label,
-            style: textStyle ?? AppTextStyles.labelMedium.copyWith(color: color, fontWeight: isActive ? FontWeight.w500 : FontWeight.w400),
+            style:
+                textStyle ??
+                AppTextStyles.labelMedium.copyWith(
+                  color: color,
+                  fontWeight: isActive ? FontWeight.w500 : FontWeight.w400,
+                ),
           ),
         ],
       ),
@@ -77,7 +108,12 @@ class _NavBarItem extends StatelessWidget {
     } else if (iconData is String) {
       // SVG icon
       if (iconData.endsWith('.svg')) {
-        return SvgPicture.asset(iconData, width: 26.w, height: 26.w, colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
+        return SvgPicture.asset(
+          iconData,
+          width: 26.w,
+          height: 26.w,
+          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+        );
       }
       // PNG/JPG fallback
       return Image.asset(iconData, width: 26.w, height: 26.w, color: color);
