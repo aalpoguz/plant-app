@@ -43,7 +43,8 @@ class OnboardingView extends StatelessWidget {
                   controller: bloc.pageController,
                   onPageChanged: (page) => bloc.add(OnboardingPageChanged(page)),
                   itemCount: pages.length,
-                  itemBuilder: (context, index) => OnboardingContent(onboarding: pages[index], pageIndex: index),
+                  itemBuilder: (context, index) =>
+                      OnboardingContent(onboarding: pages[index], pageIndex: index),
                 ),
               ),
               Expanded(

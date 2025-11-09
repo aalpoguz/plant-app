@@ -19,7 +19,10 @@ class PageIndicator extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 4.w),
           width: currentPage == index ? 12.w : 8.w,
           height: currentPage == index ? 12.h : 8.h,
-          decoration: BoxDecoration(color: currentPage == index ? AppColors.surface : AppColors.surface.withOpacity(0.3), shape: BoxShape.circle),
+          decoration: BoxDecoration(
+            color: currentPage == index ? AppColors.surface : AppColors.surface.withOpacity(0.3),
+            shape: BoxShape.circle,
+          ),
         ),
       ),
     );

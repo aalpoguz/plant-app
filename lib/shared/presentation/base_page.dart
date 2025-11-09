@@ -46,7 +46,13 @@ class BasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget content = body;
     if (useSafeArea) {
-      content = SafeArea(top: safeAreaTop, bottom: safeAreaBottom, left: safeAreaLeft, right: safeAreaRight, child: content);
+      content = SafeArea(
+        top: safeAreaTop,
+        bottom: safeAreaBottom,
+        left: safeAreaLeft,
+        right: safeAreaRight,
+        child: content,
+      );
     }
     if (showLoading) {
       content = Stack(children: [content, loadingWidget ?? _defaultLoadingWidget()]);

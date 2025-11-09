@@ -6,7 +6,12 @@ class OnboardingImage extends StatelessWidget {
   final double verticalOffset;
   final Alignment alignment;
 
-  const OnboardingImage({super.key, required this.imagePath, required this.verticalOffset, required this.alignment});
+  const OnboardingImage({
+    super.key,
+    required this.imagePath,
+    required this.verticalOffset,
+    required this.alignment,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,13 @@ class OnboardingImage extends StatelessWidget {
       left: (screenWidth - imageWidth.w) / 2,
       width: imageWidth.w,
       height: imageHeight.h,
-      child: Image.asset(imagePath, width: imageWidth.w, height: imageHeight.h, fit: BoxFit.cover, alignment: alignment),
+      child: Image.asset(
+        imagePath,
+        width: imageWidth.w,
+        height: imageHeight.h,
+        fit: BoxFit.cover,
+        alignment: alignment,
+      ),
     );
   }
 }

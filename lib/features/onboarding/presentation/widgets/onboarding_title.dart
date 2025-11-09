@@ -11,7 +11,14 @@ class OnboardingTitle extends StatelessWidget {
   final int pageIndex;
   final bool showBrush;
 
-  const OnboardingTitle({super.key, required this.titleNormal, required this.titleBold, this.titleContinuation, required this.pageIndex, required this.showBrush});
+  const OnboardingTitle({
+    super.key,
+    required this.titleNormal,
+    required this.titleBold,
+    this.titleContinuation,
+    required this.pageIndex,
+    required this.showBrush,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class OnboardingTitle extends StatelessWidget {
         RichText(
           textAlign: TextAlign.left,
           text: TextSpan(
-            style: AppTextStyles.h2.copyWith(color: AppColors.textPrimary, height: 1.2),
+            style: AppTextStyles.heading1Light.copyWith(color: AppColors.textPrimary, height: 1.2),
             children: [
               TextSpan(text: titleNormal),
               TextSpan(

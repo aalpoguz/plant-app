@@ -11,12 +11,21 @@ class AppColors {
   // Background
   static const Color background = Color(0xFFF6F6F6D6);
   static const Color surface = Color(0xFF101E17);
+  static const Color bottomNavBackground = Color(0xFFFFFFFF);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF13231B);
   static const Color textSecondary = Color(0xFFFFFFFF);
   static const Color textTertiary = Color(0xFF597165B2);
   static const Color textDisabled = Color(0xFFAFAFAF);
+  static const Color textHint = Color(0xFFB979798);
+
+  // Text Gradient Colors
+  static const Color textGradientStart = Color(0xFFE5C990);
+  static const Color textGradientEnd = Color(0xFFE4B046);
+
+  static const Color subTextGradientStart = Color(0xFFFFDE9C);
+  static const Color subTextGradientEnd = Color(0xFFF5C25B);
 
   // Status Colors
   static const Color success = Color(0xFF4CAF50);

@@ -22,7 +22,7 @@ class AppTheme {
       error: AppColors.error,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
-      onSurface: AppColors.textPrimary,
+      onSurface: AppColors.textHint,
       onBackground: AppColors.textPrimary,
       onError: Colors.white,
     ),
@@ -34,16 +34,25 @@ class AppTheme {
       centerTitle: false,
       iconTheme: const IconThemeData(color: AppColors.textPrimary),
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-      titleTextStyle: AppTextStyles.h3,
+      titleTextStyle: AppTextStyles.heading3,
     ),
 
     // Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.white,
-      contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingS),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingM,
+        vertical: AppDimensions.paddingS,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
@@ -65,15 +74,33 @@ class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primary,
-      unselectedItemColor: AppColors.textTertiary,
+      unselectedItemColor: AppColors.textHint,
       type: BottomNavigationBarType.fixed,
+      elevation: 4,
+      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
+      ),
+      unselectedLabelStyle: AppTextStyles.labelMedium.copyWith(color: AppColors.textHint),
+    ),
+
+    bottomAppBarTheme: const BottomAppBarThemeData(
+      color: AppColors.bottomNavBackground,
       elevation: 8,
-      selectedLabelStyle: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w600, color: AppColors.primary),
-      unselectedLabelStyle: AppTextStyles.caption.copyWith(color: AppColors.textTertiary),
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black26,
     ),
 
     // Text Theme
-    textTheme: TextTheme(displayLarge: AppTextStyles.h1, displayMedium: AppTextStyles.h2, displaySmall: AppTextStyles.h3, bodyLarge: AppTextStyles.bodyLarge, bodyMedium: AppTextStyles.bodyMedium, bodySmall: AppTextStyles.bodySmall, labelLarge: AppTextStyles.button),
+    textTheme: TextTheme(
+      displayLarge: AppTextStyles.displayLarge,
+      displayMedium: AppTextStyles.displayMedium,
+      displaySmall: AppTextStyles.displaySmall,
+      bodyLarge: AppTextStyles.bodyLarge,
+      bodyMedium: AppTextStyles.bodyMedium,
+      bodySmall: AppTextStyles.bodySmall,
+      labelLarge: AppTextStyles.labelLarge,
+    ),
 
     // Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -83,8 +110,11 @@ class AppTheme {
         elevation: 0,
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
-        textStyle: AppTextStyles.button,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        textStyle: AppTextStyles.buttonLarge,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -92,8 +122,11 @@ class AppTheme {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primary,
-        textStyle: AppTextStyles.button,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingXS),
+        textStyle: AppTextStyles.buttonLarge,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingM,
+          vertical: AppDimensions.paddingXS,
+        ),
       ),
     ),
 
@@ -104,8 +137,11 @@ class AppTheme {
         side: const BorderSide(color: AppColors.primary, width: 2),
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
-        textStyle: AppTextStyles.button.copyWith(color: AppColors.primary),
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        textStyle: AppTextStyles.buttonLarge.copyWith(color: AppColors.primary),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -118,7 +154,11 @@ class AppTheme {
     ),
 
     // Divider Theme
-    dividerTheme: DividerThemeData(color: AppColors.divider, thickness: 1, space: AppDimensions.spaceM),
+    dividerTheme: DividerThemeData(
+      color: AppColors.divider,
+      thickness: 1,
+      space: AppDimensions.spaceM,
+    ),
 
     // Icon Theme
     iconTheme: IconThemeData(color: AppColors.textPrimary, size: AppDimensions.iconM),
@@ -210,16 +250,25 @@ class AppTheme {
       centerTitle: false,
       iconTheme: const IconThemeData(color: AppColors.textSecondary),
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      titleTextStyle: AppTextStyles.h3.copyWith(color: AppColors.textSecondary),
+      titleTextStyle: AppTextStyles.heading3.copyWith(color: AppColors.textSecondary),
     ),
 
     // Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.surface,
-      contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingS),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM), borderSide: BorderSide.none),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingM,
+        vertical: AppDimensions.paddingS,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderSide: BorderSide.none,
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
@@ -237,26 +286,33 @@ class AppTheme {
       suffixIconColor: AppColors.textTertiary,
     ),
 
-    // Bottom Navigation Bar Theme
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColors.surface,
+      backgroundColor: AppColors.bottomNavBackground,
       selectedItemColor: AppColors.primary,
-      unselectedItemColor: AppColors.textTertiary,
+      unselectedItemColor: AppColors.textHint,
       type: BottomNavigationBarType.fixed,
       elevation: 8,
-      selectedLabelStyle: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w600, color: AppColors.primary),
-      unselectedLabelStyle: AppTextStyles.caption.copyWith(color: AppColors.textTertiary),
+      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
+      ),
+      unselectedLabelStyle: AppTextStyles.labelMedium.copyWith(color: AppColors.textHint),
     ),
-
+    bottomAppBarTheme: const BottomAppBarThemeData(
+      color: AppColors.bottomNavBackground,
+      elevation: 8,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black26,
+    ),
     // Text Theme
     textTheme: TextTheme(
-      displayLarge: AppTextStyles.h1.copyWith(color: AppColors.textSecondary),
-      displayMedium: AppTextStyles.h2.copyWith(color: AppColors.textSecondary),
-      displaySmall: AppTextStyles.h3.copyWith(color: AppColors.textSecondary),
+      displayLarge: AppTextStyles.displayLarge.copyWith(color: AppColors.textSecondary),
+      displayMedium: AppTextStyles.displayMedium.copyWith(color: AppColors.textSecondary),
+      displaySmall: AppTextStyles.displaySmall.copyWith(color: AppColors.textSecondary),
       bodyLarge: AppTextStyles.bodyLarge.copyWith(color: AppColors.textSecondary),
       bodyMedium: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
       bodySmall: AppTextStyles.bodySmall.copyWith(color: AppColors.textTertiary),
-      labelLarge: AppTextStyles.button,
+      labelLarge: AppTextStyles.buttonLarge,
     ),
 
     // Elevated Button Theme
@@ -267,8 +323,11 @@ class AppTheme {
         elevation: 0,
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
-        textStyle: AppTextStyles.button,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        textStyle: AppTextStyles.buttonLarge,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -276,8 +335,11 @@ class AppTheme {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primary,
-        textStyle: AppTextStyles.button,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM, vertical: AppDimensions.paddingXS),
+        textStyle: AppTextStyles.buttonLarge,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingM,
+          vertical: AppDimensions.paddingXS,
+        ),
       ),
     ),
 
@@ -288,8 +350,11 @@ class AppTheme {
         side: const BorderSide(color: AppColors.primary, width: 2),
         minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
-        textStyle: AppTextStyles.button.copyWith(color: AppColors.primary),
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingL, vertical: AppDimensions.paddingS),
+        textStyle: AppTextStyles.buttonLarge.copyWith(color: AppColors.primary),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.paddingL,
+          vertical: AppDimensions.paddingS,
+        ),
       ),
     ),
 
@@ -302,7 +367,11 @@ class AppTheme {
     ),
 
     // Divider Theme
-    dividerTheme: DividerThemeData(color: AppColors.textTertiary.withOpacity(0.2), thickness: 1, space: AppDimensions.spaceM),
+    dividerTheme: DividerThemeData(
+      color: AppColors.textTertiary.withOpacity(0.2),
+      thickness: 1,
+      space: AppDimensions.spaceM,
+    ),
 
     // Icon Theme
     iconTheme: IconThemeData(color: AppColors.textSecondary, size: AppDimensions.iconM),

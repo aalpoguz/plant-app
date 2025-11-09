@@ -34,6 +34,8 @@ dependencies:
   # UI
   flutter_screenutil: ^5.9.3
   cached_network_image: ^3.4.1
+  flutter_svg: ^2.0.10+1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -47,10 +49,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/
-    # - assets/images/logo/
-    # - assets/images/icons/
-    - assets/images/illustrations/
-    # - assets/images/plants/
-    - assets/svg/
-    # - assets/svg/icons/
+    - assets/images/home/
+    - assets/images/logo/
+    - assets/images/onboarding/
+    - assets/images/paywall/
+    - assets/svg/icons/

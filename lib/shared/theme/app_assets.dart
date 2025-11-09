@@ -3,15 +3,22 @@ class AppAssets {
 
   // Base paths
   static const String _imagePath = 'assets/images';
-  static const String _svgPath = 'assets/svg';
+  static const String _svgIconPath = 'assets/svg/icons';
 
-  // // Logo
-  // static const String logo = '$_imagePath/logo/app_logo.png';
-  // static const String logoSvg = '$_svgPath/logo.svg';
+  // Bottom Navigation Icons (SVG)
+  static const String homeIcon = '$_svgIconPath/home.svg';
+  static const String diagnoseIcon = '$_svgIconPath/diagnose.svg';
+  static const String myGardenIcon = '$_svgIconPath/my-garden.svg';
+  static const String profileIcon = '$_svgIconPath/profile.svg';
+  static const String scanIcon = '$_svgIconPath/scan.svg';
 
-  // // Icons
-  // static const String homeIcon = '$_svgPath/icons/home.svg';
-  // static const String searchIcon = '$_svgPath/icons/search.svg';
+  // SVG Icons
+  static const String arrowRight = '$_svgIconPath/arrow_right.svg';
+  static const String message = '$_svgIconPath/message.svg';
+  static const String searchIcon = '$_svgIconPath/search.svg';
+
+  // Home - Images
+  static const String homeAppBarBackground = '$_imagePath/illustrations/home-appbar-bg.png';
 
   // Illustrations
   static const String onboarding1 = '$_imagePath/illustrations/onboard1.png';

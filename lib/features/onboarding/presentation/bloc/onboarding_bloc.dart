@@ -11,7 +11,10 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final AppRouter _appRouter;
   final LocalStorageService _localStorageService;
 
-  OnboardingBloc({required AppRouter appRouter, required LocalStorageService localStorageService}) : _appRouter = appRouter, _localStorageService = localStorageService, super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
+  OnboardingBloc({required AppRouter appRouter, required LocalStorageService localStorageService})
+    : _appRouter = appRouter,
+      _localStorageService = localStorageService,
+      super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
     on<OnboardingPageChanged>(_onPageChanged);
     on<OnboardingNextPage>(_onNextPage);
     on<OnboardingComplete>(_onComplete);
@@ -35,8 +38,8 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     // Mark onboarding as complete
     await _localStorageService.setOnboardingComplete();
 
-    // Navigate to Home page and remove all previous routes
-    _appRouter.replaceAll([const HomeRoute()]);
+    // Navigate to MainShell (Home tab will be active by default)
+    _appRouter.replaceAll([const MainShellRoute()]);
   }
 
   void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {
