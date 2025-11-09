@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:plant_app/shared/theme/app_assets.dart';
 import 'package:plant_app/shared/theme/app_colors.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
@@ -31,21 +33,12 @@ class CustomSearchField extends StatelessWidget {
           hintText: hintText ?? 'Search for plants',
           hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
           prefixIcon: Padding(
-            padding: EdgeInsets.only(
-              left: AppDimensions.searchFieldHorizontalPadding,
-              right: AppDimensions.searchFieldGap,
-            ),
-            child: Icon(Icons.search, color: AppColors.textHint, size: 20.sp),
+            padding: EdgeInsets.only(left: AppDimensions.searchFieldHorizontalPadding, right: AppDimensions.searchFieldGap),
+            child: SvgPicture.asset(AppAssets.searchIcon, width: 20.sp, height: 20.sp),
           ),
-          prefixIconConstraints: BoxConstraints(
-            minWidth:
-                AppDimensions.searchFieldHorizontalPadding + 20.sp + AppDimensions.searchFieldGap,
-          ),
+          prefixIconConstraints: BoxConstraints(minWidth: AppDimensions.searchFieldHorizontalPadding + 20.sp + AppDimensions.searchFieldGap),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: AppDimensions.searchFieldHorizontalPadding,
-            vertical: AppDimensions.searchFieldVerticalPadding,
-          ),
+          contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.searchFieldHorizontalPadding, vertical: AppDimensions.searchFieldVerticalPadding),
         ),
       ),
     );

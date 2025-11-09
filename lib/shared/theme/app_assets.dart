@@ -15,6 +15,7 @@ class AppAssets {
   // SVG Icons
   static const String arrowRight = '$_svgIconPath/arrow_right.svg';
   static const String message = '$_svgIconPath/message.svg';
+  static const String searchIcon = '$_svgIconPath/search.svg';
 
   // Home - Images
   static const String homeAppBarBackground = '$_imagePath/illustrations/home-appbar-bg.png';

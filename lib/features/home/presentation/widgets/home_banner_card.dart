@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,62 +13,56 @@ class HomeBannerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 240.w,
-      height: 164.h,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: Colors.grey.shade100),
-      ),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
-            child: CachedNetworkImage(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 240.w,
+        height: 164.h,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.r), color: Colors.grey.shade200),
+        clipBehavior: Clip.hardEdge,
+        child: Stack(
+          children: [
+            CachedNetworkImage(
               imageUrl: imageUrl,
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
               width: 240.w,
               height: 164.h,
-              placeholder: (context, url) => Container(
-                color: Colors.grey.shade200,
-                child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
-              ),
+              placeholder: (context, url) => Container(color: Colors.grey.shade200),
               errorWidget: (context, url, error) => Container(
                 color: Colors.grey.shade200,
                 child: Icon(Icons.image_not_supported, color: Colors.grey.shade400),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              width: 240.w,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.white.withOpacity(0.3)),
-              ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
               child: ClipRRect(
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        title,
-                        style: AppTextStyles.bodyMedium.copyWith(color: Colors.white),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                  filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                  child: Container(
+                    height: 60.h,
+                    decoration: BoxDecoration(color: Colors.black.withOpacity(0.15)),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+                    child: Text(
+                      title,
+                      style: AppTextStyles.bodyMedium.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        shadows: [Shadow(color: Colors.black.withOpacity(0.5), offset: const Offset(0, 1), blurRadius: 3)],
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

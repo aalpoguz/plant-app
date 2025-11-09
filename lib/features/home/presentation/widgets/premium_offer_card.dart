@@ -14,15 +14,9 @@ class PremiumOfferCard extends StatelessWidget {
     return Container(
       width: 320.w,
       height: 64.h,
-      decoration: BoxDecoration(
-        color: const Color(0xff24201A),
-        borderRadius: BorderRadius.circular(12.r),
-      ),
+      decoration: BoxDecoration(color: const Color(0xff24201A), borderRadius: BorderRadius.circular(12.r)),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingS,
-          vertical: AppDimensions.paddingXS,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingS, vertical: AppDimensions.paddingXS),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,26 +28,15 @@ class PremiumOfferCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ShaderMask(
-                  shaderCallback: (bounds) => LinearGradient(
-                    colors: [AppColors.textGradientStart, AppColors.textGradientEnd],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ).createShader(bounds),
+                  shaderCallback: (bounds) => LinearGradient(colors: [AppColors.textGradientStart, AppColors.textGradientEnd], begin: Alignment.topCenter, end: Alignment.bottomCenter).createShader(bounds),
                   child: Text(
                     'FREE Premium Available',
-                    style: AppTextStyles.bodyLarge.copyWith(color: Colors.white, height: 1),
+                    style: AppTextStyles.bodyLarge.copyWith(color: Colors.white, height: 1, fontWeight: FontWeight.bold),
                   ),
                 ),
                 ShaderMask(
-                  shaderCallback: (bounds) => LinearGradient(
-                    colors: [AppColors.subTextGradientStart, AppColors.subTextGradientEnd],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ).createShader(bounds),
-                  child: Text(
-                    'Tap to upgrade your account!',
-                    style: AppTextStyles.bodySmall.copyWith(color: Colors.white),
-                  ),
+                  shaderCallback: (bounds) => LinearGradient(colors: [AppColors.subTextGradientStart, AppColors.subTextGradientEnd], begin: Alignment.topCenter, end: Alignment.bottomCenter).createShader(bounds),
+                  child: Text('Tap to upgrade your account!', style: AppTextStyles.bodySmall.copyWith(color: Colors.white)),
                 ),
               ],
             ),

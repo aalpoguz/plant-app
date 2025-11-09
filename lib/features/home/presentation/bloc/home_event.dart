@@ -15,7 +15,6 @@ class LoadQuestionsEvent extends HomeEvent {
   const LoadQuestionsEvent();
 }
 
-// Her ikisini birden yüklemek için (opsiyonel)
 class LoadHomeDataEvent extends HomeEvent {
   const LoadHomeDataEvent();
 }

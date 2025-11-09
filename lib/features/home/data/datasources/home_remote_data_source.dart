@@ -55,7 +55,6 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     }
   }
 
-  /// Parse response data if it's a string
   dynamic _parseResponseData(dynamic data) {
     if (data is String) {
       return jsonDecode(data);

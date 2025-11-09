@@ -15,7 +15,7 @@ class CategoryImageModel extends Equatable {
   final String? hash;
   final String? ext;
   final String mime;
-  final dynamic size; // Bu dynamic olabilir, sorun değil
+  final dynamic size;
   final String url;
   final String? previewUrl;
   final String? provider;

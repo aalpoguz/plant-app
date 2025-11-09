@@ -27,21 +27,19 @@ class MiniHomeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.r),
           child: Stack(
             children: [
+              // Resim - Sağda yarısı görünecek şekilde
               Positioned(
-                right: -40.w,
-                top: 16.h,
+                right: -5.w,
+                top: 0,
                 bottom: 0,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(8.r), bottomRight: Radius.circular(12.r)),
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
                   child: CachedNetworkImage(
                     imageUrl: imageUrl,
                     width: 120.w,
                     height: 152.h,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => Container(
-                      color: Colors.grey.shade200,
-                      child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
-                    ),
+                    placeholder: (context, url) => Container(color: Colors.grey.shade200),
                     errorWidget: (context, url, error) => Container(
                       color: Colors.grey.shade200,
                       child: Icon(Icons.image_not_supported, color: Colors.grey.shade400),
@@ -51,9 +49,9 @@ class MiniHomeCard extends StatelessWidget {
               ),
               Positioned(
                 top: 16.h,
-                left: 16.w,
-                right: 90.w,
-                child: Text(title, style: AppTextStyles.bodyLargeMedium, maxLines: 3, overflow: TextOverflow.ellipsis),
+                left: 12.w,
+                right: 85.w,
+                child: Text(title, style: AppTextStyles.bodyLargeMedium, maxLines: 2, overflow: TextOverflow.ellipsis),
               ),
             ],
           ),
