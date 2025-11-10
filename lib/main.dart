@@ -1,10 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:plant_app/core/usecases/usecase.dart';
-import 'package:plant_app/features/onboarding/domain/usecases/check_first_time_usecase.dart';
 import 'package:plant_app/shared/presentation/bloc/theme/theme_bloc.dart';
 import 'package:plant_app/shared/theme/app_theme.dart';
 import 'package:plant_app/shared/utils/di/injection_container.dart';
@@ -16,27 +13,13 @@ void main() async {
   // Initialize dependencies
   await initializeDependencies();
 
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  // app first time check
-  final checkFirstTimeUseCase = getIt<CheckFirstTimeUseCase>();
-  final result = await checkFirstTimeUseCase(NoParams());
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  final PageRouteInfo initialRoute = result.fold(
-    (failure) => const OnboardingRoute(),
-    (isFirstTime) =>
-        isFirstTime ? const OnboardingRoute() : const MainShellRoute(),
-  );
-
-  runApp(MainApp(initialRoute: initialRoute));
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  final PageRouteInfo initialRoute;
-
-  const MainApp({super.key, required this.initialRoute});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +34,7 @@ class MainApp extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
             builder: (context, child) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                theme: AppTheme.lightTheme,
-                darkTheme: AppTheme.darkTheme,
-                themeMode: themeState.themeMode,
-                routerConfig: appRouter.config(
-                  deepLinkBuilder: (_) => DeepLink([initialRoute]),
-                ),
-              );
+              return MaterialApp.router(debugShowCheckedModeBanner: false, theme: AppTheme.lightTheme, darkTheme: AppTheme.darkTheme, themeMode: themeState.themeMode, routerConfig: appRouter.config());
             },
           );
         },
