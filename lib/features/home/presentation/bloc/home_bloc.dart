@@ -24,37 +24,47 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> _onLoadCategories(LoadCategoriesEvent event, Emitter<HomeState> emit) async {
     emit(state.copyWith(categoriesStatus: HomeDataStatus.loading));
 
-    try {
-      final categories = await getCategoriesUseCase(NoParams());
-      emit(state.copyWith(categoriesStatus: HomeDataStatus.loaded, categories: categories));
-    } catch (e) {
-      emit(state.copyWith(categoriesStatus: HomeDataStatus.error, categoriesError: e.toString()));
-    }
+    final result = await getCategoriesUseCase(NoParams());
+
+    result.fold((failure) => emit(state.copyWith(categoriesStatus: HomeDataStatus.error, categoriesError: failure.message)), (categories) => emit(state.copyWith(categoriesStatus: HomeDataStatus.loaded, categories: categories)));
   }
 
   Future<void> _onLoadQuestions(LoadQuestionsEvent event, Emitter<HomeState> emit) async {
     emit(state.copyWith(questionsStatus: HomeDataStatus.loading));
 
-    try {
-      final questions = await getQuestionsUsecase(NoParams());
-      emit(state.copyWith(questionsStatus: HomeDataStatus.loaded, questions: questions));
-    } catch (e) {
-      emit(state.copyWith(questionsStatus: HomeDataStatus.error, questionsError: e.toString()));
-    }
+    final result = await getQuestionsUsecase(NoParams());
+
+    result.fold((failure) => emit(state.copyWith(questionsStatus: HomeDataStatus.error, questionsError: failure.message)), (questions) => emit(state.copyWith(questionsStatus: HomeDataStatus.loaded, questions: questions)));
   }
 
   Future<void> _onLoadHomeData(LoadHomeDataEvent event, Emitter<HomeState> emit) async {
     emit(state.copyWith(categoriesStatus: HomeDataStatus.loading, questionsStatus: HomeDataStatus.loading));
 
-    try {
-      final results = await Future.wait([getCategoriesUseCase(NoParams()), getQuestionsUsecase(NoParams())]);
+    final results = await Future.wait([getCategoriesUseCase(NoParams()), getQuestionsUsecase(NoParams())]);
 
-      final categories = results[0] as List<CategoryEntity>;
-      final questions = results[1] as List<QuestionEntity>;
+    final categoriesResult = results[0];
+    final questionsResult = results[1];
 
-      emit(state.copyWith(categoriesStatus: HomeDataStatus.loaded, categories: categories, questionsStatus: HomeDataStatus.loaded, questions: questions));
-    } catch (e) {
-      emit(state.copyWith(categoriesStatus: HomeDataStatus.error, categoriesError: e.toString(), questionsStatus: HomeDataStatus.error, questionsError: e.toString()));
-    }
+    // Handle categories result
+    String? categoriesError;
+    List<CategoryEntity>? categories;
+    var categoriesStatus = HomeDataStatus.loaded;
+
+    categoriesResult.fold((failure) {
+      categoriesError = failure.message;
+      categoriesStatus = HomeDataStatus.error;
+    }, (data) => categories = data as List<CategoryEntity>);
+
+    // Handle questions result
+    String? questionsError;
+    List<QuestionEntity>? questions;
+    var questionsStatus = HomeDataStatus.loaded;
+
+    questionsResult.fold((failure) {
+      questionsError = failure.message;
+      questionsStatus = HomeDataStatus.error;
+    }, (data) => questions = data as List<QuestionEntity>);
+
+    emit(state.copyWith(categoriesStatus: categoriesStatus, categories: categories, categoriesError: categoriesError, questionsStatus: questionsStatus, questions: questions, questionsError: questionsError));
   }
 }

@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:plant_app/core/di/injection_container.dart';
+import 'package:plant_app/shared/utils/di/injection_container.dart';
 import 'package:plant_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:plant_app/features/home/presentation/widgets/home_banner_card.dart';
 import 'package:plant_app/features/home/presentation/widgets/home_header.dart';
@@ -42,13 +43,13 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const HomeHeaderShimmer(),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
                           const Center(child: PremiumOfferShimmer()),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
                           const HomeBannerShimmer(),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
                           const MiniHomeCardShimmer(),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
                         ],
                       ),
                     )
@@ -58,19 +59,19 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const HomeHeader(),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
                           const Center(child: PremiumOfferCard()),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
 
                           // Questions Banner Cards
                           if (state.questions.isEmpty)
                             SizedBox(
-                              height: 164.h,
+                              height: AppDimensions.height164,
                               child: const Center(child: Text('No questions found')),
                             )
                           else
                             SizedBox(
-                              height: 164.h,
+                              height: AppDimensions.height164,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 padding: EdgeInsets.only(left: 20.w),
@@ -84,12 +85,12 @@ class HomePage extends StatelessWidget {
                                 },
                               ),
                             ),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
 
                           // Mini Home Cards (Categories)
                           if (state.categories.isEmpty)
                             Center(
-                              child: Padding(padding: EdgeInsets.all(40.h), child: const Text('No categories found')),
+                              child: Padding(padding: EdgeInsets.all(AppDimensions.padding40), child: const Text('No categories found')),
                             )
                           else
                             Padding(
@@ -105,7 +106,7 @@ class HomePage extends StatelessWidget {
                                 },
                               ),
                             ),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: AppDimensions.space24),
                         ],
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -8,7 +9,7 @@ class HomeBannerShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 164.h,
+      height: AppDimensions.height164,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.only(left: 20.w),
@@ -21,8 +22,8 @@ class HomeBannerShimmer extends StatelessWidget {
               highlightColor: Colors.grey.shade100,
               child: Container(
                 width: 240.w,
-                height: 164.h,
-                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12.r)),
+                height: AppDimensions.height164,
+                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(AppDimensions.radius12)),
               ),
             ),
           );

@@ -28,19 +28,19 @@ class OnboardingFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 360.w,
-      height: 130.h,
+      width: AppDimensions.width360,
+      height: AppDimensions.height130,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AppButton(
             text: buttonText,
             onPressed: onButtonPressed,
-            height: AppDimensions.primaryButtonHeight,
+            height: AppDimensions.buttonHeight56,
           ),
-          SizedBox(height: AppDimensions.spaceS),
+          SizedBox(height: AppDimensions.space8),
           SizedBox(
-            height: 38.h,
+            height: AppDimensions.height38,
             child: Center(
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),

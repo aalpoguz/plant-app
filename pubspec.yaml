@@ -17,6 +17,7 @@ dependencies:
   # Networking
   dio: ^5.9.0
   connectivity_plus: ^7.0.0
+  dartz: ^0.10.1
 
   # Code Generation
   freezed_annotation: ^3.1.0

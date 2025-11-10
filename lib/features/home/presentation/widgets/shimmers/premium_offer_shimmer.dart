@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -11,9 +12,9 @@ class PremiumOfferShimmer extends StatelessWidget {
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
       child: Container(
-        width: 320.w,
-        height: 64.h,
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12.r)),
+        width: AppDimensions.width320,
+        height: AppDimensions.height64,
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(AppDimensions.radius12)),
       ),
     );
   }

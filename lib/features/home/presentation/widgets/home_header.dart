@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_assets.dart';
 import 'package:plant_app/shared/theme/app_colors.dart';
@@ -27,9 +28,9 @@ class HomeHeader extends StatelessWidget {
                     Text('Hi, plant lover!', style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary)),
 
                     Text('Good Afternoon! ⛅', style: AppTextStyles.heading1.copyWith(color: AppColors.textPrimary)),
-                    SizedBox(height: 16.h),
+                    SizedBox(height: AppDimensions.space16),
                     Center(child: const CustomSearchField()),
-                    SizedBox(height: 16.h),
+                    SizedBox(height: AppDimensions.space16),
                   ],
                 ),
               ),

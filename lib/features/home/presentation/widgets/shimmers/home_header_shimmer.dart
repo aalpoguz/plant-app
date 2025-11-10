@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -33,22 +34,22 @@ class HomeHeaderShimmer extends StatelessWidget {
                       highlightColor: Colors.grey.shade100,
                       child: Container(
                         width: 120.w,
-                        height: 16.h,
+                        height: AppDimensions.height16,
                         decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(4.r)),
                       ),
                     ),
-                    SizedBox(height: 8.h),
+                    SizedBox(height: AppDimensions.space8),
                     // Good afternoon text shimmer
                     Shimmer.fromColors(
                       baseColor: Colors.grey.shade300,
                       highlightColor: Colors.grey.shade100,
                       child: Container(
                         width: 180.w,
-                        height: 24.h,
+                        height: AppDimensions.height24,
                         decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(4.r)),
                       ),
                     ),
-                    SizedBox(height: 16.h),
+                    SizedBox(height: AppDimensions.space16),
                     // Search field shimmer
                     Center(
                       child: Shimmer.fromColors(
@@ -57,11 +58,11 @@ class HomeHeaderShimmer extends StatelessWidget {
                         child: Container(
                           width: double.infinity,
                           height: 50.h,
-                          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12.r)),
+                          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(AppDimensions.radius12)),
                         ),
                       ),
                     ),
-                    SizedBox(height: 16.h),
+                    SizedBox(height: AppDimensions.space16),
                   ],
                 ),
               ),

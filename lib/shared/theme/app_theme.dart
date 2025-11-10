@@ -42,27 +42,27 @@ class AppTheme {
       filled: true,
       fillColor: Colors.white,
       contentPadding: EdgeInsets.symmetric(
-        horizontal: AppDimensions.paddingM,
-        vertical: AppDimensions.paddingS,
+        horizontal: AppDimensions.padding16,
+        vertical: AppDimensions.padding8,
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: BorderSide.none,
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.error, width: 1),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.error, width: 2),
       ),
       hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textDisabled),
@@ -108,12 +108,12 @@ class AppTheme {
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         elevation: 0,
-        minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
+        minimumSize: Size(double.infinity, AppDimensions.buttonHeight56),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         textStyle: AppTextStyles.buttonLarge,
         padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingL,
-          vertical: AppDimensions.paddingS,
+          horizontal: AppDimensions.padding24,
+          vertical: AppDimensions.padding8,
         ),
       ),
     ),
@@ -124,8 +124,8 @@ class AppTheme {
         foregroundColor: AppColors.primary,
         textStyle: AppTextStyles.buttonLarge,
         padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingM,
-          vertical: AppDimensions.paddingXS,
+          horizontal: AppDimensions.padding16,
+          vertical: AppDimensions.padding4,
         ),
       ),
     ),
@@ -135,12 +135,12 @@ class AppTheme {
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.primary,
         side: const BorderSide(color: AppColors.primary, width: 2),
-        minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
+        minimumSize: Size(double.infinity, AppDimensions.buttonHeight56),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         textStyle: AppTextStyles.buttonLarge.copyWith(color: AppColors.primary),
         padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingL,
-          vertical: AppDimensions.paddingS,
+          horizontal: AppDimensions.padding24,
+          vertical: AppDimensions.padding8,
         ),
       ),
     ),
@@ -150,18 +150,18 @@ class AppTheme {
       backgroundColor: AppColors.primary,
       foregroundColor: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusXL)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius16)),
     ),
 
     // Divider Theme
     dividerTheme: DividerThemeData(
       color: AppColors.divider,
       thickness: 1,
-      space: AppDimensions.spaceM,
+      space: AppDimensions.space16,
     ),
 
     // Icon Theme
-    iconTheme: IconThemeData(color: AppColors.textPrimary, size: AppDimensions.iconM),
+    iconTheme: IconThemeData(color: AppColors.textPrimary, size: AppDimensions.icon26),
 
     // Chip Theme
     chipTheme: ChipThemeData(
@@ -169,15 +169,15 @@ class AppTheme {
       selectedColor: AppColors.primary,
       disabledColor: AppColors.textDisabled.withOpacity(0.1),
       labelStyle: AppTextStyles.bodySmall,
-      padding: EdgeInsets.all(AppDimensions.paddingXS),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusS)),
+      padding: EdgeInsets.all(AppDimensions.padding4),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius8)),
     ),
 
     // Snackbar Theme
     snackBarTheme: SnackBarThemeData(
       backgroundColor: AppColors.surface,
       contentTextStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
       behavior: SnackBarBehavior.floating,
     ),
 
@@ -209,7 +209,7 @@ class AppTheme {
         return Colors.transparent;
       }),
       checkColor: MaterialStateProperty.all(Colors.white),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusS / 2)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius8 / 2)),
     ),
 
     // Radio Theme
@@ -258,27 +258,27 @@ class AppTheme {
       filled: true,
       fillColor: AppColors.surface,
       contentPadding: EdgeInsets.symmetric(
-        horizontal: AppDimensions.paddingM,
-        vertical: AppDimensions.paddingS,
+        horizontal: AppDimensions.padding16,
+        vertical: AppDimensions.padding8,
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: BorderSide.none,
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.error, width: 1),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.error, width: 2),
       ),
       hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textTertiary),
@@ -321,12 +321,12 @@ class AppTheme {
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         elevation: 0,
-        minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
+        minimumSize: Size(double.infinity, AppDimensions.buttonHeight56),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         textStyle: AppTextStyles.buttonLarge,
         padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingL,
-          vertical: AppDimensions.paddingS,
+          horizontal: AppDimensions.padding24,
+          vertical: AppDimensions.padding8,
         ),
       ),
     ),
@@ -337,8 +337,8 @@ class AppTheme {
         foregroundColor: AppColors.primary,
         textStyle: AppTextStyles.buttonLarge,
         padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingM,
-          vertical: AppDimensions.paddingXS,
+          horizontal: AppDimensions.padding16,
+          vertical: AppDimensions.padding4,
         ),
       ),
     ),
@@ -348,12 +348,12 @@ class AppTheme {
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.primary,
         side: const BorderSide(color: AppColors.primary, width: 2),
-        minimumSize: Size(double.infinity, AppDimensions.primaryButtonHeight),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
+        minimumSize: Size(double.infinity, AppDimensions.buttonHeight56),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         textStyle: AppTextStyles.buttonLarge.copyWith(color: AppColors.primary),
         padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.paddingL,
-          vertical: AppDimensions.paddingS,
+          horizontal: AppDimensions.padding24,
+          vertical: AppDimensions.padding8,
         ),
       ),
     ),
@@ -363,24 +363,24 @@ class AppTheme {
       backgroundColor: AppColors.primary,
       foregroundColor: Colors.white,
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusXL)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius16)),
     ),
 
     // Divider Theme
     dividerTheme: DividerThemeData(
       color: AppColors.textTertiary.withOpacity(0.2),
       thickness: 1,
-      space: AppDimensions.spaceM,
+      space: AppDimensions.space16,
     ),
 
     // Icon Theme
-    iconTheme: IconThemeData(color: AppColors.textSecondary, size: AppDimensions.iconM),
+    iconTheme: IconThemeData(color: AppColors.textSecondary, size: AppDimensions.icon26),
 
     // Snackbar Theme
     snackBarTheme: SnackBarThemeData(
       backgroundColor: AppColors.surface,
       contentTextStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusM)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
       behavior: SnackBarBehavior.floating,
     ),
 
@@ -412,7 +412,7 @@ class AppTheme {
         return Colors.transparent;
       }),
       checkColor: MaterialStateProperty.all(Colors.white),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radiusS / 2)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius8 / 2)),
     ),
 
     // Radio Theme
