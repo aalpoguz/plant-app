@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/core/network/connectivity/connectivity_provider.dart';
 import 'package:plant_app/shared/presentation/providers/theme_provider.dart';
@@ -12,11 +11,6 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // SVG uyarılarını kapat
-  if (kReleaseMode) {
-    debugPrint = (String? message, {int? wrapWidth}) {};
-  }
 
   // Initialize dependencies
   await initializeDependencies();
