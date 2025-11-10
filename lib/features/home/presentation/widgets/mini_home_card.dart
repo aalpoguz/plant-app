@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
@@ -17,14 +18,14 @@ class MiniHomeCard extends StatelessWidget {
       height: 152.h,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         border: Border.all(color: Colors.grey.shade100),
       ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(AppDimensions.radius8),
           child: Stack(
             children: [
               // Resim - Sağda yarısı görünecek şekilde

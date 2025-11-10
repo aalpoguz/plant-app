@@ -21,7 +21,7 @@ class CustomSearchField extends StatelessWidget {
       height: AppDimensions.searchFieldHeight,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
         border: Border.all(color: AppColors.divider, width: 1),
       ),
       child: TextField(

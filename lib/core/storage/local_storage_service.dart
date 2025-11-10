@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// This is a core service that wraps SharedPreferences
 class LocalStorageService {
   static const String _onboardingCompleteKey = 'onboarding_complete';
+  static const String _paywallShownKey = 'paywall_shown';
 
   final SharedPreferences _prefs;
 
@@ -22,5 +23,20 @@ class LocalStorageService {
   /// Reset onboarding status (useful for testing)
   Future<bool> resetOnboarding() {
     return _prefs.setBool(_onboardingCompleteKey, false);
+  }
+
+  /// Check if paywall has been shown after onboarding
+  bool hasPaywallBeenShown() {
+    return _prefs.getBool(_paywallShownKey) ?? false;
+  }
+
+  /// Mark paywall as shown
+  Future<bool> setPaywallShown() {
+    return _prefs.setBool(_paywallShownKey, true);
+  }
+
+  /// Reset paywall shown status (useful for testing)
+  Future<bool> resetPaywallShown() {
+    return _prefs.setBool(_paywallShownKey, false);
   }
 }

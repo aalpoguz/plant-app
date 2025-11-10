@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:plant_app/core/router/app_router.dart';
+import 'package:plant_app/shared/utils/router/app_router.dart';
 import 'package:plant_app/shared/theme/app_assets.dart';
 import 'package:plant_app/shared/theme/app_colors.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
@@ -18,17 +18,17 @@ class PremiumOfferCard extends StatelessWidget {
         context.router.push(const PaywallRoute());
       },
       child: Container(
-        width: 320.w,
-        height: 64.h,
-        decoration: BoxDecoration(color: const Color(0xff24201A), borderRadius: BorderRadius.circular(12.r)),
+        width: AppDimensions.width320,
+        height: AppDimensions.height64,
+        decoration: BoxDecoration(color: const Color(0xff24201A), borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingS, vertical: AppDimensions.paddingXS),
+          padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding8, vertical: AppDimensions.padding4),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset(AppAssets.message, width: 40.w, height: 40.h),
-              SizedBox(width: 8.w),
+              SvgPicture.asset(AppAssets.message, width: AppDimensions.width40, height: AppDimensions.height40),
+              SizedBox(width: AppDimensions.width8),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class PremiumOfferCard extends StatelessWidget {
               ),
 
               const Spacer(),
-              SvgPicture.asset(AppAssets.arrowRight, width: 24.w, height: 24.h),
+              SvgPicture.asset(AppAssets.arrowRight, width: AppDimensions.icon24, height: AppDimensions.height24),
             ],
           ),
         ),

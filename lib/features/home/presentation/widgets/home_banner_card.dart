@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,8 +18,8 @@ class HomeBannerCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 240.w,
-        height: 164.h,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.r), color: Colors.grey.shade200),
+        height: AppDimensions.height164,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppDimensions.radius12), color: Colors.grey.shade200),
         clipBehavior: Clip.hardEdge,
         child: Stack(
           children: [
@@ -26,7 +27,7 @@ class HomeBannerCard extends StatelessWidget {
               imageUrl: imageUrl,
               fit: BoxFit.cover,
               width: 240.w,
-              height: 164.h,
+              height: AppDimensions.height164,
               placeholder: (context, url) => Container(color: Colors.grey.shade200),
               errorWidget: (context, url, error) => Container(
                 color: Colors.grey.shade200,

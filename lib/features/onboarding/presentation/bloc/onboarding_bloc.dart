@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:plant_app/core/router/app_router.dart';
-import 'package:plant_app/core/storage/local_storage_service.dart';
+import 'package:plant_app/core/usecases/usecase.dart';
 import 'package:plant_app/features/onboarding/data/onboarding_data.dart';
+import 'package:plant_app/features/onboarding/domain/usecases/complete_onboarding_usecase.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_event.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final PageController pageController = PageController();
-  final AppRouter _appRouter;
-  final LocalStorageService _localStorageService;
+  final CompleteOnboardingUseCase completeOnboardingUseCase;
 
-  OnboardingBloc({required AppRouter appRouter, required LocalStorageService localStorageService})
-    : _appRouter = appRouter,
-      _localStorageService = localStorageService,
-      super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
+  OnboardingBloc({required this.completeOnboardingUseCase}) : super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
     on<OnboardingPageChanged>(_onPageChanged);
     on<OnboardingNextPage>(_onNextPage);
     on<OnboardingComplete>(_onComplete);
@@ -35,11 +31,11 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   }
 
   Future<void> _onComplete(OnboardingComplete event, Emitter<OnboardingState> emit) async {
-    // Mark onboarding as complete
-    await _localStorageService.setOnboardingComplete();
+    emit(state.copyWith(status: OnboardingStatus.loading));
 
-    // Navigate to MainShell (Home tab will be active by default)
-    _appRouter.replaceAll([const MainShellRoute()]);
+    final result = await completeOnboardingUseCase(NoParams());
+
+    result.fold((failure) => emit(state.copyWith(status: OnboardingStatus.error, errorMessage: failure.message)), (_) => emit(state.copyWith(status: OnboardingStatus.completed)));
   }
 
   void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {

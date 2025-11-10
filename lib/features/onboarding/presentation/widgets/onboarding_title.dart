@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_assets.dart';
 import 'package:plant_app/shared/theme/app_colors.dart';
@@ -38,7 +39,7 @@ class OnboardingTitle extends StatelessWidget {
               if (titleContinuation != null && pageIndex != 0)
                 TextSpan(
                   text: titleContinuation,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28.sp),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: AppDimensions.fontSize28),
                 ),
             ],
           ),
@@ -47,7 +48,7 @@ class OnboardingTitle extends StatelessWidget {
           Positioned(
             top: pageIndex == 1 ? 30.h : 28.h,
             right: -30,
-            child: Image.asset(AppAssets.brush, width: 151.w, height: 14.43.h, fit: BoxFit.contain),
+            child: Image.asset(AppAssets.brush, width: AppDimensions.width151, height: AppDimensions.height1443, fit: BoxFit.contain),
           ),
       ],
     );

@@ -31,9 +31,9 @@ class OnboardingContent extends StatelessWidget {
           bottom: false,
           child: Padding(
             padding: EdgeInsets.only(
-              left: AppDimensions.paddingL,
+              left: AppDimensions.padding24,
               top: 46.h,
-              right: AppDimensions.paddingL,
+              right: AppDimensions.padding24,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class OnboardingContent extends StatelessWidget {
                 if (pageIndex == 0 &&
                     onboarding.description != null &&
                     onboarding.description!.isNotEmpty) ...[
-                  SizedBox(height: 8.h),
+                  SizedBox(height: AppDimensions.space8),
                   Text(
                     onboarding.description!,
                     style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary),

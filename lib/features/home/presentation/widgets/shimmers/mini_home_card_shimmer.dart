@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -21,7 +22,7 @@ class MiniHomeCardShimmer extends StatelessWidget {
             child: Container(
               width: 152.w,
               height: 152.h,
-              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12.r)),
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(AppDimensions.radius12)),
             ),
           );
         },
