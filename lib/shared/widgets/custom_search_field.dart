@@ -12,7 +12,13 @@ class CustomSearchField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final VoidCallback? onTap;
 
-  const CustomSearchField({super.key, this.hintText, this.controller, this.onChanged, this.onTap});
+  const CustomSearchField({
+    super.key,
+    this.hintText,
+    this.controller,
+    this.onChanged,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,25 +26,44 @@ class CustomSearchField extends StatelessWidget {
       width: AppDimensions.searchFieldWidth,
       height: AppDimensions.searchFieldHeight,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.surfaceColor,
         borderRadius: BorderRadius.circular(AppDimensions.radius12),
-        border: Border.all(color: AppColors.divider, width: 1),
+        border: Border.all(color: context.dividerColor, width: 1),
       ),
       child: TextField(
         controller: controller,
         onChanged: onChanged,
         onTap: onTap,
-        style: AppTextStyles.bodyMedium,
+        style: AppTextStyles.bodyMedium.copyWith(
+          color: context.textPrimaryColor,
+        ),
         decoration: InputDecoration(
           hintText: hintText ?? 'Search for plants',
-          hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: AppDimensions.searchFieldHorizontalPadding, right: AppDimensions.searchFieldGap),
-            child: SvgPicture.asset(AppAssets.searchIcon, width: 20.sp, height: 20.sp),
+          hintStyle: AppTextStyles.bodyMedium.copyWith(
+            color: context.textHintColor,
           ),
-          prefixIconConstraints: BoxConstraints(minWidth: AppDimensions.searchFieldHorizontalPadding + 20.sp + AppDimensions.searchFieldGap),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(
+              left: AppDimensions.searchFieldHorizontalPadding,
+              right: AppDimensions.searchFieldGap,
+            ),
+            child: SvgPicture.asset(
+              AppAssets.searchIcon,
+              width: 20.sp,
+              height: 20.sp,
+            ),
+          ),
+          prefixIconConstraints: BoxConstraints(
+            minWidth:
+                AppDimensions.searchFieldHorizontalPadding +
+                20.sp +
+                AppDimensions.searchFieldGap,
+          ),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.searchFieldHorizontalPadding, vertical: AppDimensions.searchFieldVerticalPadding),
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.searchFieldHorizontalPadding,
+            vertical: AppDimensions.searchFieldVerticalPadding,
+          ),
         ),
       ),
     );

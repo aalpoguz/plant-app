@@ -15,26 +15,43 @@ class MainShellPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes: BottomNavPage.values.map((page) => page.route).toList(),
-      transitionBuilder: (context, child, animation) => child, // Geçiş animasyonunu kaldır
+      transitionBuilder: (context, child, animation) =>
+          child, // Geçiş animasyonunu kaldır
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         width: AppDimensions.width66,
         height: AppDimensions.width66,
-        decoration: const BoxDecoration(color: Color(0xFF2CCC80), shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          color: AppColors.primary.withOpacity(0.3),
+          shape: BoxShape.circle,
+        ),
         child: Center(
           child: Container(
             width: AppDimensions.width58,
             height: AppDimensions.width58,
-            decoration: BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              shape: BoxShape.circle,
+            ),
             child: Material(
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Scan Plant - Coming Soon!')));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Scan Plant - Coming Soon!')),
+                  );
                 },
                 borderRadius: BorderRadius.circular(AppDimensions.radius28),
                 child: Center(
-                  child: SvgPicture.asset(AppAssets.scanIcon, width: AppDimensions.icon24, height: AppDimensions.height20, colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                  child: SvgPicture.asset(
+                    AppAssets.scanIcon,
+                    width: AppDimensions.icon24,
+                    height: AppDimensions.height20,
+                    colorFilter: const ColorFilter.mode(
+                      Colors.white,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                 ),
               ),
             ),

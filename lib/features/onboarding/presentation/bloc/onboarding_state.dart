@@ -8,13 +8,28 @@ class OnboardingState extends Equatable {
   final OnboardingStatus status;
   final String? errorMessage;
 
-  const OnboardingState({required this.currentPage, required this.totalPages, this.status = OnboardingStatus.initial, this.errorMessage});
+  const OnboardingState({
+    required this.currentPage,
+    required this.totalPages,
+    this.status = OnboardingStatus.initial,
+    this.errorMessage,
+  });
 
   bool get isFirstPage => currentPage == 0;
   bool get isLastPage => currentPage == totalPages - 1;
 
-  OnboardingState copyWith({int? currentPage, int? totalPages, OnboardingStatus? status, String? errorMessage}) {
-    return OnboardingState(currentPage: currentPage ?? this.currentPage, totalPages: totalPages ?? this.totalPages, status: status ?? this.status, errorMessage: errorMessage ?? this.errorMessage);
+  OnboardingState copyWith({
+    int? currentPage,
+    int? totalPages,
+    OnboardingStatus? status,
+    String? errorMessage,
+  }) {
+    return OnboardingState(
+      currentPage: currentPage ?? this.currentPage,
+      totalPages: totalPages ?? this.totalPages,
+      status: status ?? this.status,
+      errorMessage: errorMessage ?? this.errorMessage,
+    );
   }
 
   @override

@@ -46,13 +46,18 @@ enum AppRoute {
 
   static AppRoute? fromRouteName(String routeName) {
     try {
-      return AppRoute.values.firstWhere((route) => route.routeName == routeName);
+      return AppRoute.values.firstWhere(
+        (route) => route.routeName == routeName,
+      );
     } catch (_) {
       return null;
     }
   }
 
   bool get isBottomNavRoute {
-    return this == AppRoute.home || this == AppRoute.diagnose || this == AppRoute.myGarden || this == AppRoute.profile;
+    return this == AppRoute.home ||
+        this == AppRoute.diagnose ||
+        this == AppRoute.myGarden ||
+        this == AppRoute.profile;
   }
 }

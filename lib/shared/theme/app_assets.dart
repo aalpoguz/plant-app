@@ -20,7 +20,8 @@ class AppAssets {
   static const String meterIcon = '$_svgIconPath/meter.svg';
 
   // Home - Images
-  static const String homeAppBarBackground = '$_imagePath/home/home-appbar-bg.png';
+  static const String homeAppBarBackground =
+      '$_imagePath/home/home-appbar-bg.png';
 
   // Illustrations
   static const String onboarding1 = '$_imagePath/onboarding/onboard1.png';

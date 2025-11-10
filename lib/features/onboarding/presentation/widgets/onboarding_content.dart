@@ -12,7 +12,11 @@ class OnboardingContent extends StatelessWidget {
   final OnboardingEntity onboarding;
   final int pageIndex;
 
-  const OnboardingContent({super.key, required this.onboarding, required this.pageIndex});
+  const OnboardingContent({
+    super.key,
+    required this.onboarding,
+    required this.pageIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,9 @@ class OnboardingContent extends StatelessWidget {
                 OnboardingTitle(
                   titleNormal: onboarding.titleNormal,
                   titleBold: onboarding.titleBold,
-                  titleContinuation: pageIndex != 0 ? onboarding.description : null,
+                  titleContinuation: pageIndex != 0
+                      ? onboarding.description
+                      : null,
                   pageIndex: pageIndex,
                   showBrush: pageIndex == 1 || pageIndex == 2,
                 ),
@@ -51,7 +57,9 @@ class OnboardingContent extends StatelessWidget {
                   SizedBox(height: AppDimensions.space8),
                   Text(
                     onboarding.description!,
-                    style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary),
+                    style: AppTextStyles.bodyLarge.copyWith(
+                      color: AppColors.lightTextPrimary,
+                    ),
                   ),
                 ],
               ],

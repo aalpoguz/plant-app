@@ -9,9 +9,23 @@ class HomeState extends Equatable {
   final List<QuestionEntity> questions;
   final String? questionsError;
 
-  const HomeState({this.categoriesStatus = HomeDataStatus.initial, this.categories = const [], this.categoriesError, this.questionsStatus = HomeDataStatus.initial, this.questions = const [], this.questionsError});
+  const HomeState({
+    this.categoriesStatus = HomeDataStatus.initial,
+    this.categories = const [],
+    this.categoriesError,
+    this.questionsStatus = HomeDataStatus.initial,
+    this.questions = const [],
+    this.questionsError,
+  });
 
-  HomeState copyWith({HomeDataStatus? categoriesStatus, List<CategoryEntity>? categories, String? categoriesError, HomeDataStatus? questionsStatus, List<QuestionEntity>? questions, String? questionsError}) {
+  HomeState copyWith({
+    HomeDataStatus? categoriesStatus,
+    List<CategoryEntity>? categories,
+    String? categoriesError,
+    HomeDataStatus? questionsStatus,
+    List<QuestionEntity>? questions,
+    String? questionsError,
+  }) {
     return HomeState(
       categoriesStatus: categoriesStatus ?? this.categoriesStatus,
       categories: categories ?? this.categories,
@@ -23,5 +37,12 @@ class HomeState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [categoriesStatus, categories, categoriesError, questionsStatus, questions, questionsError];
+  List<Object?> get props => [
+    categoriesStatus,
+    categories,
+    categoriesError,
+    questionsStatus,
+    questions,
+    questionsError,
+  ];
 }

@@ -15,13 +15,32 @@ class CategoryModel {
   final String publishedAt;
   final CategoryImageModel image;
 
-  const CategoryModel({required this.id, required this.name, required this.title, required this.rank, required this.createdAt, required this.updatedAt, required this.publishedAt, required this.image});
+  const CategoryModel({
+    required this.id,
+    required this.name,
+    required this.title,
+    required this.rank,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.publishedAt,
+    required this.image,
+  });
 
-  factory CategoryModel.fromJson(Map<String, dynamic> json) => _$CategoryModelFromJson(json);
+  factory CategoryModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoryModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoryModelToJson(this);
 
   CategoryEntity toEntity() {
-    return CategoryEntity(id: id, name: name, title: title, rank: rank, createdAt: createdAt, updatedAt: updatedAt, publishedAt: publishedAt, image: image.toEntity());
+    return CategoryEntity(
+      id: id,
+      name: name,
+      title: title,
+      rank: rank,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      publishedAt: publishedAt,
+      image: image.toEntity(),
+    );
   }
 }

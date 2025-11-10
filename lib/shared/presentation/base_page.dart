@@ -55,13 +55,15 @@ class BasePage extends StatelessWidget {
       );
     }
     if (showLoading) {
-      content = Stack(children: [content, loadingWidget ?? _defaultLoadingWidget()]);
+      content = Stack(
+        children: [content, loadingWidget ?? _defaultLoadingWidget()],
+      );
     }
 
     return Scaffold(
       appBar: appBar,
       body: content,
-      backgroundColor: Colors.white,
+
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       bottomNavigationBar: bottomNavigationBar,

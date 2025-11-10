@@ -10,10 +10,28 @@ class CategoryEntity extends Equatable {
   final String publishedAt;
   final CategoryImageEntity image;
 
-  const CategoryEntity({required this.id, required this.name, required this.title, required this.rank, required this.createdAt, required this.updatedAt, required this.publishedAt, required this.image});
+  const CategoryEntity({
+    required this.id,
+    required this.name,
+    required this.title,
+    required this.rank,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.publishedAt,
+    required this.image,
+  });
 
   @override
-  List<Object?> get props => [id, name, title, rank, createdAt, updatedAt, publishedAt, image];
+  List<Object?> get props => [
+    id,
+    name,
+    title,
+    rank,
+    createdAt,
+    updatedAt,
+    publishedAt,
+    image,
+  ];
 }
 
 class CategoryImageEntity extends Equatable {
@@ -21,7 +39,11 @@ class CategoryImageEntity extends Equatable {
   final String name;
   final String url;
 
-  const CategoryImageEntity({required this.id, required this.name, required this.url});
+  const CategoryImageEntity({
+    required this.id,
+    required this.name,
+    required this.url,
+  });
 
   @override
   List<Object?> get props => [id, name, url];

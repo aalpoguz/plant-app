@@ -3,11 +3,26 @@ import '../router/app_router.dart';
 
 enum BottomNavPage {
   home('/home', 'home', 'Home', 'assets/svg/icons/home.svg'),
-  diagnose('/diagnose', 'diagnose', 'Diagnose', 'assets/svg/icons/diagnose.svg'),
-  myGarden('/my-garden', 'myGarden', 'My Garden', 'assets/svg/icons/my-garden.svg'),
+  diagnose(
+    '/diagnose',
+    'diagnose',
+    'Diagnose',
+    'assets/svg/icons/diagnose.svg',
+  ),
+  myGarden(
+    '/my-garden',
+    'myGarden',
+    'My Garden',
+    'assets/svg/icons/my-garden.svg',
+  ),
   profile('/profile', 'profile', 'Profile', 'assets/svg/icons/profile.svg');
 
-  const BottomNavPage(this.path, this.routeName, this.displayName, this.iconPath);
+  const BottomNavPage(
+    this.path,
+    this.routeName,
+    this.displayName,
+    this.iconPath,
+  );
 
   final String path;
   final String routeName;
@@ -37,7 +52,9 @@ enum BottomNavPage {
 
   static BottomNavPage? fromRouteName(String routeName) {
     try {
-      return BottomNavPage.values.firstWhere((page) => page.routeName == routeName);
+      return BottomNavPage.values.firstWhere(
+        (page) => page.routeName == routeName,
+      );
     } catch (_) {
       return null;
     }

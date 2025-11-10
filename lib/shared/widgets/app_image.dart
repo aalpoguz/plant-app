@@ -62,7 +62,11 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       color: Colors.grey[300],
-      child: Icon(Icons.image, size: AppDimensions.icon40, color: Colors.grey[400]),
+      child: Icon(
+        Icons.image,
+        size: AppDimensions.icon40,
+        color: Colors.grey[400],
+      ),
     );
   }
 
@@ -71,7 +75,11 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       color: Colors.grey[300],
-      child: Icon(Icons.broken_image, size: AppDimensions.icon40, color: Colors.grey[400]),
+      child: Icon(
+        Icons.broken_image,
+        size: AppDimensions.icon40,
+        color: Colors.grey[400],
+      ),
     );
   }
 }

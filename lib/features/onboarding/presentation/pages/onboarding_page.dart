@@ -17,7 +17,10 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => getIt<OnboardingBloc>(), child: const OnboardingView());
+    return BlocProvider(
+      create: (context) => getIt<OnboardingBloc>(),
+      child: const OnboardingView(),
+    );
   }
 }
 
@@ -37,7 +40,11 @@ class OnboardingView extends StatelessWidget {
             // Navigate to Paywall page
             context.router.push(const PaywallRoute());
           } else if (state.status == OnboardingStatus.error) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage ?? 'An error occurred')));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage ?? 'An error occurred'),
+              ),
+            );
           }
         },
         child: BlocBuilder<OnboardingBloc, OnboardingState>(
@@ -48,9 +55,13 @@ class OnboardingView extends StatelessWidget {
                   flex: 6,
                   child: PageView.builder(
                     controller: bloc.pageController,
-                    onPageChanged: (page) => bloc.add(OnboardingPageChanged(page)),
+                    onPageChanged: (page) =>
+                        bloc.add(OnboardingPageChanged(page)),
                     itemCount: pages.length,
-                    itemBuilder: (context, index) => OnboardingContent(onboarding: pages[index], pageIndex: index),
+                    itemBuilder: (context, index) => OnboardingContent(
+                      onboarding: pages[index],
+                      pageIndex: index,
+                    ),
                   ),
                 ),
                 Expanded(
