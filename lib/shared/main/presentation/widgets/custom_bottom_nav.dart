@@ -55,13 +55,11 @@ class _NavBarItem extends StatelessWidget {
     final theme = Theme.of(context);
     final navTheme = theme.bottomNavigationBarTheme;
 
-    // Theme'den renkleri al
     final selectedColor = navTheme.selectedItemColor ?? theme.colorScheme.primary;
     final unselectedColor = navTheme.unselectedItemColor ?? theme.colorScheme.onSurface.withOpacity(0.6);
 
     final color = isActive ? selectedColor : unselectedColor;
 
-    // Theme'den text style'ları al
     final textStyle = isActive ? navTheme.selectedLabelStyle : navTheme.unselectedLabelStyle;
 
     return GestureDetector(

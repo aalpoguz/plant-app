@@ -15,7 +15,7 @@ void main() async {
   await initializeDependencies();
 
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  // Check if this is the first time the app is opened
+  // app first time check
   final checkFirstTimeUseCase = getIt<CheckFirstTimeUseCase>();
   final result = await checkFirstTimeUseCase(NoParams());
 
