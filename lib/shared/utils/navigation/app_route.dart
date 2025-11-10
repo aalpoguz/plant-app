@@ -17,7 +17,6 @@ enum AppRoute {
   final String routeName;
   final String displayName;
 
-  /// Route'u PageRouteInfo'ya dönüştürür
   PageRouteInfo get route {
     switch (this) {
       case AppRoute.onboarding:
@@ -37,7 +36,6 @@ enum AppRoute {
     }
   }
 
-  /// Path'den enum değeri oluşturur
   static AppRoute? fromPath(String path) {
     try {
       return AppRoute.values.firstWhere((route) => route.path == path);
@@ -46,7 +44,6 @@ enum AppRoute {
     }
   }
 
-  /// Route name'den enum değeri oluşturur
   static AppRoute? fromRouteName(String routeName) {
     try {
       return AppRoute.values.firstWhere((route) => route.routeName == routeName);
@@ -55,7 +52,6 @@ enum AppRoute {
     }
   }
 
-  /// Bottom navigation route'u mu kontrol eder
   bool get isBottomNavRoute {
     return this == AppRoute.home || this == AppRoute.diagnose || this == AppRoute.myGarden || this == AppRoute.profile;
   }

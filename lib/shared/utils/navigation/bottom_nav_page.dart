@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import '../router/app_router.dart';
 
-/// Bottom Navigation bar için sayfa yönetimi
 enum BottomNavPage {
   home('/home', 'home', 'Home', 'assets/svg/icons/home.svg'),
   diagnose('/diagnose', 'diagnose', 'Diagnose', 'assets/svg/icons/diagnose.svg'),
@@ -15,7 +14,6 @@ enum BottomNavPage {
   final String displayName;
   final String iconPath;
 
-  /// Sayfa route'unu döndürür
   PageRouteInfo get route {
     switch (this) {
       case BottomNavPage.home:
@@ -29,18 +27,14 @@ enum BottomNavPage {
     }
   }
 
-  /// Sayfa başlığını döndürür (displayName alias)
   String get label => displayName;
 
-  /// Sayfa ikonu path'ini döndürür (iconPath alias)
   String get icon => iconPath;
 
-  /// Index'ten enum değeri oluşturur
   static BottomNavPage fromIndex(int index) {
     return BottomNavPage.values[index];
   }
 
-  /// Route name'den enum değeri oluşturur
   static BottomNavPage? fromRouteName(String routeName) {
     try {
       return BottomNavPage.values.firstWhere((page) => page.routeName == routeName);
@@ -49,7 +43,6 @@ enum BottomNavPage {
     }
   }
 
-  /// Path'den enum değeri oluşturur
   static BottomNavPage? fromPath(String path) {
     try {
       return BottomNavPage.values.firstWhere((page) => page.path == path);
