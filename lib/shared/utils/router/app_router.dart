@@ -6,6 +6,7 @@ import '../../../features/my_garden/my_garden_page.dart';
 import '../../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../../features/paywall/presentation/pages/paywall_page.dart';
 import '../../../features/profile/profile_page.dart';
+import '../../../features/splash/presentation/pages/splash_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -13,17 +14,12 @@ part 'app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
+    AutoRoute(page: SplashRoute.page, path: '/', initial: true),
     AutoRoute(page: OnboardingRoute.page, path: '/onboarding'),
-    CustomRoute(
-      page: PaywallRoute.page,
-      path: '/paywall',
-      fullscreenDialog: true,
-      transitionsBuilder: TransitionsBuilders.slideBottom,
-      durationInMilliseconds: 400,
-    ),
+    CustomRoute(page: PaywallRoute.page, path: '/paywall', fullscreenDialog: true, transitionsBuilder: TransitionsBuilders.slideBottom, durationInMilliseconds: 400),
     AutoRoute(
       page: MainShellRoute.page,
-      path: '/',
+      path: '/main',
       children: [
         AutoRoute(page: HomeRoute.page, path: 'home'),
         AutoRoute(page: DiagnoseRoute.page, path: 'diagnose'),
