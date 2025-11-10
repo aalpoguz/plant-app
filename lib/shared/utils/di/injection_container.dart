@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:plant_app/core/network/connectivity/connectivity_provider.dart';
+import 'package:plant_app/core/network/connectivity/connectivity_service.dart';
 import 'package:plant_app/core/network/dio_client.dart';
 import 'package:plant_app/core/network/interceptors/auth_interceptor.dart';
 import 'package:plant_app/core/network/interceptors/logging_interceptor.dart';
 import 'package:plant_app/core/storage/storage_repository.dart';
 import 'package:plant_app/core/storage/storage_repository_impl.dart';
-import 'package:plant_app/core/usecases/set_paywall_shown_usecase.dart';
 import 'package:plant_app/features/home/data/datasources/home_remote_data_source.dart';
 import 'package:plant_app/features/home/data/repositories/home_repository_impl.dart';
 import 'package:plant_app/features/home/domain/repositories/home_repository.dart';
@@ -16,7 +17,8 @@ import 'package:plant_app/features/onboarding/domain/usecases/check_first_time_u
 import 'package:plant_app/features/onboarding/domain/usecases/complete_onboarding_usecase.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_bloc.dart';
 import 'package:plant_app/features/splash/presentation/bloc/splash_bloc.dart';
-import 'package:plant_app/shared/presentation/bloc/theme/theme_bloc.dart';
+import 'package:plant_app/features/paywall/domain/usecases/show_paywall_usecase.dart';
+import 'package:plant_app/shared/presentation/providers/theme_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../router/app_router.dart';
@@ -39,6 +41,13 @@ Future<void> initializeDependencies() async {
 
   // Core - Storage Repository
   getIt.registerLazySingleton<StorageRepository>(() => StorageRepositoryImpl(localStorageService: getIt()));
+
+  // Core - Connectivity
+  getIt.registerLazySingleton<ConnectivityService>(() => ConnectivityServiceImpl());
+  getIt.registerLazySingleton<ConnectivityProvider>(() => ConnectivityProvider(connectivityService: getIt()));
+
+  // Core - Theme
+  getIt.registerLazySingleton<ThemeProvider>(() => ThemeProvider(prefs: getIt()));
 
   // Router
   getIt.registerLazySingleton<AppRouter>(() => AppRouter());
@@ -72,7 +81,4 @@ Future<void> initializeDependencies() async {
 
   // Paywall Feature - Use cases
   getIt.registerLazySingleton<SetPaywallShownUseCase>(() => SetPaywallShownUseCase(repository: getIt()));
-
-  // Theme BLoC
-  getIt.registerLazySingleton<ThemeBloc>(() => ThemeBloc(getIt()));
 }
