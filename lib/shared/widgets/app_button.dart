@@ -14,7 +14,18 @@ class AppButton extends StatelessWidget {
   final double? borderRadius;
   final Widget? icon;
 
-  const AppButton({super.key, required this.text, this.onPressed, this.isLoading = false, this.backgroundColor, this.textColor, this.width, this.height, this.borderRadius, this.icon});
+  const AppButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.isLoading = false,
+    this.backgroundColor,
+    this.textColor,
+    this.width,
+    this.height,
+    this.borderRadius,
+    this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +36,39 @@ class AppButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? AppColors.primary,
-          disabledBackgroundColor: AppColors.textDisabled,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius ?? AppDimensions.radius12)),
+          disabledBackgroundColor: AppColors.lightTextDisabled,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              borderRadius ?? AppDimensions.radius12,
+            ),
+          ),
           elevation: 0,
         ),
         child: isLoading
             ? SizedBox(
                 width: AppDimensions.icon24,
                 height: AppDimensions.height24,
-                child: CircularProgressIndicator(strokeWidth: 2.5, valueColor: AlwaysStoppedAnimation<Color>(textColor ?? Colors.white)),
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    textColor ?? Colors.white,
+                  ),
+                ),
               )
             : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (icon != null) ...[icon!, SizedBox(width: AppDimensions.width8)],
-                  Text(text, style: AppTextStyles.buttonLarge.copyWith(color: textColor ?? Colors.white)),
+                  if (icon != null) ...[
+                    icon!,
+                    SizedBox(width: AppDimensions.width8),
+                  ],
+                  Text(
+                    text,
+                    style: AppTextStyles.buttonLarge.copyWith(
+                      color: textColor ?? Colors.white,
+                    ),
+                  ),
                 ],
               ),
       ),

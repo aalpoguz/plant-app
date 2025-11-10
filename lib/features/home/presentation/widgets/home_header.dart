@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plant_app/shared/presentation/bloc/theme/theme_bloc.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_assets.dart';
@@ -11,13 +13,24 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = context.isDarkMode;
     return Column(
       children: [
         SizedBox(
           width: double.infinity,
           child: Stack(
             children: [
-              Image.asset(AppAssets.homeAppBarBackground, width: double.infinity, fit: BoxFit.cover),
+              ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  isDark ? Colors.black.withOpacity(0.8) : Colors.transparent,
+                  BlendMode.darken,
+                ),
+                child: Image.asset(
+                  AppAssets.homeAppBarBackground,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
               Positioned(
                 left: 16.w,
                 right: 16.w,
@@ -25,9 +38,63 @@ class HomeHeader extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Hi, plant lover!', style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary)),
-
-                    Text('Good Afternoon! ⛅', style: AppTextStyles.heading1.copyWith(color: AppColors.textPrimary)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Hi, plant lover!',
+                                style: AppTextStyles.bodyLarge.copyWith(
+                                  color: context.textPrimaryColor,
+                                ),
+                              ),
+                              Text(
+                                'Good Afternoon! ⛅',
+                                style: AppTextStyles.heading1.copyWith(
+                                  color: context.textPrimaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        BlocBuilder<ThemeBloc, ThemeState>(
+                          builder: (context, state) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: context.surfaceColor.withOpacity(0.9),
+                                borderRadius: BorderRadius.circular(12.r),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: context.shadowColor,
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              child: IconButton(
+                                icon: Icon(
+                                  state.isDark
+                                      ? Icons.light_mode
+                                      : Icons.dark_mode,
+                                  color: AppColors.primary,
+                                ),
+                                onPressed: () {
+                                  context.read<ThemeBloc>().add(
+                                    ToggleThemeEvent(),
+                                  );
+                                },
+                                tooltip: state.isDark
+                                    ? 'Light Mode'
+                                    : 'Dark Mode',
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                     SizedBox(height: AppDimensions.space16),
                     Center(child: const CustomSearchField()),
                     SizedBox(height: AppDimensions.space16),

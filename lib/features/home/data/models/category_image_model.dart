@@ -40,7 +40,8 @@ class CategoryImageModel extends Equatable {
     required this.updatedAt,
   });
 
-  factory CategoryImageModel.fromJson(Map<String, dynamic> json) => _$CategoryImageModelFromJson(json);
+  factory CategoryImageModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoryImageModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoryImageModelToJson(this);
 
@@ -49,5 +50,21 @@ class CategoryImageModel extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, name, alternativeText, caption, width, height, hash, ext, mime, size, url, previewUrl, provider, createdAt, updatedAt];
+  List<Object?> get props => [
+    id,
+    name,
+    alternativeText,
+    caption,
+    width,
+    height,
+    hash,
+    ext,
+    mime,
+    size,
+    url,
+    previewUrl,
+    provider,
+    createdAt,
+    updatedAt,
+  ];
 }

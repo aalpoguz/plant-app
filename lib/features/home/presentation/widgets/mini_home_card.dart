@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:plant_app/shared/theme/app_colors.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +10,12 @@ class MiniHomeCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback? onTap;
 
-  const MiniHomeCard({super.key, required this.title, required this.imageUrl, this.onTap});
+  const MiniHomeCard({
+    super.key,
+    required this.title,
+    required this.imageUrl,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +23,9 @@ class MiniHomeCard extends StatelessWidget {
       width: 152.w,
       height: 152.h,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.surfaceColor,
         borderRadius: BorderRadius.circular(AppDimensions.radius12),
-        border: Border.all(color: Colors.grey.shade100),
+        border: Border.all(color: context.dividerColor),
       ),
       child: Material(
         color: Colors.transparent,
@@ -34,16 +40,23 @@ class MiniHomeCard extends StatelessWidget {
                 top: 0,
                 bottom: 0,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(12.r),
+                    bottomRight: Radius.circular(12.r),
+                  ),
                   child: CachedNetworkImage(
                     imageUrl: imageUrl,
                     width: 120.w,
                     height: 152.h,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => Container(color: Colors.grey.shade200),
+                    placeholder: (context, url) =>
+                        Container(color: context.dividerColor),
                     errorWidget: (context, url, error) => Container(
-                      color: Colors.grey.shade200,
-                      child: Icon(Icons.image_not_supported, color: Colors.grey.shade400),
+                      color: context.dividerColor,
+                      child: Icon(
+                        Icons.image_not_supported,
+                        color: context.textDisabledColor,
+                      ),
                     ),
                   ),
                 ),
@@ -52,7 +65,14 @@ class MiniHomeCard extends StatelessWidget {
                 top: 16.h,
                 left: 12.w,
                 right: 85.w,
-                child: Text(title, style: AppTextStyles.bodyLargeMedium, maxLines: 2, overflow: TextOverflow.ellipsis),
+                child: Text(
+                  title,
+                  style: AppTextStyles.bodyLargeMedium.copyWith(
+                    color: context.textPrimaryColor,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),

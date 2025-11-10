@@ -28,12 +28,21 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
 
         if (data.isEmpty) return [];
 
-        return data.map((item) => CategoryModel.fromJson(item as Map<String, dynamic>)).toList();
+        return data
+            .map((item) => CategoryModel.fromJson(item as Map<String, dynamic>))
+            .toList();
       } else {
-        throw ServerException(message: 'Failed to load categories: ${response.statusCode}');
+        throw ServerException(
+          message: 'Failed to load categories: ${response.statusCode}',
+        );
       }
     } on DioException catch (e) {
-      throw ServerException(message: e.response?.data?['message'] ?? e.message ?? 'Server error occurred');
+      throw ServerException(
+        message:
+            e.response?.data?['message'] ??
+            e.message ??
+            'Server error occurred',
+      );
     } catch (e) {
       throw ServerException(message: 'Unexpected error: $e');
     }
@@ -50,12 +59,21 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
 
         if (data.isEmpty) return [];
 
-        return data.map((item) => QuestionModel.fromJson(item as Map<String, dynamic>)).toList();
+        return data
+            .map((item) => QuestionModel.fromJson(item as Map<String, dynamic>))
+            .toList();
       } else {
-        throw ServerException(message: 'Failed to load questions: ${response.statusCode}');
+        throw ServerException(
+          message: 'Failed to load questions: ${response.statusCode}',
+        );
       }
     } on DioException catch (e) {
-      throw ServerException(message: e.response?.data?['message'] ?? e.message ?? 'Server error occurred');
+      throw ServerException(
+        message:
+            e.response?.data?['message'] ??
+            e.message ??
+            'Server error occurred',
+      );
     } catch (e) {
       throw ServerException(message: 'Unexpected error: $e');
     }
@@ -80,7 +98,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     } else if (responseData is List) {
       return responseData;
     } else {
-      throw ServerException(message: 'Unexpected response format: ${responseData.runtimeType}');
+      throw ServerException(
+        message: 'Unexpected response format: ${responseData.runtimeType}',
+      );
     }
   }
 }

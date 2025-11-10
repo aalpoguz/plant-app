@@ -10,7 +10,12 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
       useSafeArea: true,
-      body: Center(child: Text('Profile Page', style: Theme.of(context).textTheme.headlineMedium)),
+      body: Center(
+        child: Text(
+          'Profile Page',
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
+      ),
     );
   }
 }

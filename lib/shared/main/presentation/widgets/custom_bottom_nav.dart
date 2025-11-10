@@ -8,7 +8,11 @@ class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  const CustomBottomNavBar({super.key, required this.currentIndex, required this.onTap});
+  const CustomBottomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +32,22 @@ class CustomBottomNavBar extends StatelessWidget {
                 return Row(
                   children: [
                     SizedBox(width: AppDimensions.icon48), // FAB boşluğu
-                    _NavBarItem(icon: page.icon, label: page.label, isActive: currentIndex == index, onTap: () => onTap(index)),
+                    _NavBarItem(
+                      icon: page.icon,
+                      label: page.label,
+                      isActive: currentIndex == index,
+                      onTap: () => onTap(index),
+                    ),
                   ],
                 );
               }
 
-              return _NavBarItem(icon: page.icon, label: page.label, isActive: currentIndex == index, onTap: () => onTap(index));
+              return _NavBarItem(
+                icon: page.icon,
+                label: page.label,
+                isActive: currentIndex == index,
+                onTap: () => onTap(index),
+              );
             }),
           ],
         ),
@@ -48,19 +62,29 @@ class _NavBarItem extends StatelessWidget {
   final bool isActive;
   final VoidCallback onTap;
 
-  const _NavBarItem({required this.icon, required this.label, required this.isActive, required this.onTap});
+  const _NavBarItem({
+    required this.icon,
+    required this.label,
+    required this.isActive,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final navTheme = theme.bottomNavigationBarTheme;
 
-    final selectedColor = navTheme.selectedItemColor ?? theme.colorScheme.primary;
-    final unselectedColor = navTheme.unselectedItemColor ?? theme.colorScheme.onSurface.withOpacity(0.6);
+    final selectedColor =
+        navTheme.selectedItemColor ?? theme.colorScheme.primary;
+    final unselectedColor =
+        navTheme.unselectedItemColor ??
+        theme.colorScheme.onSurface.withOpacity(0.6);
 
     final color = isActive ? selectedColor : unselectedColor;
 
-    final textStyle = isActive ? navTheme.selectedLabelStyle : navTheme.unselectedLabelStyle;
+    final textStyle = isActive
+        ? navTheme.selectedLabelStyle
+        : navTheme.unselectedLabelStyle;
 
     return GestureDetector(
       onTap: onTap,
@@ -75,7 +99,12 @@ class _NavBarItem extends StatelessWidget {
             SizedBox(height: AppDimensions.height4),
             Text(
               label,
-              style: textStyle ?? AppTextStyles.labelMedium.copyWith(color: color, fontWeight: isActive ? FontWeight.w500 : FontWeight.w400),
+              style:
+                  textStyle ??
+                  AppTextStyles.labelMedium.copyWith(
+                    color: color,
+                    fontWeight: isActive ? FontWeight.w500 : FontWeight.w400,
+                  ),
             ),
           ],
         ),
@@ -89,10 +118,20 @@ class _NavBarItem extends StatelessWidget {
     } else if (iconData is String) {
       // SVG icon
       if (iconData.endsWith('.svg')) {
-        return SvgPicture.asset(iconData, width: AppDimensions.icon26, height: AppDimensions.icon26, colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
+        return SvgPicture.asset(
+          iconData,
+          width: AppDimensions.icon26,
+          height: AppDimensions.icon26,
+          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+        );
       }
       // PNG/JPG fallback
-      return Image.asset(iconData, width: AppDimensions.icon26, height: AppDimensions.icon26, color: color);
+      return Image.asset(
+        iconData,
+        width: AppDimensions.icon26,
+        height: AppDimensions.icon26,
+        color: color,
+      );
     }
     return const SizedBox.shrink();
   }

@@ -14,7 +14,13 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: OnboardingRoute.page, path: '/onboarding'),
-    CustomRoute(page: PaywallRoute.page, path: '/paywall', fullscreenDialog: true, transitionsBuilder: TransitionsBuilders.slideBottom, durationInMilliseconds: 400),
+    CustomRoute(
+      page: PaywallRoute.page,
+      path: '/paywall',
+      fullscreenDialog: true,
+      transitionsBuilder: TransitionsBuilders.slideBottom,
+      durationInMilliseconds: 400,
+    ),
     AutoRoute(
       page: MainShellRoute.page,
       path: '/',

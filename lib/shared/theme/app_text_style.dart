@@ -9,41 +9,118 @@ class AppTextStyles {
   AppTextStyles._();
 
   // largeest headings
-  static TextStyle displayLarge = TextStyle(fontSize: 32.sp, fontWeight: FontWeight.bold, color: AppColors.textPrimary);
+  static TextStyle displayLarge = TextStyle(
+    fontSize: 32.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.lightTextPrimary,
+  );
 
-  static TextStyle displayMedium = TextStyle(fontSize: AppDimensions.fontSize28, fontWeight: FontWeight.w500, color: AppColors.textPrimary);
+  static TextStyle displayMedium = TextStyle(
+    fontSize: AppDimensions.fontSize28,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightTextPrimary,
+  );
 
-  static TextStyle displaySmall = TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w500, color: AppColors.textPrimary);
+  static TextStyle displaySmall = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightTextPrimary,
+  );
 
   // headings
-  static TextStyle heading1 = TextStyle(fontSize: AppDimensions.fontSize28, fontWeight: FontWeight.w500, color: AppColors.textPrimary);
+  static TextStyle heading1 = TextStyle(
+    fontSize: AppDimensions.fontSize28,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightTextPrimary,
+  );
 
-  static TextStyle heading1Light = TextStyle(fontSize: AppDimensions.fontSize28, fontWeight: FontWeight.w400, color: AppColors.textPrimary);
+  static TextStyle heading1Light = TextStyle(
+    fontSize: AppDimensions.fontSize28,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lightTextPrimary,
+  );
 
-  static TextStyle heading2 = TextStyle(fontSize: 27.sp, fontWeight: FontWeight.w300, color: AppColors.textPrimary);
+  static TextStyle heading2 = TextStyle(
+    fontSize: 27.sp,
+    fontWeight: FontWeight.w300,
+    color: AppColors.lightTextPrimary,
+  );
 
-  static TextStyle heading3 = TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w500, color: AppColors.textPrimary);
+  static TextStyle heading3 = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightTextPrimary,
+  );
 
-  static TextStyle heading4 = TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500, color: AppColors.textPrimary);
+  static TextStyle heading4 = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightTextPrimary,
+  );
 
   // Body
-  static TextStyle bodyLarge = TextStyle(fontSize: AppDimensions.fontSize16, fontWeight: FontWeight.w400, color: AppColors.textPrimary, height: 1.5);
+  static TextStyle bodyLarge = TextStyle(
+    fontSize: AppDimensions.fontSize16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lightTextPrimary,
+    height: 1.5,
+  );
 
-  static TextStyle bodyLargeMedium = TextStyle(fontSize: AppDimensions.fontSize16, fontWeight: FontWeight.w500, color: AppColors.textPrimary, height: 1.5);
+  static TextStyle bodyLargeMedium = TextStyle(
+    fontSize: AppDimensions.fontSize16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightTextPrimary,
+    height: 1.5,
+  );
 
-  static TextStyle bodyMedium = TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400, color: AppColors.textPrimary, height: 1);
+  static TextStyle bodyMedium = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lightTextPrimary,
+    height: 1,
+  );
 
-  static TextStyle bodySmall = TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5);
+  static TextStyle bodySmall = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lightTextSecondary,
+    height: 1.5,
+  );
 
   // small labels
-  static TextStyle labelLarge = TextStyle(fontSize: AppDimensions.fontSize12, fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5);
+  static TextStyle labelLarge = TextStyle(
+    fontSize: AppDimensions.fontSize12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lightTextSecondary,
+    height: 1.5,
+  );
 
-  static TextStyle labelMedium = TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w400, color: AppColors.textPrimary, height: 1.5);
+  static TextStyle labelMedium = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lightTextPrimary,
+    height: 1.5,
+  );
 
-  static TextStyle labelSmall = TextStyle(fontSize: 9.sp, fontWeight: FontWeight.w300, color: AppColors.textPrimary, height: 1.5);
+  static TextStyle labelSmall = TextStyle(
+    fontSize: 9.sp,
+    fontWeight: FontWeight.w300,
+    color: AppColors.lightTextPrimary,
+    height: 1.5,
+  );
 
   // Buttons
-  static TextStyle buttonLarge = TextStyle(fontSize: AppDimensions.fontSize16, fontWeight: FontWeight.w600, color: Colors.white, letterSpacing: 0);
+  static TextStyle buttonLarge = TextStyle(
+    fontSize: AppDimensions.fontSize16,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+    letterSpacing: 0,
+  );
 
-  static TextStyle buttonMedium = TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: Colors.white, letterSpacing: 0);
+  static TextStyle buttonMedium = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+    letterSpacing: 0,
+  );
 }

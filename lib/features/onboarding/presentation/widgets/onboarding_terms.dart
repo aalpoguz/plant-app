@@ -42,13 +42,15 @@ class _OnboardingTermsState extends State<OnboardingTerms> {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        style: AppTextStyles.bodySmall.copyWith(color: AppColors.textDisabled),
+        style: AppTextStyles.bodySmall.copyWith(
+          color: AppColors.lightTextDisabled,
+        ),
         children: [
           const TextSpan(text: "By tapping next, you agree to PlantID's "),
           TextSpan(
             text: '\nTerms of Service',
             style: AppTextStyles.bodySmall.copyWith(
-              color: AppColors.textDisabled,
+              color: AppColors.lightTextDisabled,
               decoration: TextDecoration.underline,
             ),
             recognizer: _termsRecognizer,
@@ -57,7 +59,7 @@ class _OnboardingTermsState extends State<OnboardingTerms> {
           TextSpan(
             text: 'Privacy Policy',
             style: AppTextStyles.bodySmall.copyWith(
-              color: AppColors.textDisabled,
+              color: AppColors.lightTextDisabled,
               decoration: TextDecoration.underline,
             ),
             recognizer: _privacyRecognizer,

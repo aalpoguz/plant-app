@@ -29,8 +29,9 @@ class HomePage extends StatelessWidget {
         useSafeArea: true,
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            // Her ikisi de tamamen yüklenene kadar shimmer göster
-            final bothLoaded = state.categoriesStatus == HomeDataStatus.loaded && state.questionsStatus == HomeDataStatus.loaded;
+            final bothLoaded =
+                state.categoriesStatus == HomeDataStatus.loaded &&
+                state.questionsStatus == HomeDataStatus.loaded;
 
             return AnimatedSwitcher(
               duration: const Duration(milliseconds: 500),
@@ -67,7 +68,9 @@ class HomePage extends StatelessWidget {
                           if (state.questions.isEmpty)
                             SizedBox(
                               height: AppDimensions.height164,
-                              child: const Center(child: Text('No questions found')),
+                              child: const Center(
+                                child: Text('No questions found'),
+                              ),
                             )
                           else
                             SizedBox(
@@ -80,7 +83,10 @@ class HomePage extends StatelessWidget {
                                   final question = state.questions[index];
                                   return Padding(
                                     padding: EdgeInsets.only(right: 16.w),
-                                    child: HomeBannerCard(title: question.title, imageUrl: question.image_uri),
+                                    child: HomeBannerCard(
+                                      title: question.title,
+                                      imageUrl: question.image_uri,
+                                    ),
                                   );
                                 },
                               ),
@@ -90,7 +96,12 @@ class HomePage extends StatelessWidget {
                           // Mini Home Cards (Categories)
                           if (state.categories.isEmpty)
                             Center(
-                              child: Padding(padding: EdgeInsets.all(AppDimensions.padding40), child: const Text('No categories found')),
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                  AppDimensions.padding40,
+                                ),
+                                child: const Text('No categories found'),
+                              ),
                             )
                           else
                             Padding(
@@ -98,11 +109,20 @@ class HomePage extends StatelessWidget {
                               child: GridView.builder(
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
-                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 16.w, mainAxisSpacing: 16.h, childAspectRatio: 1),
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 16.w,
+                                      mainAxisSpacing: 16.h,
+                                      childAspectRatio: 1,
+                                    ),
                                 itemCount: state.categories.length,
                                 itemBuilder: (context, index) {
                                   final category = state.categories[index];
-                                  return MiniHomeCard(imageUrl: category.image.url, title: category.title);
+                                  return MiniHomeCard(
+                                    imageUrl: category.image.url,
+                                    title: category.title,
+                                  );
                                 },
                               ),
                             ),

@@ -29,7 +29,10 @@ class OnboardingTitle extends StatelessWidget {
         RichText(
           textAlign: TextAlign.left,
           text: TextSpan(
-            style: AppTextStyles.heading1Light.copyWith(color: AppColors.textPrimary, height: 1.2),
+            style: AppTextStyles.heading1Light.copyWith(
+              color: AppColors.lightTextPrimary,
+              height: 1.2,
+            ),
             children: [
               TextSpan(text: titleNormal),
               TextSpan(
@@ -39,7 +42,10 @@ class OnboardingTitle extends StatelessWidget {
               if (titleContinuation != null && pageIndex != 0)
                 TextSpan(
                   text: titleContinuation,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: AppDimensions.fontSize28),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: AppDimensions.fontSize28,
+                  ),
                 ),
             ],
           ),
@@ -48,7 +54,12 @@ class OnboardingTitle extends StatelessWidget {
           Positioned(
             top: pageIndex == 1 ? 30.h : 28.h,
             right: -30,
-            child: Image.asset(AppAssets.brush, width: AppDimensions.width151, height: AppDimensions.height1443, fit: BoxFit.contain),
+            child: Image.asset(
+              AppAssets.brush,
+              width: AppDimensions.width151,
+              height: AppDimensions.height1443,
+              fit: BoxFit.contain,
+            ),
           ),
       ],
     );
