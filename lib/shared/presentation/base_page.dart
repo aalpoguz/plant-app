@@ -46,32 +46,28 @@ class BasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget content = body;
     if (useSafeArea) {
-      content = SafeArea(
-        top: safeAreaTop,
-        bottom: safeAreaBottom,
-        left: safeAreaLeft,
-        right: safeAreaRight,
-        child: content,
-      );
+      content = SafeArea(top: safeAreaTop, bottom: safeAreaBottom, left: safeAreaLeft, right: safeAreaRight, child: content);
     }
     if (showLoading) {
-      content = Stack(
-        children: [content, loadingWidget ?? _defaultLoadingWidget()],
-      );
+      content = Stack(children: [content, loadingWidget ?? _defaultLoadingWidget()]);
     }
 
-    return Scaffold(
-      appBar: appBar,
-      body: content,
-
-      floatingActionButton: floatingActionButton,
-      floatingActionButtonLocation: floatingActionButtonLocation,
-      bottomNavigationBar: bottomNavigationBar,
-      drawer: drawer,
-      endDrawer: endDrawer,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-      extendBodyBehindAppBar: extendBodyBehindAppBar,
-      extendBody: extendBody,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        appBar: appBar,
+        body: content,
+        floatingActionButton: floatingActionButton,
+        floatingActionButtonLocation: floatingActionButtonLocation,
+        bottomNavigationBar: bottomNavigationBar,
+        drawer: drawer,
+        endDrawer: endDrawer,
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+        extendBodyBehindAppBar: extendBodyBehindAppBar,
+        extendBody: extendBody,
+      ),
     );
   }
 
