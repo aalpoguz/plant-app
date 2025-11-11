@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppImage extends StatelessWidget {
   final String? imageUrl;
@@ -11,7 +11,16 @@ class AppImage extends StatelessWidget {
   final BorderRadius? borderRadius;
   final String? placeholder;
 
-  const AppImage({super.key, this.imageUrl, this.assetPath, this.width, this.height, this.fit = BoxFit.cover, this.borderRadius, this.placeholder});
+  const AppImage({
+    super.key,
+    this.imageUrl,
+    this.assetPath,
+    this.width,
+    this.height,
+    this.fit = BoxFit.cover,
+    this.borderRadius,
+    this.placeholder,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +28,23 @@ class AppImage extends StatelessWidget {
 
     if (imageUrl != null) {
       // Network image with cache
-      imageWidget = CachedNetworkImage(imageUrl: imageUrl!, width: width, height: height, fit: fit, placeholder: (context, url) => _buildPlaceholder(), errorWidget: (context, url, error) => _buildError());
+      imageWidget = CachedNetworkImage(
+        imageUrl: imageUrl!,
+        width: width,
+        height: height,
+        fit: fit,
+        placeholder: (context, url) => _buildPlaceholder(),
+        errorWidget: (context, url, error) => _buildError(),
+      );
     } else if (assetPath != null) {
       // Local asset image
-      imageWidget = Image.asset(assetPath!, width: width, height: height, fit: fit, errorBuilder: (context, error, stackTrace) => _buildError());
+      imageWidget = Image.asset(
+        assetPath!,
+        width: width,
+        height: height,
+        fit: fit,
+        errorBuilder: (context, error, stackTrace) => _buildError(),
+      );
     } else {
       imageWidget = _buildPlaceholder();
     }
@@ -39,7 +61,7 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       color: Colors.grey[300],
-      child: Icon(Icons.image, size: 40.sp, color: Colors.grey[400]),
+      child: Icon(Icons.image, size: AppDimensions.icon40, color: Colors.grey[400]),
     );
   }
 
@@ -48,7 +70,7 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       color: Colors.grey[300],
-      child: Icon(Icons.broken_image, size: 40.sp, color: Colors.grey[400]),
+      child: Icon(Icons.broken_image, size: AppDimensions.icon40, color: Colors.grey[400]),
     );
   }
 }

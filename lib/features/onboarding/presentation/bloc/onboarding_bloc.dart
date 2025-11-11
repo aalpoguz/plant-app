@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:plant_app/core/usecases/usecase.dart';
 import 'package:plant_app/features/onboarding/data/onboarding_data.dart';
+import 'package:plant_app/features/onboarding/domain/usecases/complete_onboarding_usecase.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_event.dart';
 import 'package:plant_app/features/onboarding/presentation/bloc/onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final PageController pageController = PageController();
+  final CompleteOnboardingUseCase completeOnboardingUseCase;
 
-  OnboardingBloc() : super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
+  OnboardingBloc({required this.completeOnboardingUseCase})
+    : super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
     on<OnboardingPageChanged>(_onPageChanged);
     on<OnboardingNextPage>(_onNextPage);
     on<OnboardingComplete>(_onComplete);
@@ -27,17 +31,21 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     }
   }
 
-  void _onComplete(OnboardingComplete event, Emitter<OnboardingState> emit) {
-    // TODO: Navigate to main app
+  Future<void> _onComplete(OnboardingComplete event, Emitter<OnboardingState> emit) async {
+    emit(state.copyWith(status: OnboardingStatus.loading));
+
+    final result = await completeOnboardingUseCase(NoParams());
+
+    result.fold(
+      (failure) =>
+          emit(state.copyWith(status: OnboardingStatus.error, errorMessage: failure.message)),
+      (_) => emit(state.copyWith(status: OnboardingStatus.completed)),
+    );
   }
 
-  void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {
-    // TODO: Open Terms of Service
-  }
+  void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {}
 
-  void _onPrivacyTapped(OnboardingPrivacyTapped event, Emitter<OnboardingState> emit) {
-    // TODO: Open Privacy Policy
-  }
+  void _onPrivacyTapped(OnboardingPrivacyTapped event, Emitter<OnboardingState> emit) {}
 
   @override
   Future<void> close() {

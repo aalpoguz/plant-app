@@ -18,17 +18,42 @@ class OnboardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        OnboardingBackground(isFirstPage: pageIndex == 0, backgroundImagePath: onboarding.backgroundImagePath),
-        OnboardingImage(imagePath: onboarding.imagePath, verticalOffset: _getVerticalOffset(), alignment: _getAlignment()),
+        OnboardingBackground(
+          isFirstPage: pageIndex == 0,
+          backgroundImagePath: onboarding.backgroundImagePath,
+        ),
+        OnboardingImage(
+          imagePath: onboarding.imagePath,
+          verticalOffset: _getVerticalOffset(),
+          alignment: _getAlignment(),
+        ),
         SafeArea(
           bottom: false,
           child: Padding(
-            padding: EdgeInsets.only(left: AppDimensions.paddingL, top: 46.h, right: AppDimensions.paddingL),
+            padding: EdgeInsets.only(
+              left: AppDimensions.padding20,
+              top: AppDimensions.padding22,
+              right: AppDimensions.padding25,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                OnboardingTitle(titleNormal: onboarding.titleNormal, titleBold: onboarding.titleBold, titleContinuation: pageIndex != 0 ? onboarding.description : null, pageIndex: pageIndex, showBrush: pageIndex == 1 || pageIndex == 2),
-                if (pageIndex == 0 && onboarding.description != null && onboarding.description!.isNotEmpty) ...[SizedBox(height: 8.h), Text(onboarding.description!, style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary))],
+                OnboardingTitle(
+                  titleNormal: onboarding.titleNormal,
+                  titleBold: onboarding.titleBold,
+                  titleContinuation: pageIndex != 0 ? onboarding.description : null,
+                  pageIndex: pageIndex,
+                  showBrush: pageIndex == 1 || pageIndex == 2,
+                ),
+                if (pageIndex == 0 &&
+                    onboarding.description != null &&
+                    onboarding.description!.isNotEmpty) ...[
+                  SizedBox(height: AppDimensions.space8),
+                  Text(
+                    onboarding.description!,
+                    style: AppTextStyles.bodyLarge.copyWith(color: AppColors.lightTextPrimary),
+                  ),
+                ],
               ],
             ),
           ),
@@ -42,13 +67,17 @@ class OnboardingContent extends StatelessWidget {
   }
 
   double _getVerticalOffset() {
+    final screenHeight = ScreenUtil().screenHeight;
+
+    final aspectRatio = screenHeight / ScreenUtil().screenWidth;
+
     switch (pageIndex) {
       case 0:
-        return -40.h;
+        return aspectRatio > 2.1 ? -40.h : -20.h;
       case 1:
-        return 100.h;
+        return aspectRatio > 2.1 ? 100.h : 120.h;
       default:
-        return -50.h;
+        return aspectRatio > 2.1 ? -50.h : -10.h;
     }
   }
 }

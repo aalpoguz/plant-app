@@ -21,7 +21,7 @@ class BasePage extends StatelessWidget {
   final Widget? loadingWidget;
 
   const BasePage({
-    Key? key,
+    super.key,
     this.appBar,
     required this.body,
     this.backgroundColor,
@@ -40,36 +40,54 @@ class BasePage extends StatelessWidget {
     this.safeAreaRight = true,
     this.showLoading = false,
     this.loadingWidget,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     Widget content = body;
     if (useSafeArea) {
-      content = SafeArea(top: safeAreaTop, bottom: safeAreaBottom, left: safeAreaLeft, right: safeAreaRight, child: content);
-    }
-    if (showLoading) {
-      content = Stack(children: [content, loadingWidget ?? _defaultLoadingWidget()]);
+      content = SafeArea(
+        top: safeAreaTop,
+        bottom: safeAreaBottom,
+        left: safeAreaLeft,
+        right: safeAreaRight,
+        child: content,
+      );
     }
 
-    return Scaffold(
-      appBar: appBar,
-      body: content,
-      backgroundColor: Colors.white,
-      floatingActionButton: floatingActionButton,
-      floatingActionButtonLocation: floatingActionButtonLocation,
-      bottomNavigationBar: bottomNavigationBar,
-      drawer: drawer,
-      endDrawer: endDrawer,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-      extendBodyBehindAppBar: extendBodyBehindAppBar,
-      extendBody: extendBody,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        appBar: appBar,
+        body: Stack(
+          children: [
+            content,
+            if (showLoading)
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.black.withValues(alpha: 0.3),
+                child: const Center(child: CircularProgressIndicator()),
+              ),
+          ],
+        ),
+        floatingActionButton: floatingActionButton,
+        floatingActionButtonLocation: floatingActionButtonLocation,
+        bottomNavigationBar: bottomNavigationBar,
+        drawer: drawer,
+        endDrawer: endDrawer,
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+        extendBodyBehindAppBar: extendBodyBehindAppBar,
+        extendBody: extendBody,
+      ),
     );
   }
 
   Widget _defaultLoadingWidget() {
     return Container(
-      color: Colors.black.withOpacity(0.3),
+      color: Colors.black.withValues(alpha: 0.3),
       child: const Center(child: CircularProgressIndicator()),
     );
   }
