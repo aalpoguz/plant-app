@@ -123,6 +123,94 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [QuestionDetailPage]
+class QuestionDetailRoute extends PageRouteInfo<QuestionDetailRouteArgs> {
+  QuestionDetailRoute({
+    Key? key,
+    required String title,
+    required String imageUrl,
+    required String uri,
+    List<PageRouteInfo>? children,
+  }) : super(
+         QuestionDetailRoute.name,
+         args: QuestionDetailRouteArgs(
+           key: key,
+           title: title,
+           imageUrl: imageUrl,
+           uri: uri,
+         ),
+         initialChildren: children,
+       );
+
+  static const String name = 'QuestionDetailRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<QuestionDetailRouteArgs>();
+      return QuestionDetailPage(
+        key: args.key,
+        title: args.title,
+        imageUrl: args.imageUrl,
+        uri: args.uri,
+      );
+    },
+  );
+}
+
+class QuestionDetailRouteArgs {
+  const QuestionDetailRouteArgs({
+    this.key,
+    required this.title,
+    required this.imageUrl,
+    required this.uri,
+  });
+
+  final Key? key;
+
+  final String title;
+
+  final String imageUrl;
+
+  final String uri;
+
+  @override
+  String toString() {
+    return 'QuestionDetailRouteArgs{key: $key, title: $title, imageUrl: $imageUrl, uri: $uri}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! QuestionDetailRouteArgs) return false;
+    return key == other.key &&
+        title == other.title &&
+        imageUrl == other.imageUrl &&
+        uri == other.uri;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^ title.hashCode ^ imageUrl.hashCode ^ uri.hashCode;
+}
+
+/// generated route for
+/// [ScanPage]
+class ScanRoute extends PageRouteInfo<void> {
+  const ScanRoute({List<PageRouteInfo>? children})
+    : super(ScanRoute.name, initialChildren: children);
+
+  static const String name = 'ScanRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ScanPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SplashPage]
 class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute({List<PageRouteInfo>? children})

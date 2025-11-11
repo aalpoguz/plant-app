@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/shared/utils/router/app_router.dart';
 import 'package:plant_app/shared/theme/app_assets.dart';
@@ -13,9 +12,7 @@ class PremiumOfferCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cardColor = context.isDarkMode
-        ? const Color(0xff24201A)
-        : const Color(0xff24201A);
+    final cardColor = context.isDarkMode ? const Color(0xff24201A) : const Color(0xff24201A);
 
     return InkWell(
       onTap: () {
@@ -49,10 +46,7 @@ class PremiumOfferCard extends StatelessWidget {
                 children: [
                   ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [
-                        AppColors.textGradientStart,
-                        AppColors.textGradientEnd,
-                      ],
+                      colors: [AppColors.textGradientStart, AppColors.textGradientEnd],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ).createShader(bounds),
@@ -67,18 +61,13 @@ class PremiumOfferCard extends StatelessWidget {
                   ),
                   ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [
-                        AppColors.subTextGradientStart,
-                        AppColors.subTextGradientEnd,
-                      ],
+                      colors: [AppColors.subTextGradientStart, AppColors.subTextGradientEnd],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ).createShader(bounds),
                     child: Text(
                       'Tap to upgrade your account!',
-                      style: AppTextStyles.bodySmall.copyWith(
-                        color: Colors.white,
-                      ),
+                      style: AppTextStyles.bodySmall.copyWith(color: Colors.white),
                     ),
                   ),
                 ],

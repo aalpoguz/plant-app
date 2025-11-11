@@ -1,28 +1,32 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:plant_app/features/home/domain/entities/question_entity.dart';
 
 part 'question_model.g.dart';
 
 @JsonSerializable()
-class QuestionModel {
+class QuestionModel extends Equatable {
   final int id;
   final String title;
   final String subtitle;
-  final String image_uri;
+  @JsonKey(name: 'image_uri')
+  final String imageUri;
   final String uri;
   final int order;
 
-  QuestionModel({
+  const QuestionModel({
     required this.id,
     required this.title,
     required this.subtitle,
-    required this.image_uri,
+    required this.imageUri,
     required this.uri,
     required this.order,
   });
 
-  factory QuestionModel.fromJson(Map<String, dynamic> json) =>
-      _$QuestionModelFromJson(json);
+  @override
+  List<Object?> get props => [id, title, subtitle, imageUri, uri, order];
+
+  factory QuestionModel.fromJson(Map<String, dynamic> json) => _$QuestionModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$QuestionModelToJson(this);
 
@@ -31,7 +35,7 @@ class QuestionModel {
       id: id,
       title: title,
       subtitle: subtitle,
-      image_uri: image_uri,
+      imageUri: imageUri,
       uri: uri,
       order: order,
     );

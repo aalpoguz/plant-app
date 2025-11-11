@@ -33,17 +33,15 @@ class PaywallCheckboxCard extends StatelessWidget {
                   begin: Alignment.centerRight,
                   end: Alignment.centerLeft,
                   colors: [
-                    const Color(0xFF28AF6E).withOpacity(0.24),
-                    const Color(0xFF28AF6E).withOpacity(0.0),
+                    const Color(0xFF28AF6E).withValues(alpha: 0.24),
+                    const Color(0xFF28AF6E).withValues(alpha: 0.0),
                   ],
                 )
               : null,
-          color: isSelected ? null : Colors.white.withOpacity(0.05),
+          color: isSelected ? null : Colors.white.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(AppDimensions.radius16),
           border: Border.all(
-            color: isSelected
-                ? AppColors.primary
-                : Colors.white.withOpacity(0.3),
+            color: isSelected ? AppColors.primary : Colors.white.withValues(alpha: 0.3),
             width: 0.5,
           ),
         ),
@@ -58,9 +56,7 @@ class PaywallCheckboxCard extends StatelessWidget {
                     height: AppDimensions.height24,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: isSelected
-                          ? AppColors.primary
-                          : Colors.white.withOpacity(0.08),
+                      color: isSelected ? AppColors.primary : Colors.white.withValues(alpha: 0.08),
                     ),
 
                     child: isSelected
@@ -83,16 +79,16 @@ class PaywallCheckboxCard extends StatelessWidget {
                           title,
                           style: AppTextStyles.bodyLarge.copyWith(
                             color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: AppDimensions.fontSize16,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16.sp,
                           ),
                         ),
-                        SizedBox(height: AppDimensions.space4),
+                        SizedBox(height: AppDimensions.space2),
                         Text(
                           price,
                           style: AppTextStyles.labelLarge.copyWith(
-                            color: Colors.white.withOpacity(0.7),
-                            fontSize: AppDimensions.fontSize12,
+                            color: Colors.white.withValues(alpha: 0.7),
+                            fontSize: 12.sp,
                           ),
                         ),
                       ],
@@ -105,10 +101,7 @@ class PaywallCheckboxCard extends StatelessWidget {
                   top: 0.h,
                   right: 0.w,
                   child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 12.w,
-                      vertical: 6.h,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                     decoration: BoxDecoration(
                       color: const Color(0xFF2DBD7E),
                       borderRadius: BorderRadius.only(

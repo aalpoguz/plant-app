@@ -10,12 +10,7 @@ class MiniHomeCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback? onTap;
 
-  const MiniHomeCard({
-    super.key,
-    required this.title,
-    required this.imageUrl,
-    this.onTap,
-  });
+  const MiniHomeCard({super.key, required this.title, required this.imageUrl, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +22,15 @@ class MiniHomeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimensions.radius12),
         border: Border.all(color: context.dividerColor),
       ),
+      clipBehavior: Clip.hardEdge,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(AppDimensions.radius8),
           child: Stack(
+            clipBehavior: Clip.none,
             children: [
-              // Resim - Sağda yarısı görünecek şekilde
               Positioned(
                 right: -5.w,
                 top: 0,
@@ -49,14 +45,10 @@ class MiniHomeCard extends StatelessWidget {
                     width: 120.w,
                     height: 152.h,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) =>
-                        Container(color: context.dividerColor),
+                    placeholder: (context, url) => Container(color: context.dividerColor),
                     errorWidget: (context, url, error) => Container(
                       color: context.dividerColor,
-                      child: Icon(
-                        Icons.image_not_supported,
-                        color: context.textDisabledColor,
-                      ),
+                      child: Icon(Icons.image_not_supported, color: context.textDisabledColor),
                     ),
                   ),
                 ),
@@ -64,11 +56,12 @@ class MiniHomeCard extends StatelessWidget {
               Positioned(
                 top: 16.h,
                 left: 12.w,
-                right: 85.w,
+                right: 25.w,
                 child: Text(
                   title,
                   style: AppTextStyles.bodyLargeMedium.copyWith(
                     color: context.textPrimaryColor,
+                    height: 1.3,
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

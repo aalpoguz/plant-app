@@ -23,6 +23,19 @@ class OnboardingTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final aspectRatio = screenHeight / screenWidth;
+
+    // iOS ve Android için brush pozisyonunu ayarla
+    final brushTopOffset = pageIndex == 1
+        ? (aspectRatio > 2.1 ? 30.h : 34.h)
+        : (aspectRatio > 2.1 ? 28.h : 34.h);
+
+    final brushLeftOffset = pageIndex == 1
+        ? (aspectRatio > 2.1 ? 30.w : -35.w)
+        : (aspectRatio > 2.1 ? 28.w : -25.w);
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -31,7 +44,7 @@ class OnboardingTitle extends StatelessWidget {
           text: TextSpan(
             style: AppTextStyles.heading1Light.copyWith(
               color: AppColors.lightTextPrimary,
-              height: 1.2,
+              height: 1.1,
             ),
             children: [
               TextSpan(text: titleNormal),
@@ -42,18 +55,15 @@ class OnboardingTitle extends StatelessWidget {
               if (titleContinuation != null && pageIndex != 0)
                 TextSpan(
                   text: titleContinuation,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: AppDimensions.fontSize28,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28.sp),
                 ),
             ],
           ),
         ),
         if (showBrush)
           Positioned(
-            top: pageIndex == 1 ? 30.h : 28.h,
-            right: -30,
+            top: brushTopOffset,
+            right: brushLeftOffset,
             child: Image.asset(
               AppAssets.brush,
               width: AppDimensions.width151,

@@ -21,8 +21,17 @@ class HomeHeader extends StatelessWidget {
           child: Stack(
             children: [
               ColorFiltered(
-                colorFilter: ColorFilter.mode(isDark ? Colors.black.withOpacity(0.8) : Colors.transparent, BlendMode.darken),
-                child: Image.asset(AppAssets.homeAppBarBackground, width: double.infinity, fit: BoxFit.cover),
+                colorFilter: ColorFilter.mode(
+                  isDark
+                      ? Colors.black.withValues(alpha: 0.8)
+                      : Colors.white.withValues(alpha: 0.8),
+                  BlendMode.darken,
+                ),
+                child: Image.asset(
+                  AppAssets.homeAppBarBackground,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
               Positioned(
                 left: 16.w,
@@ -38,8 +47,18 @@ class HomeHeader extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Hi, plant lover!', style: AppTextStyles.bodyLarge.copyWith(color: context.textPrimaryColor)),
-                              Text('Good Afternoon! ⛅', style: AppTextStyles.heading1.copyWith(color: context.textPrimaryColor)),
+                              Text(
+                                'Hi, plant lover!',
+                                style: AppTextStyles.bodyLarge.copyWith(
+                                  color: context.textPrimaryColor,
+                                ),
+                              ),
+                              Text(
+                                'Good Afternoon! ⛅',
+                                style: AppTextStyles.heading1.copyWith(
+                                  color: context.textPrimaryColor,
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -47,12 +66,21 @@ class HomeHeader extends StatelessWidget {
                           builder: (context, themeProvider, _) {
                             return Container(
                               decoration: BoxDecoration(
-                                color: context.surfaceColor.withOpacity(0.9),
+                                color: context.surfaceColor.withValues(alpha: 0.9),
                                 borderRadius: BorderRadius.circular(12.r),
-                                boxShadow: [BoxShadow(color: context.shadowColor, blurRadius: 8, offset: const Offset(0, 2))],
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: context.shadowColor,
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
                               ),
                               child: IconButton(
-                                icon: Icon(themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode, color: AppColors.primary),
+                                icon: Icon(
+                                  themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                                  color: AppColors.primary,
+                                ),
                                 onPressed: () {
                                   themeProvider.toggleTheme();
                                 },

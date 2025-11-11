@@ -13,7 +13,8 @@ class ConnectivityServiceImpl implements ConnectivityService {
   final _controller = StreamController<ConnectivityStatus>.broadcast();
   StreamSubscription<List<ConnectivityResult>>? _subscription;
 
-  ConnectivityServiceImpl({Connectivity? connectivity}) : _connectivity = connectivity ?? Connectivity() {
+  ConnectivityServiceImpl({Connectivity? connectivity})
+    : _connectivity = connectivity ?? Connectivity() {
     _initialize();
   }
 
@@ -22,7 +23,7 @@ class ConnectivityServiceImpl implements ConnectivityService {
       (results) {
         _controller.add(_mapResults(results));
       },
-      onError: (error) {
+      onError: (Object error) {
         _controller.addError(error);
       },
     );

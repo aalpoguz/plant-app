@@ -20,8 +20,22 @@ void main() {
 
   group('GetQuestionsUsecase', () {
     final tQuestions = [
-      const QuestionEntity(id: 1, title: 'How to water?', subtitle: 'Learn about watering', image_uri: 'image1.jpg', uri: 'uri1', order: 1),
-      const QuestionEntity(id: 2, title: 'How to fertilize?', subtitle: 'Learn about fertilizing', image_uri: 'image2.jpg', uri: 'uri2', order: 2),
+      const QuestionEntity(
+        id: 1,
+        title: 'How to water?',
+        subtitle: 'Learn about watering',
+        imageUri: 'image1.jpg',
+        uri: 'uri1',
+        order: 1,
+      ),
+      const QuestionEntity(
+        id: 2,
+        title: 'How to fertilize?',
+        subtitle: 'Learn about fertilizing',
+        imageUri: 'image2.jpg',
+        uri: 'uri2',
+        order: 2,
+      ),
     ];
 
     test('should get questions from repository', () async {

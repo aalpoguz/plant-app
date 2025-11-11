@@ -6,11 +6,7 @@ class PageIndicator extends StatelessWidget {
   final int currentPage;
   final int pageCount;
 
-  const PageIndicator({
-    super.key,
-    required this.currentPage,
-    required this.pageCount,
-  });
+  const PageIndicator({super.key, required this.currentPage, required this.pageCount});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +22,7 @@ class PageIndicator extends StatelessWidget {
           decoration: BoxDecoration(
             color: currentPage == index
                 ? AppColors.darkSurface
-                : AppColors.darkSurface.withOpacity(0.3),
+                : AppColors.darkSurface.withValues(alpha: 0.3),
             shape: BoxShape.circle,
           ),
         ),

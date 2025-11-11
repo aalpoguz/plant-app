@@ -12,11 +12,7 @@ class OnboardingContent extends StatelessWidget {
   final OnboardingEntity onboarding;
   final int pageIndex;
 
-  const OnboardingContent({
-    super.key,
-    required this.onboarding,
-    required this.pageIndex,
-  });
+  const OnboardingContent({super.key, required this.onboarding, required this.pageIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +31,9 @@ class OnboardingContent extends StatelessWidget {
           bottom: false,
           child: Padding(
             padding: EdgeInsets.only(
-              left: AppDimensions.padding24,
-              top: 46.h,
-              right: AppDimensions.padding24,
+              left: AppDimensions.padding20,
+              top: AppDimensions.padding22,
+              right: AppDimensions.padding25,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,9 +41,7 @@ class OnboardingContent extends StatelessWidget {
                 OnboardingTitle(
                   titleNormal: onboarding.titleNormal,
                   titleBold: onboarding.titleBold,
-                  titleContinuation: pageIndex != 0
-                      ? onboarding.description
-                      : null,
+                  titleContinuation: pageIndex != 0 ? onboarding.description : null,
                   pageIndex: pageIndex,
                   showBrush: pageIndex == 1 || pageIndex == 2,
                 ),
@@ -57,9 +51,7 @@ class OnboardingContent extends StatelessWidget {
                   SizedBox(height: AppDimensions.space8),
                   Text(
                     onboarding.description!,
-                    style: AppTextStyles.bodyLarge.copyWith(
-                      color: AppColors.lightTextPrimary,
-                    ),
+                    style: AppTextStyles.bodyLarge.copyWith(color: AppColors.lightTextPrimary),
                   ),
                 ],
               ],
@@ -75,13 +67,17 @@ class OnboardingContent extends StatelessWidget {
   }
 
   double _getVerticalOffset() {
+    final screenHeight = ScreenUtil().screenHeight;
+
+    final aspectRatio = screenHeight / ScreenUtil().screenWidth;
+
     switch (pageIndex) {
       case 0:
-        return -40.h;
+        return aspectRatio > 2.1 ? -40.h : -20.h;
       case 1:
-        return 100.h;
+        return aspectRatio > 2.1 ? 100.h : 120.h;
       default:
-        return -50.h;
+        return aspectRatio > 2.1 ? -50.h : -10.h;
     }
   }
 }

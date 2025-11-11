@@ -1,4 +1,6 @@
-class OnboardingEntity {
+import 'package:equatable/equatable.dart';
+
+class OnboardingEntity extends Equatable {
   final String imagePath;
   final String backgroundImagePath;
   final String titleNormal;
@@ -12,4 +14,7 @@ class OnboardingEntity {
     required this.titleBold,
     this.description,
   });
+
+  @override
+  List<Object?> get props => [imagePath, backgroundImagePath, titleNormal, titleBold, description];
 }

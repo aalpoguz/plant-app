@@ -18,12 +18,10 @@ class AppTheme {
       primary: AppColors.primary,
       secondary: AppColors.secondary,
       surface: AppColors.lightSurface,
-      background: AppColors.lightBackground,
       error: AppColors.error,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
-      onSurface: AppColors.lightTextHint,
-      onBackground: AppColors.lightTextPrimary,
+      onSurface: AppColors.lightTextPrimary,
       onError: Colors.white,
     ),
 
@@ -41,9 +39,18 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.lightSurface,
-      contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.padding16, vertical: AppDimensions.padding8),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12), borderSide: BorderSide.none),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.padding16,
+        vertical: AppDimensions.padding8,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
+        borderSide: BorderSide.none,
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
@@ -68,11 +75,19 @@ class AppTheme {
       unselectedItemColor: AppColors.lightTextHint,
       type: BottomNavigationBarType.fixed,
       elevation: 4,
-      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.w400, color: AppColors.primary),
+      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
+      ),
       unselectedLabelStyle: AppTextStyles.labelMedium.copyWith(color: AppColors.lightTextHint),
     ),
 
-    bottomAppBarTheme: const BottomAppBarThemeData(color: AppColors.lightBottomNavBackground, elevation: 8, surfaceTintColor: Colors.transparent, shadowColor: Colors.black26),
+    bottomAppBarTheme: const BottomAppBarThemeData(
+      color: AppColors.lightBottomNavBackground,
+      elevation: 8,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black26,
+    ),
 
     // Text Theme
     textTheme: TextTheme(
@@ -94,7 +109,10 @@ class AppTheme {
         minimumSize: Size(double.infinity, AppDimensions.buttonHeight56),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding24, vertical: AppDimensions.padding8),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.padding24,
+          vertical: AppDimensions.padding8,
+        ),
       ),
     ),
 
@@ -103,7 +121,10 @@ class AppTheme {
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primary,
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding16, vertical: AppDimensions.padding4),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.padding16,
+          vertical: AppDimensions.padding4,
+        ),
       ),
     ),
 
@@ -141,12 +162,10 @@ class AppTheme {
       primary: AppColors.primary,
       secondary: AppColors.secondary,
       surface: AppColors.darkSurface,
-      background: AppColors.darkBackground,
       error: AppColors.error,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
       onSurface: AppColors.darkTextSecondary,
-      onBackground: AppColors.darkTextSecondary,
       onError: Colors.white,
     ),
 
@@ -164,9 +183,18 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.darkSurface,
-      contentPadding: EdgeInsets.symmetric(horizontal: AppDimensions.padding16, vertical: AppDimensions.padding8),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12), borderSide: BorderSide.none),
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12), borderSide: BorderSide.none),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.padding16,
+        vertical: AppDimensions.padding8,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.radius12),
+        borderSide: BorderSide.none,
+      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppDimensions.radius12),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
@@ -190,10 +218,18 @@ class AppTheme {
       unselectedItemColor: AppColors.darkTextHint,
       type: BottomNavigationBarType.fixed,
       elevation: 8,
-      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.w400, color: AppColors.primary),
+      selectedLabelStyle: AppTextStyles.labelMedium.copyWith(
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
+      ),
       unselectedLabelStyle: AppTextStyles.labelMedium.copyWith(color: AppColors.darkTextHint),
     ),
-    bottomAppBarTheme: const BottomAppBarThemeData(color: AppColors.darkBottomNavBackground, elevation: 8, surfaceTintColor: Colors.transparent, shadowColor: Colors.black26),
+    bottomAppBarTheme: const BottomAppBarThemeData(
+      color: AppColors.darkBottomNavBackground,
+      elevation: 8,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.black26,
+    ),
     // Text Theme
     textTheme: TextTheme(
       displayLarge: AppTextStyles.displayLarge.copyWith(color: AppColors.darkTextSecondary),
@@ -214,7 +250,10 @@ class AppTheme {
         minimumSize: Size(double.infinity, AppDimensions.buttonHeight56),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimensions.radius12)),
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding24, vertical: AppDimensions.padding8),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.padding24,
+          vertical: AppDimensions.padding8,
+        ),
       ),
     ),
 
@@ -223,7 +262,10 @@ class AppTheme {
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primary,
         textStyle: AppTextStyles.buttonLarge,
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding16, vertical: AppDimensions.padding4),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.padding16,
+          vertical: AppDimensions.padding4,
+        ),
       ),
     ),
 

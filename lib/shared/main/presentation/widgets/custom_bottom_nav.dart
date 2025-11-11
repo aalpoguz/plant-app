@@ -2,17 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
-import 'package:plant_app/shared/utils/navigation/bottom_nav_page.dart';
+
+// Bottom Navigation Item Config
+class _BottomNavItem {
+  final String label;
+  final String iconPath;
+
+  const _BottomNavItem(this.label, this.iconPath);
+}
+
+// Bottom Navigation Configuration
+class _BottomNavConfig {
+  static const items = [
+    _BottomNavItem('Home', 'assets/svg/icons/home.svg'),
+    _BottomNavItem('Diagnose', 'assets/svg/icons/diagnose.svg'),
+    _BottomNavItem('My Garden', 'assets/svg/icons/my-garden.svg'),
+    _BottomNavItem('Profile', 'assets/svg/icons/profile.svg'),
+  ];
+}
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  const CustomBottomNavBar({
-    super.key,
-    required this.currentIndex,
-    required this.onTap,
-  });
+  const CustomBottomNavBar({super.key, required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +37,17 @@ class CustomBottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            ...BottomNavPage.values.asMap().entries.map((entry) {
+            ..._BottomNavConfig.items.asMap().entries.map((entry) {
               final index = entry.key;
-              final page = entry.value;
+              final item = entry.value;
 
               if (index == 2) {
                 return Row(
                   children: [
                     SizedBox(width: AppDimensions.icon48), // FAB boşluğu
-                    _NavBarItem(
-                      icon: page.icon,
-                      label: page.label,
+                    _NavBarItemWidget(
+                      icon: item.iconPath,
+                      label: item.label,
                       isActive: currentIndex == index,
                       onTap: () => onTap(index),
                     ),
@@ -42,9 +55,9 @@ class CustomBottomNavBar extends StatelessWidget {
                 );
               }
 
-              return _NavBarItem(
-                icon: page.icon,
-                label: page.label,
+              return _NavBarItemWidget(
+                icon: item.iconPath,
+                label: item.label,
                 isActive: currentIndex == index,
                 onTap: () => onTap(index),
               );
@@ -56,13 +69,13 @@ class CustomBottomNavBar extends StatelessWidget {
   }
 }
 
-class _NavBarItem extends StatelessWidget {
-  final dynamic icon;
+class _NavBarItemWidget extends StatelessWidget {
+  final String icon;
   final String label;
   final bool isActive;
   final VoidCallback onTap;
 
-  const _NavBarItem({
+  const _NavBarItemWidget({
     required this.icon,
     required this.label,
     required this.isActive,
@@ -74,17 +87,13 @@ class _NavBarItem extends StatelessWidget {
     final theme = Theme.of(context);
     final navTheme = theme.bottomNavigationBarTheme;
 
-    final selectedColor =
-        navTheme.selectedItemColor ?? theme.colorScheme.primary;
+    final selectedColor = navTheme.selectedItemColor ?? theme.colorScheme.primary;
     final unselectedColor =
-        navTheme.unselectedItemColor ??
-        theme.colorScheme.onSurface.withOpacity(0.6);
+        navTheme.unselectedItemColor ?? theme.colorScheme.onSurface.withValues(alpha: 0.6);
 
     final color = isActive ? selectedColor : unselectedColor;
 
-    final textStyle = isActive
-        ? navTheme.selectedLabelStyle
-        : navTheme.unselectedLabelStyle;
+    final textStyle = isActive ? navTheme.selectedLabelStyle : navTheme.unselectedLabelStyle;
 
     return GestureDetector(
       onTap: onTap,
@@ -112,27 +121,12 @@ class _NavBarItem extends StatelessWidget {
     );
   }
 
-  Widget _buildIcon(dynamic iconData, Color color) {
-    if (iconData is IconData) {
-      return Icon(iconData, color: color, size: AppDimensions.icon26);
-    } else if (iconData is String) {
-      // SVG icon
-      if (iconData.endsWith('.svg')) {
-        return SvgPicture.asset(
-          iconData,
-          width: AppDimensions.icon26,
-          height: AppDimensions.icon26,
-          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-        );
-      }
-      // PNG/JPG fallback
-      return Image.asset(
-        iconData,
-        width: AppDimensions.icon26,
-        height: AppDimensions.icon26,
-        color: color,
-      );
-    }
-    return const SizedBox.shrink();
+  Widget _buildIcon(String iconPath, Color color) {
+    return SvgPicture.asset(
+      iconPath,
+      width: AppDimensions.icon26,
+      height: AppDimensions.icon26,
+      colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+    );
   }
 }

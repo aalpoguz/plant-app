@@ -14,7 +14,9 @@ class AppDimensions {
   static double padding16 = 16.w;
   static double padding18 = 18.w;
   static double padding20 = 20.w;
+  static double padding22 = 22.w;
   static double padding24 = 24.w;
+  static double padding25 = 25.w;
   static double padding28 = 28.w;
   static double padding30 = 30.w;
   static double padding32 = 32.w;
@@ -23,6 +25,7 @@ class AppDimensions {
   static double padding46 = 46.w;
 
   // Border Radius
+  static double radius4 = 4.r;
   static double radius8 = 8.r;
   static double radius12 = 12.r;
   static double radius14 = 14.r;
@@ -54,8 +57,10 @@ class AppDimensions {
   static double width66 = 66.w;
   static double width124 = 124.w;
   static double width151 = 151.w;
+  static double width152 = 152.w;
   static double width155 = 155.w;
   static double width164 = 164.w;
+  static double width240 = 240.w;
   static double width320 = 320.w;
   static double width360 = 360.w;
 
@@ -81,17 +86,14 @@ class AppDimensions {
   static double height100 = 100.h;
   static double height124 = 124.h;
   static double height130 = 130.h;
+  static double height152 = 152.h;
   static double height164 = 164.h;
+  static double height200 = 200.h;
   static double heightNegative40 = -40.h;
   static double heightNegative50 = -50.h;
 
-  // Font Sizes
-  static double fontSize12 = 12.sp;
-  static double fontSize16 = 16.sp;
-  static double fontSize17 = 17.sp;
-  static double fontSize28 = 28.sp;
-
   // Spacing
+  static double space2 = 2.h;
   static double space4 = 4.h;
   static double space8 = 8.h;
   static double space10 = 10.h;

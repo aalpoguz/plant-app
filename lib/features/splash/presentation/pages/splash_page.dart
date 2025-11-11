@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plant_app/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:plant_app/features/splash/presentation/bloc/splash_event.dart';
 import 'package:plant_app/features/splash/presentation/bloc/splash_state.dart';
-import 'package:plant_app/shared/presentation/base_page.dart';
 import 'package:plant_app/shared/theme/app_colors.dart';
 import 'package:plant_app/shared/utils/di/injection_container.dart';
 import 'package:plant_app/shared/utils/router/app_router.dart';
@@ -15,7 +14,10 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => getIt<SplashBloc>()..add(SplashInitialized()), child: const SplashView());
+    return BlocProvider(
+      create: (context) => getIt<SplashBloc>()..add(SplashInitialized()),
+      child: const SplashView(),
+    );
   }
 }
 
@@ -39,9 +41,15 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
   }
 
   void _setupAnimations() {
-    _animationController = AnimationController(duration: const Duration(milliseconds: 1500), vsync: this);
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
 
-    _scaleAnimation = Tween<double>(begin: 0.5, end: 1.0).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutBack));
+    _scaleAnimation = Tween<double>(
+      begin: 0.5,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutBack));
 
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(

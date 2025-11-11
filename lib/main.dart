@@ -15,7 +15,10 @@ void main() async {
   // Initialize dependencies
   await initializeDependencies();
 
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   runApp(const MainApp());
 }
@@ -38,6 +41,7 @@ class MainApp extends StatelessWidget {
             designSize: const Size(375, 812),
             minTextAdapt: true,
             splitScreenMode: true,
+            ensureScreenSize: true,
             builder: (context, child) {
               return MaterialApp.router(
                 debugShowCheckedModeBanner: false,
@@ -52,7 +56,12 @@ class MainApp extends StatelessWidget {
                       Consumer<ConnectivityProvider>(
                         builder: (context, connectivity, _) {
                           if (!connectivity.isConnected) {
-                            return const Positioned(top: 0, left: 0, right: 0, child: NoConnectionBanner());
+                            return const Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              child: NoConnectionBanner(),
+                            );
                           }
                           return const SizedBox.shrink();
                         },

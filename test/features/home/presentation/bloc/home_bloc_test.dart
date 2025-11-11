@@ -38,11 +38,21 @@ void main() {
     image: CategoryImageEntity(id: 1, name: 'test.png', url: 'https://test.com/image.png'),
   );
 
-  const tQuestion = QuestionEntity(id: 1, title: 'Test Question', subtitle: 'Test Subtitle', image_uri: 'https://test.com/question.png', uri: 'test-question', order: 1);
+  const tQuestion = QuestionEntity(
+    id: 1,
+    title: 'Test Question',
+    subtitle: 'Test Subtitle',
+    imageUri: 'https://test.com/question.png',
+    uri: 'test-question',
+    order: 1,
+  );
 
   group('HomeBloc', () {
     test('initial state should have initial status', () {
-      final bloc = HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+      final bloc = HomeBloc(
+        getCategoriesUseCase: mockGetCategoriesUseCase,
+        getQuestionsUsecase: mockGetQuestionsUsecase,
+      );
 
       expect(bloc.state.categoriesStatus, HomeDataStatus.initial);
       expect(bloc.state.questionsStatus, HomeDataStatus.initial);
@@ -55,8 +65,13 @@ void main() {
     blocTest<HomeBloc, HomeState>(
       'emits [loading, loaded] when LoadCategoriesEvent is successful',
       build: () {
-        when(() => mockGetCategoriesUseCase(any())).thenAnswer((_) async => const Right([tCategory]));
-        return HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+        when(
+          () => mockGetCategoriesUseCase(any()),
+        ).thenAnswer((_) async => const Right([tCategory]));
+        return HomeBloc(
+          getCategoriesUseCase: mockGetCategoriesUseCase,
+          getQuestionsUsecase: mockGetQuestionsUsecase,
+        );
       },
       act: (bloc) => bloc.add(const LoadCategoriesEvent()),
       expect: () => [
@@ -71,11 +86,19 @@ void main() {
     blocTest<HomeBloc, HomeState>(
       'emits [loading, error] when LoadCategoriesEvent fails',
       build: () {
-        when(() => mockGetCategoriesUseCase(any())).thenAnswer((_) async => const Left(ServerFailure('Server error')));
-        return HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+        when(
+          () => mockGetCategoriesUseCase(any()),
+        ).thenAnswer((_) async => const Left(ServerFailure('Server error')));
+        return HomeBloc(
+          getCategoriesUseCase: mockGetCategoriesUseCase,
+          getQuestionsUsecase: mockGetQuestionsUsecase,
+        );
       },
       act: (bloc) => bloc.add(const LoadCategoriesEvent()),
-      expect: () => [const HomeState(categoriesStatus: HomeDataStatus.loading), const HomeState(categoriesStatus: HomeDataStatus.error, categoriesError: 'Server error')],
+      expect: () => [
+        const HomeState(categoriesStatus: HomeDataStatus.loading),
+        const HomeState(categoriesStatus: HomeDataStatus.error, categoriesError: 'Server error'),
+      ],
       verify: (_) {
         verify(() => mockGetCategoriesUseCase(NoParams())).called(1);
       },
@@ -84,8 +107,13 @@ void main() {
     blocTest<HomeBloc, HomeState>(
       'emits [loading, loaded] when LoadQuestionsEvent is successful',
       build: () {
-        when(() => mockGetQuestionsUsecase(any())).thenAnswer((_) async => const Right([tQuestion]));
-        return HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+        when(
+          () => mockGetQuestionsUsecase(any()),
+        ).thenAnswer((_) async => const Right([tQuestion]));
+        return HomeBloc(
+          getCategoriesUseCase: mockGetCategoriesUseCase,
+          getQuestionsUsecase: mockGetQuestionsUsecase,
+        );
       },
       act: (bloc) => bloc.add(const LoadQuestionsEvent()),
       expect: () => [
@@ -100,11 +128,19 @@ void main() {
     blocTest<HomeBloc, HomeState>(
       'emits [loading, error] when LoadQuestionsEvent fails',
       build: () {
-        when(() => mockGetQuestionsUsecase(any())).thenAnswer((_) async => const Left(NetworkFailure('Network error')));
-        return HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+        when(
+          () => mockGetQuestionsUsecase(any()),
+        ).thenAnswer((_) async => const Left(NetworkFailure('Network error')));
+        return HomeBloc(
+          getCategoriesUseCase: mockGetCategoriesUseCase,
+          getQuestionsUsecase: mockGetQuestionsUsecase,
+        );
       },
       act: (bloc) => bloc.add(const LoadQuestionsEvent()),
-      expect: () => [const HomeState(questionsStatus: HomeDataStatus.loading), const HomeState(questionsStatus: HomeDataStatus.error, questionsError: 'Network error')],
+      expect: () => [
+        const HomeState(questionsStatus: HomeDataStatus.loading),
+        const HomeState(questionsStatus: HomeDataStatus.error, questionsError: 'Network error'),
+      ],
       verify: (_) {
         verify(() => mockGetQuestionsUsecase(NoParams())).called(1);
       },
@@ -113,14 +149,29 @@ void main() {
     blocTest<HomeBloc, HomeState>(
       'emits [loading, loaded] for both when LoadHomeDataEvent is successful',
       build: () {
-        when(() => mockGetCategoriesUseCase(any())).thenAnswer((_) async => const Right([tCategory]));
-        when(() => mockGetQuestionsUsecase(any())).thenAnswer((_) async => const Right([tQuestion]));
-        return HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+        when(
+          () => mockGetCategoriesUseCase(any()),
+        ).thenAnswer((_) async => const Right([tCategory]));
+        when(
+          () => mockGetQuestionsUsecase(any()),
+        ).thenAnswer((_) async => const Right([tQuestion]));
+        return HomeBloc(
+          getCategoriesUseCase: mockGetCategoriesUseCase,
+          getQuestionsUsecase: mockGetQuestionsUsecase,
+        );
       },
       act: (bloc) => bloc.add(const LoadHomeDataEvent()),
       expect: () => [
-        const HomeState(categoriesStatus: HomeDataStatus.loading, questionsStatus: HomeDataStatus.loading),
-        const HomeState(categoriesStatus: HomeDataStatus.loaded, categories: [tCategory], questionsStatus: HomeDataStatus.loaded, questions: [tQuestion]),
+        const HomeState(
+          categoriesStatus: HomeDataStatus.loading,
+          questionsStatus: HomeDataStatus.loading,
+        ),
+        const HomeState(
+          categoriesStatus: HomeDataStatus.loaded,
+          categories: [tCategory],
+          questionsStatus: HomeDataStatus.loaded,
+          questions: [tQuestion],
+        ),
       ],
       verify: (_) {
         verify(() => mockGetCategoriesUseCase(NoParams())).called(1);
@@ -131,14 +182,29 @@ void main() {
     blocTest<HomeBloc, HomeState>(
       'emits error for categories and loaded for questions when LoadHomeDataEvent partially fails',
       build: () {
-        when(() => mockGetCategoriesUseCase(any())).thenAnswer((_) async => const Left(ServerFailure('Server error')));
-        when(() => mockGetQuestionsUsecase(any())).thenAnswer((_) async => const Right([tQuestion]));
-        return HomeBloc(getCategoriesUseCase: mockGetCategoriesUseCase, getQuestionsUsecase: mockGetQuestionsUsecase);
+        when(
+          () => mockGetCategoriesUseCase(any()),
+        ).thenAnswer((_) async => const Left(ServerFailure('Server error')));
+        when(
+          () => mockGetQuestionsUsecase(any()),
+        ).thenAnswer((_) async => const Right([tQuestion]));
+        return HomeBloc(
+          getCategoriesUseCase: mockGetCategoriesUseCase,
+          getQuestionsUsecase: mockGetQuestionsUsecase,
+        );
       },
       act: (bloc) => bloc.add(const LoadHomeDataEvent()),
       expect: () => [
-        const HomeState(categoriesStatus: HomeDataStatus.loading, questionsStatus: HomeDataStatus.loading),
-        const HomeState(categoriesStatus: HomeDataStatus.error, categoriesError: 'Server error', questionsStatus: HomeDataStatus.loaded, questions: [tQuestion]),
+        const HomeState(
+          categoriesStatus: HomeDataStatus.loading,
+          questionsStatus: HomeDataStatus.loading,
+        ),
+        const HomeState(
+          categoriesStatus: HomeDataStatus.error,
+          categoriesError: 'Server error',
+          questionsStatus: HomeDataStatus.loaded,
+          questions: [tQuestion],
+        ),
       ],
       verify: (_) {
         verify(() => mockGetCategoriesUseCase(NoParams())).called(1);
@@ -150,7 +216,10 @@ void main() {
   group('HomeState', () {
     test('copyWith should copy with new values', () {
       const state = HomeState();
-      final newState = state.copyWith(categoriesStatus: HomeDataStatus.loaded, categories: [tCategory]);
+      final newState = state.copyWith(
+        categoriesStatus: HomeDataStatus.loaded,
+        categories: [tCategory],
+      );
 
       expect(newState.categoriesStatus, HomeDataStatus.loaded);
       expect(newState.categories, [tCategory]);
@@ -158,7 +227,14 @@ void main() {
     });
 
     test('props should contain all fields', () {
-      const state = HomeState(categoriesStatus: HomeDataStatus.loaded, categories: [tCategory], categoriesError: 'error', questionsStatus: HomeDataStatus.error, questions: [tQuestion], questionsError: 'question error');
+      const state = HomeState(
+        categoriesStatus: HomeDataStatus.loaded,
+        categories: [tCategory],
+        categoriesError: 'error',
+        questionsStatus: HomeDataStatus.error,
+        questions: [tQuestion],
+        questionsError: 'question error',
+      );
 
       expect(state.props, [
         HomeDataStatus.loaded,

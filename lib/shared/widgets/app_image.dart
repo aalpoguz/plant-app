@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppImage extends StatelessWidget {
   final String? imageUrl;
@@ -62,11 +61,7 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       color: Colors.grey[300],
-      child: Icon(
-        Icons.image,
-        size: AppDimensions.icon40,
-        color: Colors.grey[400],
-      ),
+      child: Icon(Icons.image, size: AppDimensions.icon40, color: Colors.grey[400]),
     );
   }
 
@@ -75,11 +70,7 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       color: Colors.grey[300],
-      child: Icon(
-        Icons.broken_image,
-        size: AppDimensions.icon40,
-        color: Colors.grey[400],
-      ),
+      child: Icon(Icons.broken_image, size: AppDimensions.icon40, color: Colors.grey[400]),
     );
   }
 }

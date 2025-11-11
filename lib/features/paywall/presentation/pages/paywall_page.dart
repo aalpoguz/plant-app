@@ -40,17 +40,27 @@ class _PaywallPageState extends State<PaywallPage> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (!didPop) {
+          await _handleClose();
+        }
+      },
       child: Scaffold(
         backgroundColor: Colors.black,
         body: SafeArea(
           top: false,
+
           child: Container(
             decoration: BoxDecoration(color: AppColors.paywallGradient),
             child: Stack(
               children: [
                 Column(
                   children: [
-                    Image.asset('assets/images/paywall/paywall_bg.png', fit: BoxFit.contain, width: double.infinity),
+                    Image.asset(
+                      'assets/images/paywall/paywall_bg.png',
+                      fit: BoxFit.contain,
+                      width: double.infinity,
+                    ),
                     Expanded(child: Container(color: AppColors.paywallGradient)),
                   ],
                 ),
@@ -60,11 +70,15 @@ class _PaywallPageState extends State<PaywallPage> {
                   child: GestureDetector(
                     onTap: _handleClose,
                     child: Container(
-                      width: AppDimensions.icon32,
-                      height: AppDimensions.height32,
+                      width: AppDimensions.icon24,
+                      height: AppDimensions.icon24,
                       decoration: BoxDecoration(color: Colors.black, shape: BoxShape.circle),
                       child: Center(
-                        child: SvgPicture.asset(AppAssets.closeIcon, width: AppDimensions.width12, height: AppDimensions.height12, colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                        child: SvgPicture.asset(
+                          AppAssets.closeIcon,
+                          width: AppDimensions.width24,
+                          height: AppDimensions.height24,
+                        ),
                       ),
                     ),
                   ),
@@ -82,9 +96,15 @@ class _PaywallPageState extends State<PaywallPage> {
                         children: [
                           Text(
                             "PlantApp ",
-                            style: AppTextStyles.heading2.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                            style: AppTextStyles.heading2.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          Text("Premium", style: AppTextStyles.heading2.copyWith(color: Colors.white)),
+                          Text(
+                            "Premium",
+                            style: AppTextStyles.heading2.copyWith(color: Colors.white),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -92,7 +112,10 @@ class _PaywallPageState extends State<PaywallPage> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             "Access All Features",
-                            style: AppTextStyles.labelSmall.copyWith(color: Colors.white.withOpacity(0.7), fontSize: AppDimensions.fontSize17),
+                            style: AppTextStyles.labelSmall.copyWith(
+                              color: Colors.white.withValues(alpha: 0.7),
+                              fontSize: 17.sp,
+                            ),
                           ),
                         ),
                       ),
@@ -104,19 +127,34 @@ class _PaywallPageState extends State<PaywallPage> {
                           padding: EdgeInsets.zero,
                           children: [
                             PaywallCard(
-                              icon: SvgPicture.asset(AppAssets.scanIcon, width: AppDimensions.icon18, height: AppDimensions.icon18, color: Colors.white),
+                              icon: SvgPicture.asset(
+                                AppAssets.scanIcon,
+                                width: AppDimensions.icon18,
+                                height: AppDimensions.icon18,
+                                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                              ),
                               title: "Unlimited",
                               subtitle: "Plant Identify",
                             ),
                             SizedBox(width: AppDimensions.width8),
                             PaywallCard(
-                              icon: SvgPicture.asset(AppAssets.meterIcon, width: AppDimensions.icon18, height: AppDimensions.icon18, color: Colors.white),
+                              icon: SvgPicture.asset(
+                                AppAssets.meterIcon,
+                                width: AppDimensions.icon18,
+                                height: AppDimensions.icon18,
+                                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                              ),
                               title: "Faster",
                               subtitle: "Process",
                             ),
                             SizedBox(width: AppDimensions.width8),
                             PaywallCard(
-                              icon: SvgPicture.asset(AppAssets.scanIcon, width: AppDimensions.icon18, height: AppDimensions.icon18, color: Colors.white),
+                              icon: SvgPicture.asset(
+                                AppAssets.scanIcon,
+                                width: AppDimensions.icon18,
+                                height: AppDimensions.icon18,
+                                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                              ),
                               title: "Detailed",
                               subtitle: "Plant Care",
                             ),
@@ -124,9 +162,20 @@ class _PaywallPageState extends State<PaywallPage> {
                         ),
                       ),
                       SizedBox(height: AppDimensions.space24),
-                      PaywallCheckboxCard(title: "1 Month", price: "\$2.99/month, auto renewable", isSelected: selectedPlan == 0, onTap: () => setState(() => selectedPlan = 0)),
+                      PaywallCheckboxCard(
+                        title: "1 Month",
+                        price: "\$2.99/month, auto renewable",
+                        isSelected: selectedPlan == 0,
+                        onTap: () => setState(() => selectedPlan = 0),
+                      ),
                       SizedBox(height: AppDimensions.space16),
-                      PaywallCheckboxCard(title: "1 Year", price: "First 3 days, free, then \$529.99/year,", isSelected: selectedPlan == 1, onTap: () => setState(() => selectedPlan = 1), badge: 'Save 50%'),
+                      PaywallCheckboxCard(
+                        title: "1 Year",
+                        price: "First 3 days, free, then \$529.99/year,",
+                        isSelected: selectedPlan == 1,
+                        onTap: () => setState(() => selectedPlan = 1),
+                        badge: 'Save 50%',
+                      ),
                       SizedBox(height: AppDimensions.space24),
                       AppButton(text: 'Try free for 3 days', onPressed: _handleClose),
                       SizedBox(height: AppDimensions.space10),

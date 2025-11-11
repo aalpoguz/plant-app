@@ -11,12 +11,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final CompleteOnboardingUseCase completeOnboardingUseCase;
 
   OnboardingBloc({required this.completeOnboardingUseCase})
-    : super(
-        OnboardingState(
-          currentPage: 0,
-          totalPages: OnboardingData.onboardingPages.length,
-        ),
-      ) {
+    : super(OnboardingState(currentPage: 0, totalPages: OnboardingData.onboardingPages.length)) {
     on<OnboardingPageChanged>(_onPageChanged);
     on<OnboardingNextPage>(_onNextPage);
     on<OnboardingComplete>(_onComplete);
@@ -24,10 +19,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     on<OnboardingPrivacyTapped>(_onPrivacyTapped);
   }
 
-  void _onPageChanged(
-    OnboardingPageChanged event,
-    Emitter<OnboardingState> emit,
-  ) {
+  void _onPageChanged(OnboardingPageChanged event, Emitter<OnboardingState> emit) {
     emit(state.copyWith(currentPage: event.page));
   }
 
@@ -35,45 +27,25 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     if (state.isLastPage) {
       add(OnboardingComplete());
     } else {
-      pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+      pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
     }
   }
 
-  Future<void> _onComplete(
-    OnboardingComplete event,
-    Emitter<OnboardingState> emit,
-  ) async {
+  Future<void> _onComplete(OnboardingComplete event, Emitter<OnboardingState> emit) async {
     emit(state.copyWith(status: OnboardingStatus.loading));
 
     final result = await completeOnboardingUseCase(NoParams());
 
     result.fold(
-      (failure) => emit(
-        state.copyWith(
-          status: OnboardingStatus.error,
-          errorMessage: failure.message,
-        ),
-      ),
+      (failure) =>
+          emit(state.copyWith(status: OnboardingStatus.error, errorMessage: failure.message)),
       (_) => emit(state.copyWith(status: OnboardingStatus.completed)),
     );
   }
 
-  void _onTermsTapped(
-    OnboardingTermsTapped event,
-    Emitter<OnboardingState> emit,
-  ) {
-    // TODO: Open Terms of Service
-  }
+  void _onTermsTapped(OnboardingTermsTapped event, Emitter<OnboardingState> emit) {}
 
-  void _onPrivacyTapped(
-    OnboardingPrivacyTapped event,
-    Emitter<OnboardingState> emit,
-  ) {
-    // TODO: Open Privacy Policy
-  }
+  void _onPrivacyTapped(OnboardingPrivacyTapped event, Emitter<OnboardingState> emit) {}
 
   @override
   Future<void> close() {

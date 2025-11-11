@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import '../../../features/diagnose/diagnose_page.dart';
 import '../../../features/home/presentation/pages/home_page.dart';
+import '../../../features/home/presentation/pages/question_detail_page.dart';
 import '../../main/presentation/pages/main_shell_page.dart';
 import '../../../features/my_garden/my_garden_page.dart';
 import '../../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../../features/paywall/presentation/pages/paywall_page.dart';
 import '../../../features/profile/profile_page.dart';
+import '../../../features/scan/presentation/pages/scan_page.dart';
 import '../../../features/splash/presentation/pages/splash_page.dart';
 
 part 'app_router.gr.dart';
@@ -16,7 +19,13 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
     AutoRoute(page: SplashRoute.page, path: '/', initial: true),
     AutoRoute(page: OnboardingRoute.page, path: '/onboarding'),
-    CustomRoute(page: PaywallRoute.page, path: '/paywall', fullscreenDialog: true, transitionsBuilder: TransitionsBuilders.slideBottom, durationInMilliseconds: 400),
+    CustomRoute(
+      page: PaywallRoute.page,
+      path: '/paywall',
+      fullscreenDialog: true,
+      transitionsBuilder: TransitionsBuilders.slideBottom,
+      duration: const Duration(milliseconds: 400),
+    ),
     AutoRoute(
       page: MainShellRoute.page,
       path: '/main',
@@ -27,5 +36,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: ProfileRoute.page, path: 'profile'),
       ],
     ),
+    AutoRoute(page: QuestionDetailRoute.page, path: '/question-detail'),
+    AutoRoute(page: ScanRoute.page, path: '/scan'),
   ];
 }

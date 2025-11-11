@@ -28,7 +28,7 @@ class AppColors {
   static const Color lightBottomNavBackground = Color(0xFFFFFFFF);
   static const Color lightTextPrimary = Color(0xFF13231B);
   static const Color lightTextSecondary = Color(0xFF597165);
-  static const Color lightTextTertiary = Color(0xFF597165B2);
+  static const Color lightTextTertiary = Color(0xB2597165);
   static const Color lightTextDisabled = Color(0xFFAFAFAF);
   static const Color lightTextHint = Color(0xFF979798);
   static const Color lightDivider = Color(0xFFE0E0E0);
@@ -60,19 +60,15 @@ extension AppColorsExtension on BuildContext {
   Color get errorColor => AppColors.error;
 
   // Background Colors
-  Color get backgroundColor =>
-      isDarkMode ? AppColors.darkBackground : AppColors.lightBackground;
+  Color get backgroundColor => isDarkMode ? AppColors.darkBackground : AppColors.lightBackground;
 
-  Color get surfaceColor =>
-      isDarkMode ? AppColors.darkSurface : AppColors.lightSurface;
+  Color get surfaceColor => isDarkMode ? AppColors.darkSurface : AppColors.lightSurface;
 
-  Color get bottomNavBackgroundColor => isDarkMode
-      ? AppColors.darkBottomNavBackground
-      : AppColors.lightBottomNavBackground;
+  Color get bottomNavBackgroundColor =>
+      isDarkMode ? AppColors.darkBottomNavBackground : AppColors.lightBottomNavBackground;
 
   // Text Colors
-  Color get textPrimaryColor =>
-      isDarkMode ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+  Color get textPrimaryColor => isDarkMode ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
 
   Color get textSecondaryColor =>
       isDarkMode ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
@@ -83,15 +79,12 @@ extension AppColorsExtension on BuildContext {
   Color get textDisabledColor =>
       isDarkMode ? AppColors.darkTextDisabled : AppColors.lightTextDisabled;
 
-  Color get textHintColor =>
-      isDarkMode ? AppColors.darkTextHint : AppColors.lightTextHint;
+  Color get textHintColor => isDarkMode ? AppColors.darkTextHint : AppColors.lightTextHint;
 
   // Additional Colors
-  Color get dividerColor =>
-      isDarkMode ? AppColors.darkDivider : AppColors.lightDivider;
+  Color get dividerColor => isDarkMode ? AppColors.darkDivider : AppColors.lightDivider;
 
-  Color get shadowColor =>
-      isDarkMode ? AppColors.darkShadow : AppColors.lightShadow;
+  Color get shadowColor => isDarkMode ? AppColors.darkShadow : AppColors.lightShadow;
 
   // Card/Container Colors
   Color get cardColor => surfaceColor;

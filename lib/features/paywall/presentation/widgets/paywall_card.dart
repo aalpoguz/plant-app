@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:plant_app/shared/theme/app_text_style.dart';
 
 class PaywallCard extends StatelessWidget {
@@ -8,12 +7,7 @@ class PaywallCard extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  const PaywallCard({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.subtitle,
-  });
+  const PaywallCard({super.key, required this.icon, required this.title, required this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +16,7 @@ class PaywallCard extends StatelessWidget {
       height: AppDimensions.height124,
       padding: EdgeInsets.all(AppDimensions.padding12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.08),
+        color: Colors.white.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(AppDimensions.radius14),
       ),
       child: Column(
@@ -34,7 +28,7 @@ class PaywallCard extends StatelessWidget {
             width: AppDimensions.width36,
             height: AppDimensions.height36,
             decoration: BoxDecoration(
-              color: Color(0x3D000000).withOpacity(0.2),
+              color: const Color(0x3D000000).withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(AppDimensions.radius8),
             ),
             child: icon,
@@ -50,9 +44,7 @@ class PaywallCard extends StatelessWidget {
           SizedBox(height: AppDimensions.space4),
           Text(
             subtitle,
-            style: AppTextStyles.bodySmall.copyWith(
-              color: Colors.white.withOpacity(0.7),
-            ),
+            style: AppTextStyles.bodySmall.copyWith(color: Colors.white.withValues(alpha: 0.7)),
           ),
         ],
       ),

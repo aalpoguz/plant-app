@@ -5,7 +5,7 @@ import 'package:plant_app/shared/main/presentation/widgets/custom_bottom_nav.dar
 import 'package:plant_app/shared/theme/app_assets.dart';
 import 'package:plant_app/shared/theme/app_colors.dart';
 import 'package:plant_app/shared/theme/app_dimensions.dart';
-import 'package:plant_app/shared/utils/navigation/bottom_nav_page.dart';
+import 'package:plant_app/shared/utils/router/app_router.dart';
 
 @RoutePage()
 class MainShellPage extends StatelessWidget {
@@ -14,14 +14,17 @@ class MainShellPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: BottomNavPage.values.map((page) => page.route).toList(),
+      routes: const [HomeRoute(), DiagnoseRoute(), MyGardenRoute(), ProfileRoute()],
       transitionBuilder: (context, child, animation) => child,
       resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         width: AppDimensions.width66,
         height: AppDimensions.width66,
-        decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.3), shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          color: AppColors.primary.withValues(alpha: 0.3),
+          shape: BoxShape.circle,
+        ),
         child: Center(
           child: Container(
             width: AppDimensions.width58,
@@ -31,11 +34,16 @@ class MainShellPage extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Scan Plant - Coming Soon!')));
+                  context.router.push(const ScanRoute());
                 },
                 borderRadius: BorderRadius.circular(AppDimensions.radius28),
                 child: Center(
-                  child: SvgPicture.asset(AppAssets.scanIcon, width: AppDimensions.icon24, height: AppDimensions.height20, colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                  child: SvgPicture.asset(
+                    AppAssets.scanIcon,
+                    width: AppDimensions.icon24,
+                    height: AppDimensions.height20,
+                    colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  ),
                 ),
               ),
             ),
