@@ -45,7 +45,7 @@ class MiniHomeCard extends StatelessWidget {
                     width: 120.w,
                     height: 152.h,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => Container(color: context.dividerColor),
+                    placeholder: (context, url) => Container(color: Colors.transparent),
                     errorWidget: (context, url, error) => Container(
                       color: context.dividerColor,
                       child: Icon(Icons.image_not_supported, color: context.textDisabledColor),

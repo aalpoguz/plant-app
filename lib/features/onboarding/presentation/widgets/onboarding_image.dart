@@ -19,7 +19,6 @@ class OnboardingImage extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final aspectRatio = screenHeight / screenWidth;
 
-    // Sabit boyutlar - aspect ratio'ya göre sadece fit ayarı değişecek
     const imageWidth = 360.0;
     const imageHeight = 670.0;
 
@@ -32,7 +31,6 @@ class OnboardingImage extends StatelessWidget {
         imagePath,
         width: imageWidth.w,
         height: imageHeight.h,
-        // Android'de daha iyi oran için contain, iOS'ta cover
         fit: aspectRatio > 2.1 ? BoxFit.cover : BoxFit.contain,
         alignment: alignment,
       ),

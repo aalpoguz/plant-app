@@ -28,13 +28,11 @@ class OnboardingTitle extends StatelessWidget {
     final aspectRatio = screenHeight / screenWidth;
 
     // iOS ve Android için brush pozisyonunu ayarla
-    final brushTopOffset = pageIndex == 1
-        ? (aspectRatio > 2.1 ? 30.h : 34.h)
-        : (aspectRatio > 2.1 ? 28.h : 34.h);
+    final brushTopOffset = aspectRatio > 2.1 ? 32.h : 34.h;
 
     final brushLeftOffset = pageIndex == 1
-        ? (aspectRatio > 2.1 ? 30.w : -35.w)
-        : (aspectRatio > 2.1 ? 28.w : -25.w);
+        ? (aspectRatio > 2.1 ? -30.w : -35.w)
+        : (aspectRatio > 2.1 ? -5.w : -25.w);
 
     return Stack(
       clipBehavior: Clip.none,

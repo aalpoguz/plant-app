@@ -8,40 +8,41 @@ class MiniHomeCardShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final baseColor = context.isDarkMode ? context.dividerColor : Colors.grey.shade300;
+    final highlightColor = context.isDarkMode ? context.surfaceColor : Colors.grey.shade100;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding20),
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: AppDimensions.padding16,
-          mainAxisSpacing: AppDimensions.padding16,
-          childAspectRatio: 1,
-        ),
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          final baseColor = context.isDarkMode ? context.dividerColor : Colors.grey.shade300;
-          final highlightColor = context.isDarkMode ? context.surfaceColor : Colors.grey.shade100;
-
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppDimensions.radius12),
-              border: Border.all(color: context.dividerColor),
-            ),
-            child: Stack(
-              children: [
-                // Image shimmer
-                Positioned(
-                  right: -5,
-                  top: 0,
-                  bottom: 0,
-                  child: Shimmer.fromColors(
-                    baseColor: baseColor,
-                    highlightColor: highlightColor,
+      child: Shimmer.fromColors(
+        baseColor: baseColor,
+        highlightColor: highlightColor,
+        child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: AppDimensions.padding16,
+            mainAxisSpacing: AppDimensions.padding16,
+            childAspectRatio: 1,
+          ),
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(AppDimensions.radius12),
+                border: Border.all(color: context.dividerColor),
+              ),
+              child: Stack(
+                children: [
+                  // Image placeholder
+                  Positioned(
+                    right: -5,
+                    top: 0,
+                    bottom: 0,
                     child: Container(
                       width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(
+                        color: Colors.grey,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(AppDimensions.radius12),
                           bottomRight: Radius.circular(AppDimensions.radius12),
@@ -49,14 +50,10 @@ class MiniHomeCardShimmer extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                // Text shimmer
-                Positioned(
-                  top: 16,
-                  left: 12,
-                  child: Shimmer.fromColors(
-                    baseColor: baseColor,
-                    highlightColor: highlightColor,
+                  // Text placeholders
+                  Positioned(
+                    top: 16,
+                    left: 12,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -80,11 +77,11 @@ class MiniHomeCardShimmer extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
